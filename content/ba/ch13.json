@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 13,
+  "title": "Business Survival and Failure in Nigeria",
+  "objectives": [
+    "Identify the macro and micro challenges facing Nigerian businesses.",
+    "Distinguish business survival from business success, and analyse the causes of business failure.",
+    "Recognise the indicators and symptoms of impending business failure.",
+    "Formulate remedies and survival strategies suited to the Nigerian business environment."
+  ],
+  "study": "<p>Nigeria offers a genuinely large market, but a uniquely difficult operating terrain — in 2019 it ranked 131st of 190 countries in the World Bank's Ease of Doing Business Report, and roughly 80% of new businesses fail within their first three years.</p><div class=\"callout\"><b>Key term</b>Business Survival — meeting obligations and likely turning a profit, without necessarily positioning for long-term prosperity. Business Success goes further: doing this while actively preparing for a prosperous future.</div><p>The specific pressures Nigerian businesses face include: limited access to capital (only about 6% of Nigerian SMEs have formal credit access, per the CBN); inadequate infrastructure (Nigeria loses an estimated 2–3% of GDP annually to unreliable power, per the African Development Bank); inconsistent regulation (business is governed principally by CAMA 2020, but policy shifts often); corruption and bureaucratic red tape; naira volatility complicating dollar-denominated trade; and a lack of market information — 66% of Nigerian business owners cite difficulty finding new customers for exactly this reason.</p><div class=\"callout tip\"><b>Exam tip</b>Remember the specific statistics — 131st ranking, 6% SME credit access, 2–3% GDP lost to power problems, 66% citing poor market information. These exact figures show up directly in exam questions.</div><p>A U.S. Small Business Administration study found that roughly 66% of new businesses survive 2+ years, but only 50% survive 4+ years. Requirements for survival include adequate capital, a living business plan under constant review, genuinely knowing the market (not assuming), adequate control mechanisms, and monitoring competitors, technology, policy and customer behaviour.</p><p><b>Business failure</b> is a company's inability to meet its financial obligations, forcing it to shut down or suspend operations. Causes split into <b>Financial</b> (inadequate working capital, poor accounting records) and <b>Non-Financial</b> causes — including growing too fast, which risks losing control and overstretching the business's resources. Failures themselves come in three flavours: <b>Preventable/Predictable</b> failures (the most damaging, usually from a startup's failure to follow best practice), <b>Unavoidable</b> failures (natural disasters, pandemics, recessions), and <b>Intelligent/Intellectual</b> failures (experimenting with new ideas — delivering valuable learning cheaply, common in tech).</p><p>Warning signs to watch for include deteriorating working capital (insufficient cash for day-to-day obligations), a high debt ratio, declining sales and profit, and declining capacity utilisation (which raises per-unit costs as economies of scale are lost). Remedies include government intervention (sound monetary/fiscal policy, better infrastructure), management acquiring real financial knowledge, careful market analysis, and avoiding over-trading — specialising in genuine areas of competence rather than being a jack of all trades.</p>",
+  "recap": "<ul><li>Nigeria-specific pressures: limited credit access (6% of SMEs), power losses (2&ndash;3% of GDP), CAMA 2020 regulation, naira volatility, poor market information (66% of owners affected).</li><li>Business survival &ne; business success: survival = meeting obligations profitably; success = also positioning for long-term prosperity.</li><li>Business failure causes: Financial (working capital, accounting) vs Non-Financial (e.g. growing too fast).</li><li>Failure types: Preventable/Predictable (most damaging) &middot; Unavoidable (external shocks) &middot; Intelligent/Intellectual (cheap learning from experimentation).</li><li>Warning signs: deteriorating working capital, high debt ratio, declining sales/profit/capacity utilisation.</li><li>Remedies: government intervention, sound financial knowledge, market analysis, avoiding over-trading.</li></ul>",
+  "quiz": [
+    {
+      "q": "According to the World Bank's Ease of Doing Business Report (2019), Nigeria was ranked out of 190 countries at approximately position:",
+      "opts": [
+        "131st",
+        "1st",
+        "190th",
+        "50th"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "According to the Central Bank of Nigeria, approximately what percentage of SMEs in Nigeria have access to formal credit?",
+      "opts": [
+        "100%",
+        "6%",
+        "90%",
+        "50%"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The African Development Bank estimates Nigeria loses what percentage of its GDP annually due to inadequate power supply?",
+      "opts": [
+        "0%",
+        "90%",
+        "2-3%",
+        "50%"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The law that primarily guides how business is conducted in Nigeria is known as:",
+      "opts": [
+        "The Insurance Act 1997",
+        "The Companies and Allied Matters Act (CAMA) 2020",
+        "The Employees' Compensation Act",
+        "The Pension Reform Act"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "According to the chapter, what percentage of business owners in Nigeria cite difficulty finding new customers due to lack of market information?",
+      "opts": [
+        "5%",
+        "10%",
+        "100%",
+        "66%"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Business survival, as distinguished from business success, means:",
+      "opts": [
+        "Meeting obligations and likely turning a profit without necessarily positioning for long-term prosperity",
+        "Guaranteed permanent growth with no risk whatsoever",
+        "Automatic elimination of all competitors",
+        "The complete absence of any financial obligations"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "According to the U.S. Small Business Administration study cited in the chapter, approximately what percentage of new businesses survive at least four years?",
+      "opts": [
+        "99%",
+        "0%",
+        "10%",
+        "50%"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is a factor contributing to business survival, according to the chapter?",
+      "opts": [
+        "Availability of adequate capital and proper planning",
+        "Ignoring changes in the external environment",
+        "Complete avoidance of any market research",
+        "Avoiding any form of legal compliance"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Business failure is best described as:",
+      "opts": [
+        "A company's inability to meet its financial obligations, forcing it to shut down or suspend operations",
+        "A guaranteed permanent state for all new companies",
+        "A synonym for record company profit",
+        "A situation that only affects government agencies"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Causes of business failure are broadly grouped into Financial Causes and:",
+      "opts": [
+        "Weather-Related Causes only",
+        "International Causes only",
+        "Religious Causes only",
+        "Non-Financial Causes"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is a Financial cause of business failure?",
+      "opts": [
+        "Overwhelming market demand",
+        "Too much available skilled labour",
+        "Inadequate working capital and poor accounting record keeping",
+        "Excessive customer loyalty"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Growing too fast' as a cause of business failure primarily risks:",
+      "opts": [
+        "Automatic increase in product quality",
+        "Loss of control and overstretching of the business's resources and financial base",
+        "Complete elimination of all competition",
+        "Guaranteed permanent success with no downside"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "According to Wallstreetmojo.com, Preventable (Predictable) Business Failures are considered:",
+      "opts": [
+        "The most damaging type of failure, often from a startup's inability to follow best practices",
+        "Only relevant to large multinational corporations",
+        "Impossible to occur under any circumstances",
+        "The least damaging and most easily ignored type of failure"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Unavoidable Business Failures are typically caused by:",
+      "opts": [
+        "Deliberate poor planning by management alone",
+        "Unpredictable events such as natural disasters, pandemics, wars and recessions",
+        "Overly cautious business strategies",
+        "Excessive customer satisfaction"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Intelligent (Intellectual) Business Failures arise primarily from:",
+      "opts": [
+        "Complete refusal to ever try anything new",
+        "Guaranteed immediate profitability with no risk",
+        "Experimenting with new products or strategies, delivering valuable learning at relatively low cost",
+        "Government-imposed shutdowns only"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The example of Friska (a UK restaurant chain) closing in 2021 illustrates business failure due to:",
+      "opts": [
+        "A currency devaluation crisis",
+        "Excessive employee turnover",
+        "A shortage of raw materials only",
+        "The COVID-19 pandemic and associated lockdown restrictions"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "'Deterioration of Working Capital', as a symptom of business failure, refers to:",
+      "opts": [
+        "An excessive surplus of cash with no productive use",
+        "Guaranteed increasing sales figures",
+        "Insufficient cash to meet the day-to-day financial obligations of the company",
+        "Improved product quality relative to competitors"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Declining Capacity Utilisation', as a symptom of business failure, tends to result in:",
+      "opts": [
+        "Decreased cost per unit of production automatically",
+        "Increased cost per unit of production, as economies of scale are lost",
+        "No impact whatsoever on production costs",
+        "Guaranteed increase in market share"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "As a remedy/survival strategy, 'Avoidance of Over-Trading' suggests that management should:",
+      "opts": [
+        "Attempt to enter every possible business sector simultaneously",
+        "Ignore their own areas of competence entirely",
+        "Specialise in areas of business where they have sound competence, rather than being a 'jack of all trades'",
+        "Avoid any form of specialisation whatsoever"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Government Intervention, as a remedy for business failure, primarily involves:",
+      "opts": [
+        "Removing all business regulations with no oversight at all",
+        "Guaranteeing profit for every business regardless of performance",
+        "Complete elimination of all private enterprise",
+        "Conducive monetary/fiscal policy and provision of better infrastructural facilities"
+      ],
+      "correct": 3
+    }
+  ]
+}

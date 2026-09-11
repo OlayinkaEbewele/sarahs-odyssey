@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 14,
+  "title": "Business Ethics and Corporate Governance",
+  "objectives": [
+    "Define business ethics, integrity, and identify the causes of unethical managerial behaviour.",
+    "Apply the five basic approaches to ethical decision-making.",
+    "Define corporate governance and explain its 'four Ps' framework.",
+    "Evaluate the need for, codes of, and sanctions within corporate governance in Nigeria."
+  ],
+  "study": "<p>Ethics are the accepted principles of right or wrong governing the conduct of a person, a profession, or an organisation. Business Ethics specifically concerns truth, justice, fair competition, advertising, social responsibility and corporate behaviour, both at home and abroad. An <b>ethical dilemma</b> arises when none of the available alternatives seems ethically acceptable to the decision maker.</p><div class=\"callout\"><b>Key term</b>Causes of unethical managerial behaviour — personal ethics, flawed decision-making processes, organisational culture, unrealistic performance expectations, and leadership that sets (or fails to set) the ethical tone.</div><p>Five approaches guide ethical decision-making. The <b>Rights Approach</b> (Kant) says an action is right only if it respects everyone's moral rights, treating people as ends, not merely means. The <b>Utilitarian Approach</b> (Bentham and Mill) says the ethical action provides the greatest good for the greatest number. The <b>Virtue Approach</b> focuses on character traits like honesty and integrity that let us develop our human potential. The <b>Fairness/Justice Approach</b>, rooted in Aristotle, holds that equals should be treated equally and unequals unequally. The <b>Common Good Approach</b> asks whether social policies and institutions benefit the whole community. Businesses manage ethics practically through codes of conduct, ethics training, ethics officers, whistle-blowing mechanisms, and leadership by example.</p><div class=\"callout tip\"><b>Exam tip</b>Match each approach to its founding philosopher when studying: Rights → Kant, Utilitarian → Bentham/Mill, Fairness/Justice → Aristotle. Exam questions frequently test this pairing directly.</div><p><b>Corporate Governance</b>, per the OECD (2004), is the system by which business corporations are directed and controlled — distributing rights and responsibilities among the board, managers, shareholders and other stakeholders. It's often pictured as a three-legged stool: senior management, the board of directors, and shareholders. Governance failures carry real consequences — the 2001 Enron accounting scandal is the textbook cautionary example. Governance is often summarised as the '4 Ps': People, Performance, Processes and Policies.</p><p><b>Corporate compliance</b> is distinct from governance: if governance sets the guiding principles, compliance is the practical work of meeting the legal and regulatory requirements dictated by a firm's industry, activities and jurisdiction. Good governance practice includes ensuring director independence (so decisions stay forward-looking, not just conservative), auditor independence (protecting the trustworthiness of financial reporting), and transparency (reporting bad news as readily as good news). In Nigeria, sector regulators — the SEC, the CBN (for banks), and NAICOM (for insurance) — each issue their own governance codes. Non-compliance can bring regulatory fines, suspension from trading, and removal of erring directors. A <b>Social Audit</b> complements financial audits by evaluating a firm's performance against its social responsibility objectives and stakeholder expectations.</p>",
+  "recap": "<ul><li>Ethics = accepted principles of right/wrong; ethical dilemma = no acceptable alternative exists.</li><li>Unethical behaviour causes: personal ethics, decision processes, culture, performance pressure, leadership.</li><li>Five ethical approaches: Rights (Kant) &middot; Utilitarian (Bentham/Mill &ndash; greatest good) &middot; Virtue (character) &middot; Fairness/Justice (Aristotle) &middot; Common Good (community benefit).</li><li>Corporate Governance (OECD) = system directing/controlling corporations; 'three-legged stool' of management, board, shareholders; 4 Ps: People, Performance, Processes, Policies.</li><li>Governance = guiding principles; Compliance = practical legal/regulatory adherence.</li><li>Nigeria's sector regulators: SEC, CBN (banks), NAICOM (insurance). Sanctions: fines, trading suspension, director removal.</li><li>Social Audit: evaluates performance against social responsibility objectives.</li></ul>",
+  "quiz": [
+    {
+      "q": "Ethics is best described as:",
+      "opts": [
+        "Only relevant to government employees",
+        "A synonym for corporate tax law",
+        "A legally binding contract between two parties",
+        "Accepted principles of right or wrong governing the conduct of a person, profession or organisation"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Business Ethics is described as concerned with truth, justice, fair competition and:",
+      "opts": [
+        "Only the company's advertising jingles",
+        "Only the company's product packaging",
+        "Only interest rates on business loans",
+        "Advertising, public relations, social responsibilities and corporate behaviour"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "An Ethical Dilemma is best described as a situation in which:",
+      "opts": [
+        "Ethics play no role whatsoever in the decision",
+        "There is only one possible course of action with no choice involved",
+        "None of the available alternatives seems ethically acceptable to the decision maker",
+        "Every available alternative is perfectly and equally ethical"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of the following is identified as a cause of unethical managerial behaviour?",
+      "opts": [
+        "Personal ethics, decision-making processes, organisational culture, unrealistic performance expectations and leadership",
+        "Overwhelming employee loyalty",
+        "Excessive government regulation with no exception",
+        "Too much transparency in financial reporting"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Rights Approach to ethical decision-making is rooted in the philosophy of:",
+      "opts": [
+        "Jeremy Bentham exclusively",
+        "John Rawls exclusively",
+        "Immanuel Kant",
+        "Aristotle exclusively"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The Utilitarian Approach, conceived by Bentham and Mill, holds that the ethical action is the one that:",
+      "opts": [
+        "Is determined solely by legal requirement",
+        "Benefits only the decision maker personally",
+        "Ignores the consequences of the action entirely",
+        "Provides the greatest good for the greatest number"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The Virtue Approach to ethics focuses on:",
+      "opts": [
+        "Attitudes, dispositions or character traits (such as honesty and integrity) that enable us to develop our human potential",
+        "Only the financial outcome of a decision",
+        "The complete rejection of all personal character development",
+        "Only strict legal compliance with no moral dimension"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Fairness (Justice) Approach is rooted in the teaching of which ancient philosopher?",
+      "opts": [
+        "John Stuart Mill",
+        "Jeremy Bentham",
+        "Aristotle",
+        "Immanuel Kant"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The Common Good Approach to ethics focuses on ensuring that social policies and institutions are:",
+      "opts": [
+        "Beneficial to only a select few individuals",
+        "Entirely irrelevant to community welfare",
+        "Designed to benefit only the government",
+        "Beneficial to all members of the community"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "According to the OECD (2004), Corporate Governance is defined as:",
+      "opts": [
+        "Only the process of hiring new employees",
+        "A synonym for corporate marketing strategy",
+        "The system by which business corporations are directed and controlled",
+        "A purely voluntary set of suggestions with no formal structure"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Corporate governance is often described as a 'three-legged stool' involving senior management, the board of directors and:",
+      "opts": [
+        "The media exclusively",
+        "Shareholders",
+        "Competing companies",
+        "Foreign governments"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The 2001 accounting scandal that wiped out a major energy company, cited in the chapter as a corporate governance failure example, involved:",
+      "opts": [
+        "Microsoft",
+        "Enron",
+        "Apple",
+        "Amazon"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The 4 Ps of Corporate Governance are People, Performance, Processes and:",
+      "opts": [
+        "Policies",
+        "Politics",
+        "Profit",
+        "Publicity"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Corporate Compliance, as distinguished from Corporate Governance, refers to:",
+      "opts": [
+        "Only marketing strategy formulation",
+        "Only employee recruitment procedures",
+        "The same exact concept as corporate governance with no distinction whatsoever",
+        "Meeting a company's legal and regulatory requirements as dictated by industry, activities and jurisdiction"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Ensuring 'director independence', as a corporate governance best practice, is important because it:",
+      "opts": [
+        "Enables forward-looking decision-making rather than conservative, safe thinking",
+        "Eliminates the need for a board of directors entirely",
+        "Has no bearing on innovation or decision quality",
+        "Guarantees directors will always agree with management on every decision"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Ensuring 'auditor independence' is important for corporate governance primarily because it:",
+      "opts": [
+        "Eliminates the need for financial statements entirely",
+        "Protects the accuracy and trustworthiness of a company's financial reporting",
+        "Has no relevance to investor confidence",
+        "Guarantees auditors will always approve management's decisions"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Being transparent', as a corporate governance best practice, requires organisations to:",
+      "opts": [
+        "Accurately report both good and bad news to stakeholders",
+        "Report only positive news and conceal negative developments",
+        "Only disclose information to competitors",
+        "Avoid any communication with shareholders whatsoever"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In Nigeria, corporate governance codes have been issued by sector regulators including SEC, CBN and:",
+      "opts": [
+        "Only religious institutions",
+        "NAICOM (for the insurance sector)",
+        "Only the Ministry of Sports",
+        "Only foreign regulatory bodies with no domestic relevance"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Sanctions for non-compliance with corporate governance codes can include:",
+      "opts": [
+        "Automatic increase in the company's stock price",
+        "Guaranteed government subsidy",
+        "Regulatory fines, suspension of trading, and removal of erring directors",
+        "Complete exemption from all future regulation"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A Social Audit in corporate governance primarily evaluates:",
+      "opts": [
+        "Only the company's cash balance at year end",
+        "An organisation's performance against its social responsibility objectives and stakeholder expectations",
+        "Only the founder's personal net worth",
+        "Only the price of the company's raw materials"
+      ],
+      "correct": 1
+    }
+  ]
+}

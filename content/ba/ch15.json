@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 15,
+  "title": "Globalisation and Global Warming",
+  "objectives": [
+    "Define globalisation and identify its main drivers.",
+    "Analyse the benefits and challenges of globalisation for businesses and economies.",
+    "Understand the link between globalisation and global warming.",
+    "Evaluate policy responses and business implications of climate change."
+  ],
+  "study": "<p>Globalisation is the speed-up of movements and exchanges — of people, goods, services, capital, technology and culture — across the planet. The World Health Organization frames it as two interrelated elements: international borders opening to faster flows of goods, services, finance, people and ideas, plus the institutional and policy changes that enable those flows. It has two components: <b>Globalisation of Markets</b> (historically distinct national markets merging into one global marketplace) and <b>Globalisation of Production</b> (firms sourcing inputs from wherever cost and quality are best).</p><div class=\"callout\"><b>Key term</b>Containerisation — standardised shipping containers that sharply cut sea-freight costs, making international goods movement cheaper and global markets genuinely contestable. One of the most underrated drivers of globalisation.</div><p>Other drivers include trade liberalisation, capital market integration, labour mobility, the rise of institutions like the IMF and World Bank, and reduced protectionism generally. Benefits include specialisation and productive efficiency, freer capital flow to wherever returns are highest, technology transfer, improved living standards, and a useful side-effect: bad domestic economic policy now risks real international isolation, which disciplines governments somewhat.</p><div class=\"callout tip\"><b>Exam tip</b>Globalisation's challenges are frequently tested with real Nigerian examples — capital flight from loss of financial-system confidence is the chapter's specific illustration, not a generic point.</div><p>Challenges include over-dependence on other countries, capital flight risk, loss of local culture as practices converge, environmental degradation from importing polluting goods, and local businesses collapsing under competition from larger foreign firms. Policy responses include good governance, economic liberalisation, strengthening multilateral institutions (IMF, World Bank, WTO), and investing in human capital and R&D.</p><p><b>Global warming</b>, per NASA, is the long-term heating of Earth's surface due to human activity — primarily fossil fuel burning — raising greenhouse gas levels. It's the cause of climate change, not the same thing. 2011–2020 was the warmest decade on record, with 2019 reaching 1.1°C above pre-industrial levels; the international community (via the Paris Agreement) aims to keep warming well below 2°C, pursuing efforts toward 1.5°C specifically. Effects include more frequent droughts, storms and heat waves, rising sea levels, and damage to marine ecosystems and human livelihoods.</p><p>For business, global warming cuts both ways: it's a <b>risk</b> (regulatory compliance costs, supply chain disruption, reputational exposure) and an <b>opportunity</b> (green technology innovation, sustainable product development, access to ESG-linked investment) — increasingly a factor in corporate strategy rather than a side issue.</p>",
+  "recap": "<ul><li>Globalisation = accelerating global exchange of people/goods/capital/culture; components = Globalisation of Markets + Globalisation of Production.</li><li>Key drivers: technology, trade liberalisation, capital mobility, containerisation (cheaper shipping).</li><li>Benefits: specialisation/efficiency, capital flow, tech transfer, discourages bad domestic policy.</li><li>Challenges: dependence, capital flight risk, loss of culture, environmental degradation, local business collapse.</li><li>Policy responses: good governance, liberalisation, multilateral institutions (IMF/World Bank/WTO), human capital investment.</li><li>Global warming (NASA def) = long-term heating from human activity/GHGs; causes climate change. 2011&ndash;2020 warmest decade on record (+1.1&deg;C by 2019); Paris Agreement targets 1.5&deg;C.</li><li>Business implications: risk (compliance costs, disruption) vs opportunity (green tech, ESG investment).</li></ul>",
+  "quiz": [
+    {
+      "q": "Globalisation is best described as:",
+      "opts": [
+        "A term with no relevance to modern business",
+        "The speed-up of movements and exchanges of people, goods, services, capital and culture all over the planet",
+        "A synonym for complete economic isolation",
+        "A process limited exclusively to a single country's internal trade"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "According to the World Health Organization, globalisation comprises two interrelated elements: the opening of international borders to fast flows of goods/services/finance/people/ideas, and:",
+      "opts": [
+        "The complete elimination of all national governments",
+        "Changes in institutions and policies that facilitate or promote such flows",
+        "The abolition of all currencies worldwide",
+        "A total ban on any international travel"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Globalisation of Markets refers to:",
+      "opts": [
+        "The complete separation of all national markets from each other",
+        "A synonym for protectionism",
+        "The merging of historically distinct national markets into one huge global marketplace",
+        "Only the domestic market of a single country"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The Globalisation of Production refers to firms:",
+      "opts": [
+        "Eliminating the need for any supply chain management",
+        "Refusing to trade with any foreign supplier",
+        "Producing goods only within their home country with no international sourcing",
+        "Sourcing goods and services from different parts of the world to exploit national differences in cost/quality of production factors"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is a factor responsible for globalisation, according to the chapter?",
+      "opts": [
+        "Total prohibition of capital movement across borders",
+        "Universal rejection of new technology",
+        "Complete elimination of international trade",
+        "Trade liberalisation and technological change"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Containerisation contributed to globalisation primarily by:",
+      "opts": [
+        "Having no impact whatsoever on international trade",
+        "Eliminating all sea transport entirely",
+        "Increasing the cost of shipping goods internationally",
+        "Reducing the cost of sea shipping, making international goods movement cheaper and markets more contestable"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is a benefit of globalisation identified in the chapter?",
+      "opts": [
+        "Guaranteed loss of foreign exchange earnings",
+        "Total collapse of all local businesses with no exception",
+        "Promotion of trade, specialisation and increased productive efficiency",
+        "Complete elimination of international communication"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "According to the chapter, globalisation can help reduce government excesses in fiscal and monetary policy because:",
+      "opts": [
+        "Bad government policy risks international isolation in an interconnected world",
+        "The world operates in complete economic isolation",
+        "Fiscal policy has no international dimension at all",
+        "Governments have no international obligations whatsoever"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is a disadvantage/challenge of globalisation identified in the chapter?",
+      "opts": [
+        "Loss of culture as traditions and customs change due to integration",
+        "Guaranteed elimination of all economic interdependence",
+        "Complete absence of any capital flow risk",
+        "Total immunity from foreign economic influence"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The example of a country's economy experiencing massive capital outflow is cited in the chapter to illustrate:",
+      "opts": [
+        "A purely historical event with no ongoing relevance",
+        "A disadvantage of globalisation relating to loss of confidence in a country's financial system",
+        "A benefit of globalisation with no downside",
+        "An example unrelated to globalisation"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "One recommended policy response to the challenges of globalisation is:",
+      "opts": [
+        "Strengthening multilateral institutions such as the IMF, World Bank and WTO",
+        "Banning all forms of trade liberalisation",
+        "Complete withdrawal from all international engagement",
+        "Eliminating human capital development entirely"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "According to Ayodele and Stephen (2009), the 'Industrial' (Transnationalisation) aspect of globalisation refers to:",
+      "opts": [
+        "Only the political governance of a single nation",
+        "Only domestic labour laws",
+        "Only the price of a single commodity",
+        "The emergence of worldwide production markets and broader access to foreign products"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The 'Ecological' aspect of globalisation, per Ayodele and Stephen (2009), relates to:",
+      "opts": [
+        "Global environmental challenges requiring international cooperation, such as climate change and pollution",
+        "Only the price of domestic real estate",
+        "Only a single country's internal agricultural policy",
+        "Only a nation's currency exchange rate"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Effectively managing globalisation in a business, according to the chapter, requires:",
+      "opts": [
+        "Complete avoidance of any research into target markets",
+        "Ignoring all local laws and regulations entirely",
+        "Thorough market research, effective cross-border communication, and compliance with local laws",
+        "Refusing to communicate with international stakeholders"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "According to NASA's definition cited in the chapter, Global Warming is:",
+      "opts": [
+        "A phenomenon with no connection to human activity",
+        "The long-term heating of Earth's surface due to human activities, primarily fossil fuel burning, increasing greenhouse gas levels",
+        "A term identical in every respect to 'weather' with no distinction",
+        "A short-term, single-day temperature fluctuation"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "According to the chapter, global warming is the cause of:",
+      "opts": [
+        "Currency devaluation",
+        "Trade liberalisation",
+        "Climate change",
+        "Capital market integration"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The decade 2011-2020 is cited in the chapter as:",
+      "opts": [
+        "Irrelevant to global warming discussions",
+        "The warmest decade on record, with global average temperature 1.1°C above pre-industrial levels by 2019",
+        "The coldest decade ever recorded",
+        "A decade with no measurable temperature change"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The international community has recognised the need to keep global warming well below 2°C, pursuing efforts to limit it to:",
+      "opts": [
+        "10°C",
+        "5°C",
+        "0°C with no increase whatsoever",
+        "1.5°C"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is an effect of global warming/climate change identified in the chapter?",
+      "opts": [
+        "No impact whatsoever on marine ecosystems",
+        "A guaranteed decrease in sea levels worldwide",
+        "More frequent and intense droughts, storms and heat waves",
+        "Complete elimination of all weather patterns"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Global warming presents businesses with both risk and opportunity; opportunities mentioned in the chapter include:",
+      "opts": [
+        "Green technology innovation, sustainable product development, and access to ESG-linked investment",
+        "Complete elimination of the need for any corporate strategy",
+        "Guaranteed avoidance of all regulatory compliance costs",
+        "Total immunity from reputational risk"
+      ],
+      "correct": 0
+    }
+  ]
+}
