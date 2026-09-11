@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Odyssey — CIPM Intermediate I</title>
+<meta name="description" content="A voyage through the CIPM Intermediate I syllabus: study, recap, trial, flashcards and a captain's log.">
+<meta name="theme-color" content="#1c3940">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand" id="brand">ODYSSEY</div>
+      <nav class="tabs" id="tabs" aria-label="Main">
+        <button class="tab" data-tab="map">MAP</button>
+        <button class="tab" data-tab="counsel">COUNSEL</button>
+        <button class="tab" data-tab="stats">STATS</button>
+        <button class="tab" data-tab="crew">CREW</button>
+      </nav>
+    </div>
+    <div class="topbar-right">
+      <button class="musicbtn" id="musicBtn" type="button"
+              aria-pressed="false" aria-label="Background music">♪<span id="musicState">OFF</span></button>
+      <span class="topbar-meta" id="topbarMeta"></span>
+    </div>
+  </header>
+
+  <main class="view" id="view" tabindex="-1"></main>
+
+  <nav class="bottomnav" id="bottomnav" aria-label="Main">
+    <button class="bnav" data-tab="map">MAP</button>
+    <button class="bnav" data-tab="counsel">COUNSEL</button>
+    <button class="bnav" data-tab="stats">STATS</button>
+    <button class="bnav" data-tab="crew">CREW</button>
+  </nav>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Ambient score. preload="none" so the file is only fetched when music is switched on. -->
+<audio id="bgm" loop preload="none">
+  <source src="assets/ambient.m4a" type="audio/mp4">
+  <source src="assets/ambient.mp3" type="audio/mpeg">
+</audio>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

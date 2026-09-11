@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 10,
+  "title": "The Role of Government in Business",
+  "objectives": [
+    "Analyse the objectives of government regulation of business.",
+    "Evaluate the roles government plays: Regulator, Participant, and Facilitator.",
+    "Identify specific ways the Nigerian government aids business development.",
+    "Understand the roles of key agencies including CAC, SON, NAFDAC, BOI and NFIU."
+  ],
+  "study": "<p>In Nigeria, government relates to business in three ways at once — as a referee setting the rules, a coach providing support, and sometimes as a player running enterprises directly. Government regulates business to protect consumers from fake goods, ensure fair competition, promote economic stability, and protect the environment — while also preventing monopolistic exploitation and guaranteeing essential services the market might otherwise neglect.</p><div class=\"callout\"><b>Key term</b>The three categories of government's role in business — Participatory (direct investment in enterprises, e.g. NNPC), Regulatory (registration, import supervision, price control), and Facilitating (incentives and infrastructure that make business easier).</div><p>Under its <b>participatory</b> role, government invests directly — wholly owned enterprises in strategic sectors, majority equity stakes, or indirect investment through institutions like NNPC. Under its <b>regulatory</b> role, every business must register with the Corporate Affairs Commission (CAC), imports are inspected before shipment, and price controls have historically been used to curb inflation. Under its <b>facilitating</b> role, government uses tax incentives, fosters competition (through banking reform, commercialisation and privatisation), and shapes fiscal and monetary policy to stimulate investment.</p><div class=\"callout tip\"><b>Exam tip</b>Learn to sort real-world examples into the right category on sight: owning NNPC = participatory; requiring CAC registration = regulatory; offering Pioneer Status tax holidays = facilitating.</div><p>Specific tools Nigeria has used to support business include commercialisation (running parastatals on a self-financing commercial basis rather than government subvention), privatisation (selling government shareholdings to the public), deregulation (relaxing control, as with the downstream petroleum sector), and Pioneer Status — tax holidays granted to qualifying new industries.</p><p>Several agencies do the practical work: the <b>Corporate Affairs Commission (CAC)</b> handles company registration under CAMA (its registries opened in 1991); the <b>Standards Organisation of Nigeria (SON)</b> sets and enforces product quality standards; <b>NAFDAC</b> regulates the manufacture, import, export, advertisement, distribution and sale of food, drugs, cosmetics, medical devices and chemicals; the <b>Bank of Industry (BOI)</b>, Nigeria's oldest development finance institution, provides long-term financing to industrialise the country; and the <b>Nigerian Financial Intelligence Unit (NFIU)</b> receives and analyses financial intelligence to combat money laundering and terrorism financing. The Manufacturers Association of Nigeria (MAN), formed in 1971, campaigns for 'Made in Nigeria' goods and represents manufacturers' interests to government.</p>",
+  "recap": "<ul><li>Government's three roles: Participatory (owns enterprises), Regulatory (sets/enforces rules), Facilitating (incentives and infrastructure).</li><li>Regulation objectives: protect consumers, ensure fair competition, promote stability, protect the environment.</li><li>Tools: commercialisation, privatisation, deregulation, Pioneer Status tax holidays, fiscal/monetary policy.</li><li>CAC = company registration &middot; SON = quality standards &middot; NAFDAC = food/drugs/chemicals safety &middot; BOI = long-term industrial financing &middot; NFIU = anti&ndash;money laundering intelligence &middot; MAN = manufacturers' advocacy.</li></ul>",
+  "quiz": [
+    {
+      "q": "The agency responsible for registering companies in Nigeria is:",
+      "opts": [
+        "NAFDAC",
+        "NFIU",
+        "CAC",
+        "SON"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Pioneer Status' is a government incentive that provides:",
+      "opts": [
+        "Free advertising",
+        "Tax holidays (exemptions) for a period",
+        "Unlimited loans",
+        "Free land"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which agency ensures that products in Nigeria meet quality standards?",
+      "opts": [
+        "SON (Standard Organization of Nigeria)",
+        "CAC",
+        "BOI",
+        "EFCC"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Bank of Industry (BOI) provides:",
+      "opts": [
+        "Passports",
+        "Short-term loans for personal use",
+        "Long-term financing for industrial projects",
+        "Free water"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "NAFDAC is primarily concerned with:",
+      "opts": [
+        "Collecting income tax",
+        "Building roads",
+        "Regulating food, drugs, and chemicals",
+        "Registering cars"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which agency fights money laundering in Nigeria?",
+      "opts": [
+        "Ministry of Education",
+        "BOI",
+        "SON",
+        "NFIU"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "When the government owns a company like NNPC, it is acting as a:",
+      "opts": [
+        "Auditor",
+        "Facilitator",
+        "Participant",
+        "Regulator"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "What is a 'Regulatory' role of the government?",
+      "opts": [
+        "Providing electricity",
+        "Investing in a hotel",
+        "Giving out scholarships",
+        "Setting safety standards for products"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Why does the government control monopolies?",
+      "opts": [
+        "To stop them from hiring people",
+        "To prevent consumer exploitation",
+        "To help them make more profit",
+        "To encourage high prices"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Industrial Estates' are provided by the government to:",
+      "opts": [
+        "Create national parks",
+        "Provide housing for the poor",
+        "Build schools",
+        "Provide land with infrastructure for businesses"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The government acts as a 'Facilitator' when it:",
+      "opts": [
+        "Provides good road networks and power",
+        "Arrests a CEO",
+        "Bans all trade",
+        "Competes with a private firm"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Fiscal policy involves the government's use of:",
+      "opts": [
+        "Interest rates",
+        "Taxation and Spending",
+        "Police force",
+        "Social media"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "One reason the government participates in business is to:",
+      "opts": [
+        "Provide essential services the private sector avoids",
+        "Eliminate all private firms",
+        "Stop all imports",
+        "Make the President rich"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The NFIU focuses on:",
+      "opts": [
+        "Financial intelligence and fighting financial crimes",
+        "Food safety",
+        "Registering NGOs",
+        "Industrial loans"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Subsidies' are:",
+      "opts": [
+        "Fines for breaking laws",
+        "Types of shares",
+        "Taxes on business",
+        "Financial aid to reduce the cost of production"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which agency would you contact to report fake medicine?",
+      "opts": [
+        "SON",
+        "CAC",
+        "BOI",
+        "NAFDAC"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Government regulation of the environment aims to:",
+      "opts": [
+        "Mitigate pollution and environmental damage",
+        "Help firms avoid cleaning up",
+        "Stop all manufacturing",
+        "Increase the price of gas"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The 'Public Sector' refers to:",
+      "opts": [
+        "Businesses owned by the people",
+        "Businesses owned by the state/government",
+        "International banks",
+        "Small village shops"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Multiple Taxation' is often cited as a problem in:",
+      "opts": [
+        "Only the USA",
+        "Nigeria",
+        "No country",
+        "Only the North Pole"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The primary goal of the BOI is:",
+      "opts": [
+        "To make a huge profit for itself",
+        "To regulate the stock market",
+        "To transform Nigeria's industrial sector",
+        "To register new companies"
+      ],
+      "correct": 2
+    }
+  ]
+}

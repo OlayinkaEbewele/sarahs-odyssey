@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 9,
+  "title": "Economies of Scale, Economic Systems and Market Structures",
+  "objectives": [
+    "Define and measure the size and scale of a business operation.",
+    "Distinguish between internal and external economies of scale.",
+    "Analyse economic systems: Capitalism, Socialism, and Mixed Economies.",
+    "Evaluate market structures: Perfect Competition, Monopoly, Monopolistic Competition, and Oligopoly."
+  ],
+  "study": "<p>Economies of scale describe the cost advantage a firm gains as it increases its output — the core principle is that average cost per unit falls as the scale of production rises.</p><div class=\"callout\"><b>Key term</b>Internal Economies of Scale — cost savings arising from the growth of the firm itself (technical, managerial, financial and marketing economies). External Economies of Scale — cost savings arising from the growth of the whole industry (a specialised labour pool, better shared infrastructure).</div><p>Managerial economies, specifically, come from a large firm being able to afford specialist managers rather than generalists doing everything. Financial economies let large firms borrow at lower interest rates. Push growth too far, though, and diseconomies of scale set in — the firm passes its optimum size and unit costs start rising again as it becomes harder to coordinate and manage. Business size itself isn't measured by one number but a combination of turnover (total sales revenue), market share, number of employees, and capital employed.</p><p>Economic systems set the rules for who owns production and how resources get allocated. <b>Capitalism</b> rests on private ownership and the price mechanism, driven by the profit motive — Classical Capitalism (Adam Smith) assumes near-perfect competition with a minimal state role, while Monopoly Capitalism reflects today's reality of imperfect competition and greater state intervention. <b>Socialism</b> puts the means of production under state or collective ownership, aiming at social welfare over private profit. A <b>Mixed Economy</b> blends both — markets do most of the work, but government regulates and directly participates in strategic sectors. Nigeria's economy is a mixed economy.</p><div class=\"callout tip\"><b>Exam tip</b>Don't confuse economic systems (who owns production, economy-wide) with market structures (how competitive one particular market is) — they're tested as separate concepts even though both appear in this chapter.</div><p>Four market structures matter most. <b>Perfect competition</b> has many small firms, a homogeneous (identical) product, perfect information, and free entry/exit — each firm is a \"price taker\" with no power to influence the market price. <b>Monopoly</b> sits at the other extreme: a single seller, significant barriers to entry, and the power to be a \"price maker.\" <b>Monopolistic competition</b> has many sellers offering differentiated products (different branding on essentially similar goods) — a blend of competition and monopoly. <b>Oligopoly</b> is dominated by a few large, interdependent firms — each must consider how rivals will react to its pricing, which sometimes leads to collusion through cartels (firms jointly fixing price/output) or price leadership (one firm sets price, others follow).</p>",
+  "recap": "<ul><li>Economies of scale: average cost per unit falls as output rises; internal (firm-specific) vs external (industry-wide).</li><li>Diseconomies of scale: past the optimum size, unit costs rise again.</li><li>Business size measured by: turnover, market share, employee count, capital employed.</li><li>Capitalism = private ownership + price mechanism; Socialism = state/collective ownership; Mixed economy = blend of both (Nigeria).</li><li>Market structures: Perfect Competition (many firms, homogeneous, price takers) &middot; Monopoly (one seller, price maker) &middot; Monopolistic Competition (many sellers, differentiated products) &middot; Oligopoly (few interdependent firms, risk of collusion).</li></ul>",
+  "quiz": [
+    {
+      "q": "Economies of scale mean that as production increases:",
+      "opts": [
+        "Total cost increases",
+        "Average cost per unit decreases",
+        "Average cost per unit increases",
+        "Profits must decrease"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which is an 'Internal' economy of scale?",
+      "opts": [
+        "A new specialized college opening nearby",
+        "Better roads for the whole industry",
+        "Government subsidies for everyone",
+        "Using large-scale specialized machinery"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "'Managerial Economies' result from:",
+      "opts": [
+        "The ability to hire specialist managers",
+        "Reducing the size of the office",
+        "Hiring cheaper labor",
+        "Increasing the price of products"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A measure of business size based on total sales is:",
+      "opts": [
+        "Employee count",
+        "Turnover",
+        "Market share",
+        "Capital employed"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Price Takers' are found in which market structure?",
+      "opts": [
+        "Perfect Competition",
+        "Monopoly",
+        "Oligopoly",
+        "Monopolistic Competition"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "An economic system based on the 'Price Mechanism' and private ownership is:",
+      "opts": [
+        "Capitalism",
+        "Traditionalism",
+        "Communism",
+        "Socialism"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A market with one single seller is a:",
+      "opts": [
+        "Monopsony",
+        "Monopoly",
+        "Oligopoly",
+        "Duopoly"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which market structure features 'Homogeneous' products?",
+      "opts": [
+        "Monopoly",
+        "Monopolistic Competition",
+        "Perfect Competition",
+        "Oligopoly"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Interdependence between firms is a key feature of:",
+      "opts": [
+        "Monopoly",
+        "Sole Proprietorship",
+        "Oligopoly",
+        "Perfect Competition"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Nigeria's economy is best described as a:",
+      "opts": [
+        "Mixed economy",
+        "Pure Capitalist economy",
+        "Barter economy",
+        "Pure Socialist economy"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Under Socialism, the means of production are owned by:",
+      "opts": [
+        "Private individuals",
+        "The State",
+        "Foreigners",
+        "No one"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Differentiated products' (like different brands of soap) are typical of:",
+      "opts": [
+        "Oligopoly",
+        "Pure Monopoly",
+        "Monopolistic Competition",
+        "Perfect Competition"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'External Economies' are enjoyed by:",
+      "opts": [
+        "Only one firm",
+        "Only the government",
+        "Only the customers",
+        "All firms in an expanding industry"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "'Diseconomies of Scale' occur when a firm:",
+      "opts": [
+        "Uses more technology",
+        "Stays small",
+        "Merges with another firm",
+        "Becomes too large and inefficient, increasing unit costs"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "A market with a few large firms is:",
+      "opts": [
+        "Perfect Competition",
+        "Monopolistic Competition",
+        "Oligopoly",
+        "Monopsony"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Financial economies allow large firms to:",
+      "opts": [
+        "Borrow money at lower interest rates",
+        "Print their own money",
+        "Avoid paying taxes",
+        "Hire fewer people"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Market Power is highest in a:",
+      "opts": [
+        "Perfect Competition",
+        "Monopoly",
+        "Monopolistic Competition",
+        "Small store"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Free entry and exit is a characteristic of:",
+      "opts": [
+        "Monopoly",
+        "Cartels",
+        "Oligopoly",
+        "Perfect Competition"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "'Turnover' refers to:",
+      "opts": [
+        "The number of employees leaving",
+        "Total capital invested",
+        "The physical size of the factory",
+        "Total sales revenue"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Branding and advertising are most critical in:",
+      "opts": [
+        "Pure Monopoly",
+        "Subsistence farming",
+        "Monopolistic Competition",
+        "Perfect Competition"
+      ],
+      "correct": 2
+    }
+  ]
+}

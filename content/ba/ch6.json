@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 6,
+  "title": "The Legal Forms of Business Ownership",
+  "objectives": [
+    "Distinguish between the various legal forms of business ownership.",
+    "Analyse the determinants of choosing a specific ownership form.",
+    "Evaluate the characteristics, advantages and disadvantages of sole proprietorships, partnerships and limited liability companies.",
+    "Understand the role of public corporations, co-operatives and franchises."
+  ],
+  "study": "<p>The legal form a business takes decides its tax status, how much liability its owners carry, and how easily it can raise capital — making it one of the most consequential early decisions any entrepreneur makes. Choice of form is driven by capital requirement, the nature of the business, the degree of control desired, how much liability the owner is willing to bear, and whether the business needs to survive beyond its founder (continuity).</p><div class=\"callout\"><b>Key term</b>Sole Proprietorship — the oldest, simplest and most common form of ownership: one individual owns and controls the business, raising capital from personal savings or borrowing, and bears every result of its operation.</div><p>Its advantages are real: few legal barriers to start or close, the owner keeps all profits, low setup cost, fast decisions with no one to consult, strong personal incentive, and total secrecy over accounts. But it comes with unlimited liability — the owner's personal assets can be seized to cover business debts — plus limited capital-raising ability and no continuity beyond the owner's life.</p><p>A <b>partnership</b> is defined (Partnership Act 1890) as a relationship between people carrying on business together with a view to profit, capped at 20 partners for ordinary businesses (professions like law, medicine and accounting are exempted). Partners fall into types: active (hands-on), dormant/sleeping (money only, no involvement), nominal (name only, no money), and secret (actively involved but not publicly known). The partnership deed sets the rules; where none exists, the default legal position (Section 24) is that profits and losses are split equally, no partner earns interest on capital or a salary, and a partner who lends the business money earns 5% interest on that loan.</p><div class=\"callout tip\"><b>Exam tip</b>Memorise the Section 24 defaults specifically — they're a favourite exam trap, since students often assume unequal contributions mean unequal profit shares by default.</div><p>A <b>Limited Liability Company</b> is a separate legal entity from its owners — it can sue and be sued in its own name, and it has perpetual succession (it doesn't die with any one shareholder). Private Limited Companies (Ltd) restrict share transfer and can't sell shares to the public; Public Limited Companies (Plc) list shares on the stock exchange and must meet minimum capital requirements, with shareholders earning dividends rather than wages.</p><p><b>Public Corporations</b> are government-owned entities created by statute to run public utilities like water or electricity, managed by a government-appointed board. <b>Co-operative societies</b> pool resources among members — retail, producers', wholesaler and consumer co-operatives all exist to cut out middlemen or achieve bulk-buying power; Nigeria's first, for cocoa farmers, dates to 1922. A <b>franchise</b> grants a franchisee the right to use a franchisor's trademark and business model for a fee — KFC is the textbook example.</p>",
+  "recap": "<ul><li>Sole proprietorship: one owner, unlimited liability, easy to start, no continuity beyond the owner.</li><li>Partnership: 2&ndash;20 people, governed by a partnership deed; without one, Section 24 defaults apply (equal profit share, no interest/salary, 5% interest on partner loans).</li><li>LLC: separate legal entity, perpetual succession; Ltd = private/restricted shares, Plc = public/stock-exchange listed.</li><li>Public corporations: government-owned, created by statute, for public utilities.</li><li>Co-operatives: member-pooled resources (retail, producers', wholesaler, consumer types).</li><li>Franchise: franchisor grants franchisee rights to its brand/model for a fee (e.g. KFC).</li></ul>",
+  "quiz": [
+    {
+      "q": "Which ownership form has 'Unlimited Liability' for the owner?",
+      "opts": [
+        "Public Limited Company",
+        "Franchise",
+        "Sole Proprietorship",
+        "Public Corporation"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A legal document that governs the relationship between partners is a:",
+      "opts": [
+        "Prospectus",
+        "Articles of Association",
+        "Memorandum of Association",
+        "Partnership Deed"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "What is the maximum number of partners in a standard business partnership?",
+      "opts": [
+        "10",
+        "20",
+        "2",
+        "50"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A 'Public Limited Company' (Plc) must have its shares listed on:",
+      "opts": [
+        "The Stock Exchange",
+        "A private list",
+        "The local market",
+        "The government gazette"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In an LLC, the owners are responsible for debts only up to:",
+      "opts": [
+        "The value of their houses",
+        "50% of the company's debt",
+        "The amount they invested in shares",
+        "Zero"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which form of business has 'Perpetual Succession'?",
+      "opts": [
+        "Limited Liability Company",
+        "Family Business",
+        "Partnership",
+        "Sole Proprietorship"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Unlimited Liability' means:",
+      "opts": [
+        "Personal assets can be used to pay business debts",
+        "The government pays the debts",
+        "Only business assets are used to pay debts",
+        "No debts at all"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A person who buys the right to use a brand is the:",
+      "opts": [
+        "Franchisee",
+        "Director",
+        "Partner",
+        "Franchisor"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Public Corporations are primarily funded by:",
+      "opts": [
+        "Charity",
+        "The Government",
+        "Foreign banks",
+        "Private investors"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A major disadvantage of a sole proprietorship is:",
+      "opts": [
+        "Total control",
+        "Easy to start",
+        "Fast decision making",
+        "Limited access to capital"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which factor most influences the choice to become a Plc?",
+      "opts": [
+        "The location of the business",
+        "The name of the owner",
+        "The need for massive capital from the public",
+        "The desire for a small office"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A 'Separate Legal Entity' means the company can:",
+      "opts": [
+        "Never fail",
+        "Only sell to the government",
+        "Avoid all taxes",
+        "Sue and be sued in its own name"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "'Limited Partners' in a partnership:",
+      "opts": [
+        "Manage the daily operations",
+        "Have liability limited to their investment",
+        "Cannot invest money",
+        "Are not allowed to share profits"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "What happens to a sole proprietorship when the owner dies?",
+      "opts": [
+        "It usually ceases to exist (Lack of Continuity)",
+        "It continues forever",
+        "The government takes it",
+        "It becomes an LLC"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "KFC is an example of a:",
+      "opts": [
+        "Public Corporation",
+        "Franchise",
+        "Partnership",
+        "Sole Proprietorship"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Private Limited Companies (Ltd) are characterised by:",
+      "opts": [
+        "Being owned by the state",
+        "No directors",
+        "Selling shares to everyone",
+        "Restrictions on share transfer"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which form of ownership is most common for professionals like lawyers and doctors?",
+      "opts": [
+        "Public Corporation",
+        "Partnership",
+        "Sole Proprietorship (if single)",
+        "Franchise"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A 'Statutory Corporation' is created by:",
+      "opts": [
+        "A simple contract",
+        "A website",
+        "An Act of Parliament/Statute",
+        "A handshake"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Shareholders in a Plc receive:",
+      "opts": [
+        "Interest",
+        "Salaries",
+        "Dividends",
+        "Wages"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Ease of formation' is highest for which form?",
+      "opts": [
+        "Public Limited Company",
+        "Public Corporation",
+        "Franchise",
+        "Sole Proprietorship"
+      ],
+      "correct": 3
+    }
+  ]
+}

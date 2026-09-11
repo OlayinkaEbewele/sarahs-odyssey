@@ -1,0 +1,65 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 1,
+  "title": "Nature of Business",
+  "objectives": [
+    "Define business and identify what separates it from other human activity.",
+    "Contrast the traditional and modern concepts of business.",
+    "Distinguish economic from non-economic activity."
+  ],
+  "study": "<p>Business describes organised, repeated activity aimed at producing, exchanging, or distributing goods and services — not a one-off transaction, and not activity carried out purely for personal consumption. What separates business from other human effort is the intent behind it: it is undertaken to earn some kind of return, whether that return is profit, prestige, or simple satisfaction.</p><div class=\"callout\"><b>Key term</b>Business — organised economic activity, repeated over time, directed at producing, exchanging or distributing goods and services in pursuit of a return.</div><p>Two ways of framing why business exists sit alongside each other in the literature. The traditional view treats profit as the whole point: a business exists to maximise returns for its owners. The modern view widens the lens — profit still matters, but it's earned while satisfying customers and acting as a responsible part of the wider society the business operates in.</p><div class=\"callout tip\"><b>Exam tip</b>Questions often ask you to contrast these two concepts directly — know the shift in emphasis from \"profit alone\" to \"profit plus social responsibility.\"</div><p>Human activity more broadly splits into economic activity (anything tied to producing wealth — further divided into profession, employment, and business) and non-economic activity (voluntary or social effort with no profit motive attached). Business is one branch of the economic side, distinguished from profession and employment by the specific pattern of buying, producing and selling for a return.</p>",
+  "recap": "<ul><li>Business = repeated, organised activity to produce/exchange/distribute goods or services for a return.</li><li>Traditional concept: profit maximisation is the goal.</li><li>Modern concept: consumer satisfaction plus social responsibility, profit as one outcome among several.</li><li>Economic activity (profession, employment, business) vs non-economic activity (no profit motive).</li></ul>",
+  "quiz": [
+    {
+      "q": "Which of these best defines business?",
+      "opts": [
+        "Personal consumption of goods",
+        "Any activity that earns money once",
+        "Organised, repeated activity aimed at producing, exchanging or distributing goods and services for a return",
+        "Unpaid work done for a community"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The traditional concept of business centres on:",
+      "opts": [
+        "Profit maximisation",
+        "Employee welfare",
+        "Consumer satisfaction",
+        "Environmental protection"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The modern concept of business adds which dimension?",
+      "opts": [
+        "Eliminating competition",
+        "Avoiding customers",
+        "Ignoring profit entirely",
+        "Social responsibility alongside profit"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which is an example of non-economic activity?",
+      "opts": [
+        "Trading shares",
+        "Volunteering at a shelter with no pay",
+        "Running a bakery",
+        "Working a salaried job"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Economic activity can be divided into profession, employment and:",
+      "opts": [
+        "Business",
+        "Charity",
+        "Leisure",
+        "Education"
+      ],
+      "correct": 0
+    }
+  ]
+}

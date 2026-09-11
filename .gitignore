@@ -1,0 +1,15 @@
+# dependencies (wrangler CLI only — not needed to run or deploy the site)
+node_modules/
+
+# wrangler local state
+.wrangler/
+
+# vercel
+.vercel
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# logs
+*.log

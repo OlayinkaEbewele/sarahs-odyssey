@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 2,
+  "title": "Evolution of Business",
+  "objectives": [
+    "Trace the historical development of commerce from household self-sufficiency to e-commerce.",
+    "Explain the stages and driving forces of the Industrial Revolution.",
+    "Evaluate the economic and social consequences of industrialisation, including its link to imperialism.",
+    "Describe how the Industrial Revolution reshaped business management."
+  ],
+  "study": "<p>Business can be traced back roughly 3,000 years to India and China, where early forms of sole proprietorships, partnerships and corporations already existed. From around 1500 AD, government-backed ventures such as the Dutch East India Company and the British East India Company began driving global trade.</p><p>Commerce itself — the buying and selling side of business — developed through a sequence of stages: the household stage (families produced only what they needed, with no trading at all), primitive barter (goods traded directly for goods, with no medium of exchange), the rise of trading once money emerged as an accepted medium, the era of the city/town economy (a product of the Industrial Revolution, as handicraft moved into factories and people migrated to towns), the era of international trade, and finally the era of e-commerce.</p><div class=\"callout\"><b>Key term</b>The Industrial Revolution — a series of fundamental changes in British industry, roughly 1760–1840, that shifted production from handwork to machines and from the home to the factory.</div><p>Historians group its impact into \"six great changes\": the growth of engineering, a revolution in iron-making, the use of steam power in textiles, the rise of chemical industries, the expansion of coal-mining, and a revolution in transportation. From there, industrial progress is often described in four broader waves — the First Industrial Revolution (coal, 1765), the Second (gas, 1870, enabling mass production via the product line), the Third (electronics and nuclear power, 1969), and the Fourth (internet and renewable energy, from 2000), a term first proposed by Klaus Schwab of the World Economic Forum.</p><div class=\"callout tip\"><b>Exam tip</b>Questions often test the correct pairing of each Industrial Revolution wave with its defining technology (coal → gas → electronics → internet) — memorise the order and the trigger technology, not just the dates.</div><p>England industrialised first for several converging reasons: relative peace compared to continental Europe, one unified market with no internal trade barriers, political and financial stability, an agricultural revolution that pushed landless peasants toward city jobs, and abundant capital to fund early banking. The consequences split into economic (mass production, growth of capitalism, specialisation) and social (rapid, often poorly-housed urban migration, and the emergence of distinct social classes) — alongside real costs: child labour, unsanitary conditions and long hours with little pay.</p><p>Industrialisation is also closely tied to 19th-century imperialism — the political and economic control of a mightier country over a weaker one to secure resources and cheap labour. This had some genuinely positive by-products (reduced local fighting, sanitation and education investment, new infrastructure) alongside serious costs for the colonised (loss of self-sufficiency, restricted local industry, second-class status).</p><p>Inside businesses themselves, the Industrial Revolution forced a shift from owner-managers to trained professional specialists, as finance, marketing and personnel work all grew too complex for one person to run alone — the beginning of management as its own profession. Looking ahead, two forces are expected to keep reshaping business: digital transformation and Corporate Social Responsibility (CSR).</p>",
+  "recap": "<ul><li>Commerce stages, in order: household &rarr; primitive barter &rarr; trading with money &rarr; city/town economy &rarr; international trade &rarr; e-commerce.</li><li>Industrial Revolution waves: Coal (1st) &rarr; Gas (2nd) &rarr; Electronics/nuclear (3rd) &rarr; Internet (4th, coined by Klaus Schwab).</li><li>England industrialised first due to peace, a unified market, stability, an agricultural revolution, and capital availability.</li><li>Consequences split into economic (capitalism, mass production) and social (urbanisation, new class divide) — with real costs like child labour.</li><li>Imperialism and industrialisation are closely linked, with both positive and negative effects on colonised nations.</li><li>Management became a specialist profession as businesses outgrew owner-management.</li><li>Future business is expected to be shaped by digital transformation and CSR.</li></ul>",
+  "quiz": [
+    {
+      "q": "Business evolution can be traced back approximately how many years, to India and China?",
+      "opts": [
+        "30 years",
+        "300 years",
+        "30,000 years",
+        "3,000 years"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which government-backed companies began global trade from around 1500 AD?",
+      "opts": [
+        "Google and Amazon",
+        "MTN and Dangote Group",
+        "The Dutch East India Company and British East India Company",
+        "Coca-Cola and McDonald's"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The stage of commerce where every family produces what it needs, with no trading, is called:",
+      "opts": [
+        "The stage of primitive barter",
+        "The era of e-commerce",
+        "The stage of household",
+        "The era of international trade"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Primitive Barter, as a stage in commerce development, involves:",
+      "opts": [
+        "The exchange of commodities/services for commodities/services, without a medium of exchange",
+        "A generally accepted medium of exchange such as money",
+        "Online digital transactions",
+        "Cross-border international transactions"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Era of City/Town Economy in commerce development is described as a product of:",
+      "opts": [
+        "Modern e-commerce alone",
+        "Only agricultural expansion",
+        "Ancient Egyptian civilisation",
+        "The Industrial Revolution"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The Craft Guild stage of pre-industrial development involved artisans falling into which three categories?",
+      "opts": [
+        "Master Craftsmen, Journeymen, and Apprentices",
+        "Kings, Nobles, and Peasants",
+        "Managers, Employees, and Customers",
+        "Farmers, Traders, and Bankers"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Industrial Revolution is generally considered to have spanned the period:",
+      "opts": [
+        "About 1900 to 1950",
+        "About 1760 to 1840",
+        "About 2000 to 2020",
+        "About 500 BC to 100 AD"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Industrial Revolution marked a change in industrial organisation from work at home to:",
+      "opts": [
+        "Work only in government offices",
+        "Work in factories",
+        "Work exclusively online",
+        "No work at all"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of the following is one of the 'six great changes' that constituted the Industrial Revolution's elements?",
+      "opts": [
+        "Abolition of all trade",
+        "Revolution of Iron-Making",
+        "Elimination of engineering",
+        "Prohibition of coal mining"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Second Industrial Revolution (Gas, 1870) is particularly associated with:",
+      "opts": [
+        "Mass production enabled by product line technology",
+        "Quantum computing",
+        "The invention of the internet",
+        "The first use of fire"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Fourth Industrial Revolution (4IR) was first proposed by:",
+      "opts": [
+        "Adam Smith",
+        "Klaus Schwab, Chairman of the World Economic Forum",
+        "Isaac Newton",
+        "Arnold Toynbee"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of the following is a factor that favoured the Industrial Revolution occurring first in England?",
+      "opts": [
+        "Relative peace in England compared with other European countries",
+        "Political and financial instability",
+        "Lack of any internal market",
+        "Constant warfare on English soil"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "England's agricultural revolution contributed to the Industrial Revolution primarily by:",
+      "opts": [
+        "Reducing the overall population of England",
+        "Preventing any migration to cities",
+        "Eliminating the need for factory labour",
+        "Consolidating small farms into big ones, making peasants landless and pushing them to seek city employment"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is an ECONOMIC consequence of the Industrial Revolution?",
+      "opts": [
+        "Elimination of trade cycles",
+        "Reduced specialisation",
+        "Mass production and growth of capitalism",
+        "Complete equality of wealth distribution"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of the following is a SOCIAL consequence of the Industrial Revolution?",
+      "opts": [
+        "Elimination of all cities",
+        "Complete absence of any social classes",
+        "Guaranteed adequate housing for all urban migrants",
+        "Rural-urban migration leading to a high rate of urbanisation and slum growth"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is listed as a 'con' of industrialisation?",
+      "opts": [
+        "Deplorable working conditions and child labour",
+        "Guaranteed short working hours for all",
+        "Higher wages with no downside",
+        "Improved transportation with no negative impact"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Imperialism, as defined in the chapter, is best described as:",
+      "opts": [
+        "A synonym for democracy",
+        "A purely economic term unrelated to politics",
+        "A form of charitable aid with no self-interest",
+        "The political and economic control over a country by a mightier country"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is a POSITIVE effect of new imperialism, according to the chapter?",
+      "opts": [
+        "Restrictions on locally-owned industries",
+        "Complete loss of self-sufficiency for the colonised nation",
+        "Humanitarian efforts such as improved sanitation and increased education",
+        "Second-class status for the colonised population"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "One impact of the Industrial Revolution on business management was that businesses came to be:",
+      "opts": [
+        "Only managed by government officials",
+        "Managed exclusively by the original founder forever",
+        "Managed increasingly by specialists who may not necessarily be the owners",
+        "No longer requiring any management at all"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "According to the chapter's addendum, the two primary factors expected to shape the future of business are digital transformation and:",
+      "opts": [
+        "A return to pure barter trade",
+        "Corporate Social Responsibility (CSR)",
+        "Elimination of all corporate regulation",
+        "The abolition of all technology"
+      ],
+      "correct": 1
+    }
+  ]
+}

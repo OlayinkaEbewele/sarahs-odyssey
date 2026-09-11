@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 4,
+  "title": "The Organic Business Functions",
+  "objectives": [
+    "Master the four organic business functions: Production, Marketing, Human Resources, and Finance.",
+    "Understand the strategic decisions involved in production systems and factory location.",
+    "Analyse the marketing mix and the stages of new product development.",
+    "Evaluate the scope of human resource management and the core decision areas in finance."
+  ],
+  "study": "<p>Every business, regardless of size, performs four organic (core) functions that are essential and interdependent — Production, Marketing, Human Resources, and Finance. The word \"organic\" is deliberate: like the organs of a human body, these functions must work in sync, and a failure in one can bring down the whole enterprise.</p><div class=\"callout\"><b>Key term</b>Production — the conversion of raw materials into finished products through certain processes, transforming inputs into outputs that have utility for the consumer.</div><p>Production management involves planning, organising, directing and controlling this process. Within it, the production engineer designs the physical equipment, while the production manager organises the use of that equipment and other resources (men, materials, money). Location decisions turn on the availability of labour, transportation, materials and amenities.</p><p>Businesses generally choose between three production systems. <b>Job production</b> is small-scale, \"one-off\" production of a single complete unit to a customer's specific requirements — think custom shipbuilding or bridge construction. <b>Batch production</b> divides work into operations completed for a whole batch before the next operation begins. <b>Flow (mass) production</b> runs continuously, typical of flour mills, breweries, soft drinks and textiles — powerful for volume, but it limits product range and a single technical fault can cause a total breakdown. Quality control runs alongside all three: setting standards, checking conformity, correcting deviations, and driving continuous improvement — inspection happens at incoming materials, mid-process, and as finished goods leave the line.</p><div class=\"callout tip\"><b>Exam tip</b>Don't confuse marketing with selling. Marketing is the broader process of moving products from producers to consumers and creating customer satisfaction — selling is only one part of it.</div><p>The marketing mix is built from the \"4Ps\": Product, Price, Place (distribution) and Promotion. Within Product, the \"core product\" refers to what the buyer is really buying — the fundamental benefit, not the physical item itself. New product development follows a set sequence: idea generation, idea screening (dropping poor ideas early before money is wasted developing them), concept testing, business analysis, product development, market testing, and finally commercialisation.</p><p>Human Resource Management treats people as the organisation's most vital asset. Its scope, per E. Flippo, spans procurement, development, compensation, integration, maintenance and separation of human resources — everything from hiring through to exit. The HR department's core roles are staffing, training and development, and industrial relations. A sound HR policy brings real benefits: uniform decisions across the organisation, more confident decision-making, better control, and greater employee confidence.</p><p>Finance is critical precisely because Marketing, Production and Personnel all depend on it to function. Financial management centres on three core decisions: the <b>investment decision</b> (which assets the firm should acquire), the <b>financing decision</b> (the best source and method of raising funds), and the <b>dividend decision</b> (how earnings are split between shareholder payouts and reinvestment).</p>",
+  "recap": "<ul><li>Four organic functions: Production, Marketing, Human Resources, Finance — interdependent, like organs in a body.</li><li>Production systems: Job (one-off, custom) &middot; Batch (whole-batch operations) &middot; Flow/Mass (continuous, high volume).</li><li>Marketing &ne; selling — marketing is the broader process; selling is one part of it.</li><li>Marketing mix = 4Ps: Product, Price, Place, Promotion.</li><li>New product development order: idea generation &rarr; screening &rarr; concept testing &rarr; business analysis &rarr; development &rarr; market testing &rarr; commercialisation.</li><li>HR scope (Flippo): procurement, development, compensation, integration, maintenance, separation.</li><li>Finance's 3 core decisions: Investment, Financing, Dividend.</li></ul>",
+  "quiz": [
+    {
+      "q": "The four organic (core) business functions identified in the chapter are Production, Marketing, Human Resources and:",
+      "opts": [
+        "Sports",
+        "Astrology",
+        "Politics",
+        "Finance"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Production is best defined as:",
+      "opts": [
+        "The act of selling finished goods to consumers",
+        "A synonym for advertising",
+        "The process of hiring new staff",
+        "The conversion of raw materials into finished products through certain processes"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Production Management involves the effort of both the production engineer and the production manager, who:",
+      "opts": [
+        "Only manages the company's marketing budget",
+        "Only handles employee payroll",
+        "Organises the use of equipment and other resources (men, materials, money)",
+        "Only handles government tax filings"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of the following is a factor influencing factory location, according to the chapter?",
+      "opts": [
+        "Only the founder's personal preference for scenery",
+        "Only random selection with no criteria",
+        "Availability of labour, transportation, materials and amenities",
+        "Only the phase of the moon"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Job Production is best described as:",
+      "opts": [
+        "Continuous mass production of identical goods on an assembly line",
+        "A synonym for flow production",
+        "Small-scale, 'one-off' production of a single complete unit to a customer's specific requirements",
+        "A method used exclusively for perishable food items"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Batch Production is characterised by:",
+      "opts": [
+        "The complete absence of any specialisation",
+        "Continuous flow with zero idle time",
+        "Work divided into operations completed for a whole batch before the next operation begins",
+        "Producing only one single unique item ever"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Flow (Mass) Production is best exemplified by industries such as:",
+      "opts": [
+        "Bespoke tailoring for a single client",
+        "Flour mills, breweries, soft drinks and textiles",
+        "Bridge construction",
+        "Custom shipbuilding"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A key disadvantage of Flow Production is that:",
+      "opts": [
+        "It limits the range of products available to consumers, and a technical fault can cause total breakdown",
+        "It cannot achieve any economies of scale",
+        "It is the most flexible production method available",
+        "It always requires highly skilled artisans for each unit"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Quality Control aims to establish quality standards, assess conformity, take corrective action and:",
+      "opts": [
+        "Ensure continuous improvement in products and processes",
+        "Increase production costs deliberately",
+        "Eliminate all forms of inspection entirely",
+        "Ignore consumer expectations"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Inspection, as part of quality control, occurs at all of the following points EXCEPT:",
+      "opts": [
+        "As finished goods leave the production line",
+        "At various stages of the production process",
+        "At the shareholders' annual general meeting",
+        "At the receiving room for incoming raw materials"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Marketing, as distinguished from selling, is best described as:",
+      "opts": [
+        "Identical in scope to selling with no distinction",
+        "Only relevant to service companies, not manufacturers",
+        "A function unrelated to customer satisfaction",
+        "A broader process of activities moving products from producers to consumers and creating customer satisfaction, of which selling is only one part"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The Marketing Mix (4Ps) consists of Product, Price, Promotion and:",
+      "opts": [
+        "Profit",
+        "Personnel",
+        "Politics",
+        "Place (Distribution)"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Under the Product element of the marketing mix, the 'Core Product' refers to:",
+      "opts": [
+        "What the buyer is really buying (the fundamental benefit)",
+        "Only the after-sales warranty",
+        "Only the brand name",
+        "Only the physical packaging"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The first step in New Product Development is:",
+      "opts": [
+        "Commercialisation",
+        "Business Analysis",
+        "Market Testing",
+        "Idea Generation"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Idea Screening, in new product development, is important because it helps to:",
+      "opts": [
+        "Guarantee immediate commercialisation of all ideas",
+        "Drop poor ideas early, avoiding wasted investment on ideas that would be dropped later anyway",
+        "Skip the need for concept testing entirely",
+        "Ensure every single idea is developed regardless of quality"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "According to E. Flippo, Personnel Management involves planning, organising, directing and controlling the procurement, development, compensation, integration, maintenance and:",
+      "opts": [
+        "Production of raw materials",
+        "Separation of human resources",
+        "Taxation of corporate profits",
+        "Marketing of finished products"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of the following is a role of the Personnel/HR Department?",
+      "opts": [
+        "Staffing the organisation, training and development, and industrial relations",
+        "Managing the company's production machinery directly",
+        "Setting the company's product pricing strategy exclusively",
+        "Filing the company's corporate tax returns exclusively"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A key benefit of a sound Human Resources Policy is:",
+      "opts": [
+        "Increased inconsistency in management decisions",
+        "Uniform decisions and actions across the organisation",
+        "Elimination of the need for any employee records",
+        "Guaranteed elimination of all workplace conflict"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Finance function is described as critical because:",
+      "opts": [
+        "Only large companies require a finance function",
+        "Marketing, Production and Personnel functions all depend on finance",
+        "Finance has no relationship with other business functions",
+        "Finance is only relevant to government agencies"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The three core decision areas in Financial Management are Investment Decision, Financing Decision and:",
+      "opts": [
+        "Dividend Decision",
+        "Recruitment Decision",
+        "Marketing Decision",
+        "Production Decision"
+      ],
+      "correct": 0
+    }
+  ]
+}

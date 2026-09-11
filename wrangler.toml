@@ -1,0 +1,7 @@
+name = "odyssey-progress-api"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+[[kv_namespaces]]
+binding = "ODYSSEY_KV"
+id = "87d0a9dd26cc49de97261d41493d6f7a"

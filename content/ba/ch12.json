@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 12,
+  "title": "Business Social Responsibility",
+  "objectives": [
+    "Define Corporate Social Responsibility (CSR) and trace its historical evolution.",
+    "Analyse the dimensions of CSR: Economic, Legal, Ethical and Discretionary.",
+    "Evaluate the arguments for and against CSR.",
+    "Understand the stakeholder concept (primary vs secondary) and contemporary CSR issues."
+  ],
+  "study": "<p>Bowen (1953) first defined social responsibility as the set of moral and personal obligations an employer must follow, weighing decisions against society's objectives and values. ISO 26000 defines it as an organisation's responsibility for the impact of its decisions and activities on society and the environment, through transparent, ethical behaviour. The idea is commonly summarised as the <b>Triple Bottom Line</b>: profit, people, planet.</p><div class=\"callout\"><b>Key term</b>Corporate Social Responsibility — a strategic approach to business management that extends beyond isolated charitable giving, integrating social and environmental concerns into how a company actually operates.</div><p>The term 'CSR' has been in wide use only since the 1960s, though expectations of responsible business conduct go back further. Late-19th-century 'Social Darwinism' justified cutthroat, brutal competition with little concern for social impact; a backlash began around 1900, exemplified by the Sherman Antitrust Act, and business gradually accepted responsibilities beyond pure profit and legal compliance through the 20th century.</p><p>Carroll and Buchholtz's (2003) four-part definition remains the standard framework, often visualised as a pyramid: <b>Economic</b> responsibility (be profitable — the foundation), <b>Legal</b> responsibility (obey the law), <b>Ethical</b> responsibility (do what's right and fair even beyond legal requirements), and <b>Discretionary/Philanthropic</b> responsibility (be a good corporate citizen — charity, volunteering).</p><div class=\"callout tip\"><b>Exam tip</b>Carroll's pyramid order is a common exam point: Economic sits at the base as the foundation everything else rests on — a company can't be ethical or philanthropic if it isn't profitable and viable first.</div><p>Milton Friedman (1970) gave the strongest economic argument against CSR: business's only responsibility is to make a profit for its owners while obeying the law — social problems belong to government, not business. Related objections include the competitive argument (internalising social costs disadvantages a firm against less scrupulous competitors) and the capability argument (executives are trained in finance and operations, not solving societal problems). Arguments in favour include the self-interest case (investing in society today forestalls tougher regulation tomorrow), the resource argument (large corporations have the capital to make a real difference), and growing stakeholder pressure that makes social responsiveness a practical necessity.</p><p>Stakeholders are individuals or groups affected by an organisation's policies and actions. <b>Primary stakeholders</b> have a direct stake — shareholders, employees, customers, business partners, communities. <b>Secondary stakeholders</b> are affected without a direct stake — government, regulatory bodies, media, and competitors. Contemporary CSR issues span environmental concerns (pollution, waste, global warming), global/labour issues ('sweatshop' conditions, child labour), and technology issues (data privacy, genetic engineering).</p>",
+  "recap": "<ul><li>CSR = strategic integration of social/environmental concern into business, not just charity. Triple Bottom Line: profit, people, planet.</li><li>Carroll's pyramid: Economic (foundation) &rarr; Legal &rarr; Ethical &rarr; Discretionary/Philanthropic.</li><li>Against CSR: Friedman's economic argument, the competitive argument, the capability argument.</li><li>For CSR: self-interest (avoids future regulation), resource argument, stakeholder pressure.</li><li>Primary stakeholders: shareholders, employees, customers. Secondary: government, regulators, media, competitors.</li><li>Contemporary issues: environmental, global/labour (sweatshops, child labour), technology (privacy, biotech).</li></ul>",
+  "quiz": [
+    {
+      "q": "According to Bowen (1953), social responsibility was first defined as:",
+      "opts": [
+        "A government tax imposed on large corporations",
+        "A synonym for maximising shareholder profit only",
+        "The set of moral and personal obligations an employer must follow, considering policies/decisions in terms of society's objectives and values",
+        "A purely legal requirement with no moral dimension"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "ISO 26000 (2010) defines social responsibility as an organisation's responsibility for the impacts of its decisions and activities on:",
+      "opts": [
+        "Only its direct competitors",
+        "Only its own employees exclusively",
+        "Society and the environment, through transparent and ethical behaviour",
+        "Only its own shareholders, with no wider consideration"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The 'Triple Bottom Line' concept in CSR is commonly summarised by the slogan:",
+      "opts": [
+        "Profit, people, planet",
+        "Profit, price, promotion",
+        "Growth, greed, glory",
+        "People, product, place"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "CSR is distinguished from mere charity or philanthropy because CSR:",
+      "opts": [
+        "Is identical in every respect to charity",
+        "Never involves any donation of resources",
+        "Encompasses a strategic approach to business management extending beyond isolated giving",
+        "Is required only of non-profit organisations"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "According to the chapter, the phrase 'Corporate Social Responsibility' has been in wide use since approximately:",
+      "opts": [
+        "The 1800s",
+        "The 2020s only",
+        "The 1400s",
+        "The 1960s"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The philosophy known as 'Social Darwinism', practised by many late-19th-century business tycoons, justified:",
+      "opts": [
+        "Cutthroat, even brutal, competitive strategies with little concern for social impact",
+        "Extensive corporate philanthropy as standard company policy",
+        "Government ownership of all industry",
+        "Strict environmental regulation of business"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Sherman Antitrust Act is cited in the chapter as an example of:",
+      "opts": [
+        "Early 20th-century backlash against the power and antisocial practices of big business",
+        "A stakeholder engagement framework",
+        "A modern CSR reporting standard",
+        "A treaty governing international trade tariffs"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Environmental Accountability, as a type of CSR, includes practices such as:",
+      "opts": [
+        "Increasing the use of non-recyclable materials",
+        "Minimising pollution, greenhouse gas emissions and waste production",
+        "Avoiding any renewable energy investment",
+        "Ignoring all environmental impact entirely"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Ethical Responsibility, as a type of CSR, focuses on:",
+      "opts": [
+        "Ignoring supplier diversity entirely",
+        "Ensuring the organisation operates in a just and moral manner toward all stakeholders",
+        "Only maximising short-term profit with no ethical consideration",
+        "Avoiding all forms of investor disclosure"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Philanthropic Responsibility, as a type of CSR, refers to:",
+      "opts": [
+        "A synonym for economic responsibility with no distinction",
+        "Only actions required by government regulation",
+        "How a company uses its resources to make the world a better place, such as charitable donations",
+        "A legally mandated tax payment"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "According to Carroll and Buchholtz's (2003) four-part CSR definition, which of the following is one of the four dimensions?",
+      "opts": [
+        "Economic, Legal, Ethical, and Discretionary responsibilities",
+        "Only Economic responsibility",
+        "Only Legal and Ethical responsibilities",
+        "Only Discretionary responsibility"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Milton Friedman (1970) is closely associated with which argument regarding CSR?",
+      "opts": [
+        "The Triple Bottom Line concept",
+        "The stakeholder theory of CSR",
+        "The economic argument against CSR, holding that business's primary responsibility is to make a profit for owners while obeying the law",
+        "The strongest argument in favour of extensive corporate philanthropy"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The 'Competitive' argument against CSR holds that:",
+      "opts": [
+        "CSR always improves a firm's competitive position with no downside",
+        "Internalising the costs of socially responsible action places a firm at a competitive disadvantage relative to firms that do not",
+        "CSR has no relationship to a firm's costs whatsoever",
+        "Only government-owned firms can practise CSR"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The 'Capability' argument against CSR suggests that:",
+      "opts": [
+        "CSR should be mandatory for every single firm regardless of size",
+        "All business executives are perfectly equipped to solve any social problem",
+        "Only government can ever generate any profit",
+        "Business executives are typically trained in finance/marketing/operations, not in solving complex societal problems"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The 'Self-Interest' (long-run survival) argument in favour of CSR suggests that:",
+      "opts": [
+        "CSR has no long-term benefit to a corporation whatsoever",
+        "Government regulation is entirely unrelated to CSR practices",
+        "CSR is purely an act of charity with no strategic value",
+        "Investing in society today can forestall future government regulation and secure a favourable long-term operating environment"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "According to Post, Lawrence and Weber, stakeholders are best described as:",
+      "opts": [
+        "Only the organisation's direct competitors",
+        "Only the organisation's direct shareholders",
+        "Only government regulatory bodies",
+        "Individuals and groups that are affected by an organisation's policies, procedures and actions"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following is classified as a PRIMARY stakeholder, according to Carroll and Buchholtz (2003)?",
+      "opts": [
+        "Special Interest Groups",
+        "Shareholders (Owners), Employees and Customers",
+        "Local, State and Federal Government",
+        "The Media"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of the following is classified as a SECONDARY stakeholder?",
+      "opts": [
+        "Shareholders (Owners)",
+        "Regulatory Bodies and Competitors",
+        "Customers",
+        "Employees"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of the following is identified as a contemporary global CSR issue relating to labour standards?",
+      "opts": [
+        "Only issues related to executive compensation",
+        "Only issues related to shareholder dividend policy",
+        "Only domestic issues with no international relevance",
+        "Concerns over 'sweatshop' conditions and child labour in overseas manufacturing plants"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Technology-related CSR issues discussed in the chapter include concerns over:",
+      "opts": [
+        "Internet privacy, data security, and biotechnology issues such as genetic engineering",
+        "Only issues related to office furniture procurement",
+        "Only issues related to postal mail delivery",
+        "Only issues unrelated to any ethical consideration"
+      ],
+      "correct": 0
+    }
+  ]
+}

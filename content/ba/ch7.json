@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 7,
+  "title": "Forms of Business Combinations",
+  "objectives": [
+    "Define the concept and motivations behind business combinations.",
+    "Distinguish between mergers, acquisitions, absorption and consolidation.",
+    "Analyse the differences between horizontal, vertical and conglomerate combinations.",
+    "Evaluate the strategic implications of hostile versus friendly takeovers."
+  ],
+  "study": "<p>A business combination brings two or more previously independent firms under common control. The core motive is <b>synergy</b> — the idea that the combined entity is worth more than the sum of its parts, expressed as 1+1&gt;2. Combinations are generally grouped by the relationship between the firms involved: horizontal, vertical, or conglomerate.</p><div class=\"callout\"><b>Key term</b>Merger — a transaction where an acquiring company takes over a target company as a whole, leaving only one company remaining afterward.</div><p>A <b>merger</b> is a fusion of two companies into one; an <b>acquisition</b> (takeover) is the purchase of a target company's shares by an acquirer, who may keep or dissolve the target as a separate entity. In a <b>consolidation</b>, both original companies disappear entirely and a brand-new third company is formed. In an <b>absorption</b>, a larger, dominant firm simply swallows a smaller one, which loses its identity completely.</p><p><b>Horizontal integration</b> combines competitors in the same industry (two banks merging, or two soft-drink companies). <b>Vertical integration</b> combines firms at different stages of the same production chain — <b>backward integration</b> moves toward raw material sources (a bakery buying a flour mill), while <b>forward integration</b> moves toward the end consumer (a manufacturer buying a retail chain). A <b>conglomerate</b> combines completely unrelated businesses purely to diversify risk and spread revenue streams — a shipping company buying a hotel chain, for instance.</p><div class=\"callout tip\"><b>Exam tip</b>Direction matters for vertical integration: \"backward\" always means toward suppliers/raw materials, \"forward\" always means toward distribution/the end consumer. Questions frequently test this with a concrete example rather than the term itself.</div><p>Takeovers can be <b>friendly</b> (approved by the target's board) or <b>hostile</b> (the acquirer buys shares directly from shareholders against target management's wishes). A <b>strategic alliance</b> differs from all of the above in that the companies involved remain independent — they cooperate without merging. Anti-trust law is most concerned with horizontal mergers specifically, since those are the ones most likely to create a monopoly and restrict competition.</p>",
+  "recap": "<ul><li>Synergy (1+1&gt;2) is the core motive behind business combinations.</li><li>Merger = fusion into one; Acquisition = purchase of another company; Consolidation = both disappear, new company formed; Absorption = larger firm swallows smaller, which loses identity.</li><li>Horizontal = same industry/competitors; Vertical = different production stages (backward = toward suppliers, forward = toward consumers); Conglomerate = unrelated industries, for risk diversification.</li><li>Takeovers: friendly (board-approved) vs hostile (against management's wishes).</li><li>Strategic alliance: companies cooperate but remain independent — not a combination.</li><li>Anti-trust law focuses mainly on horizontal mergers, due to monopoly risk.</li></ul>",
+  "quiz": [
+    {
+      "q": "When two companies join to form a single new legal entity, it is a:",
+      "opts": [
+        "Merger",
+        "Franchise",
+        "Sole proprietorship",
+        "Partnership"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Synergy means the combined value is:",
+      "opts": [
+        "Equal to zero",
+        "Negligible",
+        "Less than the sum of parts",
+        "Greater than the sum of parts"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "If a bakery buys a flour mill, this is:",
+      "opts": [
+        "Forward Vertical Integration",
+        "Conglomerate merger",
+        "Horizontal Integration",
+        "Backward Vertical Integration"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "A combination of firms in completely unrelated industries is a:",
+      "opts": [
+        "Horizontal merger",
+        "Vertical merger",
+        "Conglomerate",
+        "Partnership"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A 'Hostile Takeover' is one where:",
+      "opts": [
+        "Everyone is happy",
+        "The target company's management resists the deal",
+        "The government forces the merger",
+        "No money is used"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "When a smaller company is 'swallowed' and loses its identity, it is:",
+      "opts": [
+        "Consolidation",
+        "Joint Venture",
+        "Strategic Alliance",
+        "Absorption"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Horizontal integration involves combining with:",
+      "opts": [
+        "Suppliers",
+        "Distributors",
+        "Competitors in the same industry",
+        "Unrelated businesses"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Forward vertical integration involves moving closer to the:",
+      "opts": [
+        "Raw material source",
+        "End consumer",
+        "Bank",
+        "Government"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In a 'Consolidation,' how many of the original legal entities typically survive?",
+      "opts": [
+        "All of them",
+        "Only the larger one",
+        "None (a new one is formed)",
+        "Only the smaller one"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The purchase of most or all of another company's shares is an:",
+      "opts": [
+        "Investment",
+        "Liquidation",
+        "Audit",
+        "Acquisition"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Why do companies form conglomerates?",
+      "opts": [
+        "To diversify and spread risk",
+        "To increase focus on one product",
+        "To reduce the number of employees",
+        "To pay higher taxes"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A 'Friendly Takeover' is:",
+      "opts": [
+        "Illegal",
+        "Approved by the target's Board of Directors",
+        "Only for small businesses",
+        "Done without any contracts"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "If two soft drink companies merge, it is:",
+      "opts": [
+        "Horizontal",
+        "Conglomerate",
+        "Circular",
+        "Vertical"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Backward Vertical Integration' helps a company control its:",
+      "opts": [
+        "Distribution",
+        "Supply of raw materials",
+        "Customers",
+        "Competitors"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "1 + 1 > 2 is the mathematical representation of:",
+      "opts": [
+        "Liability",
+        "Debt",
+        "Synergy",
+        "Depreciation"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Anti-trust laws are most concerned with:",
+      "opts": [
+        "Vertical integration",
+        "Small partnerships",
+        "Horizontal mergers that create monopolies",
+        "Conglomerates"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A 'Strategic Alliance' differs from a merger because:",
+      "opts": [
+        "It is only for one day",
+        "It is more expensive",
+        "It is between a company and the government",
+        "The companies remain independent"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "In an 'Absorption,' the larger company is usually the:",
+      "opts": [
+        "Acquirer",
+        "Target",
+        "Subsidiary",
+        "Partner"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Market dominance is a primary motive for:",
+      "opts": [
+        "Conglomerates",
+        "Horizontal combinations",
+        "Non-profits",
+        "Sole proprietorships"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A 'Takeover Bid' is an offer to buy:",
+      "opts": [
+        "The shareholders' stock",
+        "The company's name only",
+        "The company's machines only",
+        "The company's debts only"
+      ],
+      "correct": 0
+    }
+  ]
+}

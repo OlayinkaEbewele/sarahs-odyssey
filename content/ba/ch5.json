@@ -1,0 +1,218 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 5,
+  "title": "Business Analysis and Evaluation Tools",
+  "objectives": [
+    "Define business analysis and explain its importance.",
+    "Describe the steps and distinguish the types of business analysis (strategic, tactical, operational).",
+    "State the objectives and uses of business analysis.",
+    "Apply SWOT, PEST(LE), MOST and CATWOE as evaluation tools.",
+    "Conduct basic financial analysis using liquidity, profitability and solvency ratios.",
+    "Draw and interpret a Process Flow Diagram."
+  ],
+  "study": "<p>Business analysis is a well-curated, actionable method of identifying business needs and finding solutions to business problems — anything from a software upgrade to a process improvement or a new policy. A Business Analyst is the person responsible for identifying and defining these problems to maximise organisational output, and typically operates across every level of the organisation.</p><p>Business analysis comes in three types. <b>Strategic analysis</b> is pre-project work — identifying business problems and devising strategies, goals and objectives for top management. <b>Tactical analysis</b> applies specific techniques at the right time within a given project. <b>Operational analysis</b> focuses on business improvement by leveraging information technology and studying existing systems for opportunities.</p><div class=\"callout\"><b>Key term</b>SWOT Analysis — a subjective assessment of a business unit organised into Strengths and Weaknesses (internal factors) and Opportunities and Threats (external factors).</div><p>SWOT is best completed as a team, since perceptions from multiple people improve the quality of the output. It measures a specific business unit, whereas <b>PEST(LE) analysis</b> measures broader external trends — Political, Economic, Social, Technological (and often Legal and Environmental). It's common to run a PEST analysis before, alongside, or after a SWOT.</p><div class=\"callout tip\"><b>Exam tip</b>Keep the internal/external split straight: SWOT's Strengths and Weaknesses are internal, Opportunities and Threats are external. PEST(LE) is entirely external/macro-environmental.</div><p><b>Financial analysis</b> uses statements like the balance sheet and income statement to calculate ratios: liquidity ratios (ability to pay short-term debts), profitability ratios (efficiency in generating earnings/return), and solvency ratios.</p><p><b>MOST analysis</b> checks internal strategic alignment across four levels: Mission (why the business exists), Objectives (specific goals), Strategy (the long-term plan to achieve those objectives), and Tactics (the short-term, day-to-day actions that execute the strategy).</p><p><b>CATWOE analysis</b> defines the scope of a business process across six elements: Customers (who benefits), Actors (who does the work), Transformation (what the process actually does), Worldview (the bigger picture justifying it), Owner (who has the authority to stop or change the process), and Environmental constraints (the external limits on the system).</p><p>Finally, a <b>Process Flow Diagram</b> is a visual map of the sequential steps in a business process, commonly used to document a process, study it for improvement, and help stakeholders understand and communicate about operations — its main practical use is spotting bottlenecks and redundancies.</p>",
+  "recap": "<ul><li>Business analysis types: Strategic (pre-project, top management) &middot; Tactical (technique at the right time) &middot; Operational (IT-driven improvement).</li><li>SWOT: Strengths/Weaknesses = internal; Opportunities/Threats = external. Best done as a team.</li><li>PEST(LE): external/macro only — Political, Economic, Social, Technological (+Legal, Environmental).</li><li>Financial ratios: Liquidity (short-term debt) &middot; Profitability (earnings efficiency) &middot; Solvency.</li><li>MOST: Mission &rarr; Objectives &rarr; Strategy &rarr; Tactics.</li><li>CATWOE: Customers, Actors, Transformation, Worldview, Owner, Environmental constraints.</li><li>Process Flow Diagram: visual map used to spot bottlenecks and improve understanding.</li></ul>",
+  "quiz": [
+    {
+      "q": "Which tool evaluates internal Strengths and external Opportunities?",
+      "opts": [
+        "CATWOE",
+        "PEST",
+        "SWOT",
+        "MOST"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The 'P' in PEST stands for:",
+      "opts": [
+        "Political",
+        "Planning",
+        "Price",
+        "Profit"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which analysis tool is used to ensure internal strategic alignment from Mission to Tactics?",
+      "opts": [
+        "MOST",
+        "Financial Analysis",
+        "SWOT",
+        "PEST"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In CATWOE, the 'A' stands for:",
+      "opts": [
+        "Assets",
+        "Actors",
+        "Analysis",
+        "Accounting"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A 'Process Flow Diagram' is primarily used to identify:",
+      "opts": [
+        "The company's vision",
+        "The CEO's salary",
+        "Tax liabilities",
+        "Operational bottlenecks"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Financial analysis typically uses:",
+      "opts": [
+        "Political news",
+        "Ratios and financial statements",
+        "Social media likes",
+        "Employee surveys"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Liquidity ratios' measure:",
+      "opts": [
+        "The ability to pay short-term debts",
+        "The speed of machines",
+        "The colour of products",
+        "The number of customers"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In SWOT, 'Threats' are:",
+      "opts": [
+        "External factors",
+        "Internal factors",
+        "Always easy to solve",
+        "Part of the mission statement"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The 'W' in CATWOE stands for:",
+      "opts": [
+        "Workers",
+        "Weaknesses",
+        "Wealth",
+        "Worldview"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "'Tactics' in the MOST framework refer to:",
+      "opts": [
+        "The reason the company exists",
+        "Financial ratios",
+        "Short-term, day-to-day actions",
+        "Long-term dreams"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A macro-environmental analysis tool is:",
+      "opts": [
+        "Job Analysis",
+        "SWOT",
+        "Process Flow Diagram",
+        "PEST"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which tool helps identify who has the power to stop a process?",
+      "opts": [
+        "PEST",
+        "SWOT",
+        "CATWOE",
+        "MOST"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Profitability ratios' measure:",
+      "opts": [
+        "The number of shares",
+        "The location of the firm",
+        "The efficiency in generating earnings",
+        "Debt levels"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The 'M' in MOST stands for:",
+      "opts": [
+        "Mission",
+        "Marketing",
+        "Money",
+        "Management"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Opportunities' in SWOT are derived from:",
+      "opts": [
+        "Internal expertise",
+        "Old machinery",
+        "External market trends",
+        "High staff turnover"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A visual representation of a business process is a:",
+      "opts": [
+        "Balance Sheet",
+        "Process Flow Diagram",
+        "Mission Statement",
+        "Code of Conduct"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Business evaluation tools are meant to:",
+      "opts": [
+        "Hide information",
+        "Support data-driven decision making",
+        "Increase confusion",
+        "Stop all competition"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In CATWOE, 'C' stands for:",
+      "opts": [
+        "Capital",
+        "Costs",
+        "Competition",
+        "Customers"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Strategy in the MOST framework is:",
+      "opts": [
+        "The internal rules",
+        "The specific financial target",
+        "The day-to-day task",
+        "The long-term plan to achieve objectives"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which tool would best analyse the impact of a new government tax policy?",
+      "opts": [
+        "Process Flow Diagram",
+        "PEST",
+        "SWOT (internal part)",
+        "CATWOE"
+      ],
+      "correct": 1
+    }
+  ]
+}

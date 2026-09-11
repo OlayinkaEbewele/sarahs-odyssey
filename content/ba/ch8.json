@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 8,
+  "title": "Documents Used by Business Organisations",
+  "objectives": [
+    "Identify the legal documents required for company formation.",
+    "Distinguish between the Memorandum and Articles of Association.",
+    "Understand the strategic importance of Vision, Mission, Objectives, Strategy and Policy documents.",
+    "Analyse the roles of feasibility reports, business plans and meeting minutes."
+  ],
+  "study": "<p>Documentation is a business's paper trail — it provides legal evidence of existence, defines operational boundaries, and communicates strategic intent to stakeholders.</p><div class=\"callout\"><b>Key term</b>Memorandum of Association — the company's 'constitution,' defining its relationship with the outside world. Contains the Name, Registered Office, Objects (what the company is permitted to do), Liability and Capital clauses.</div><p>Where the Memorandum governs external relationships, the <b>Articles of Association</b> govern internal management — director appointments, meeting procedures, voting rights and share transfer rules — and must always be subordinate to, and consistent with, the Memorandum. A <b>Prospectus</b> is an invitation to the public to subscribe for a company's shares or debentures, disclosing enough financial and operational detail for investors to make an informed decision. The <b>Certificate of Incorporation</b>, issued in Nigeria by the Corporate Affairs Commission (CAC), is effectively the company's birth certificate. A public company additionally needs a <b>Certificate of Trading</b> before it can commence business — a private company can start trading immediately on incorporation, but a public company cannot.</p><div class=\"callout tip\"><b>Exam tip</b>The Memorandum/Articles distinction is a recurring exam favourite: Memorandum = external relationship and scope of activity; Articles = internal governance rules. If a company wants to change how it runs board meetings, it amends its Articles, not its Memorandum.</div><p>Before committing resources, businesses often commission a <b>Feasibility Report</b> to assess a venture's market, technical, financial and managerial viability. A <b>Business Plan</b> then lays out a roadmap — executive summary, market analysis, organisation structure, marketing strategy, and financial projections — partly to guide the business and partly to attract funding. <b>Minutes</b> are the official written record of what was decided at a meeting. Supporting schedules include the Schedule of Non-Current Assets (listing machinery and buildings), the Schedule of Directors (names, addresses, occupations) and the Schedule of Shareholders.</p><p>Strategic documents sit on their own spectrum. A <b>Vision</b> is a description of what the organisation wants to become in the distant future (\"to be the leading provider of energy in Africa\"). A <b>Mission</b> describes the organisation's current core purpose — what it is and why it exists right now. <b>Objectives</b> are specific, measurable targets. <b>Strategies</b> are the long-term plans for achieving those objectives, operating at three levels — corporate (overall direction), business (competitive position within a market segment), and functional (how one department, like HR or finance, supports the wider strategy). <b>Policies</b> are the broad guidelines that link strategy to day-to-day decision-making.</p>",
+  "recap": "<ul><li>Memorandum of Association = external relationship/constitution (Name, Registered Office, Objects, Liability, Capital clauses).</li><li>Articles of Association = internal governance rules, subordinate to the Memorandum.</li><li>Prospectus = invitation to the public to buy shares/debentures.</li><li>Certificate of Incorporation (CAC) = birth certificate; public companies also need a Certificate of Trading before commencing business.</li><li>Feasibility Report = viability check; Business Plan = roadmap + funding tool; Minutes = official record of meeting decisions.</li><li>Vision = future aspiration; Mission = current core purpose; Objectives = specific/measurable; Strategy = long-term plan (corporate/business/functional); Policy = decision-making guideline.</li></ul>",
+  "quiz": [
+    {
+      "q": "Which document defines the company's relationship with the outside world?",
+      "opts": [
+        "Memorandum of Association",
+        "Articles of Association",
+        "Business Plan",
+        "Minutes of Meeting"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The internal rules of a company are found in the:",
+      "opts": [
+        "Prospectus",
+        "Certificate of Incorporation",
+        "Articles of Association",
+        "Objects Clause"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "What document is known as the 'Birth Certificate' of a company?",
+      "opts": [
+        "Certificate of Trading",
+        "Prospectus",
+        "Partnership Deed",
+        "Certificate of Incorporation"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "An invitation to the public to buy shares is a:",
+      "opts": [
+        "Policy",
+        "Business Plan",
+        "Prospectus",
+        "Memorandum"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which clause in the Memorandum states the business activities allowed?",
+      "opts": [
+        "Liability Clause",
+        "Name Clause",
+        "Objects Clause",
+        "Capital Clause"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A document that assesses if a business idea is viable before starting is:",
+      "opts": [
+        "Business Plan",
+        "Feasibility Report",
+        "Minutes",
+        "Schedule of Assets"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The official record of what was decided at a meeting is the:",
+      "opts": [
+        "Prospectus",
+        "Memo",
+        "Agenda",
+        "Minutes"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "'To be the leading provider of energy in Africa' is an example of a:",
+      "opts": [
+        "Vision",
+        "Tactic",
+        "Policy",
+        "Mission"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which document is required by a Public Company after incorporation but before trading?",
+      "opts": [
+        "Partnership Deed",
+        "Certificate of Trading",
+        "Articles of Association",
+        "Share Certificate"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A 'Schedule of Non-Current Assets' would list:",
+      "opts": [
+        "Inventory for sale",
+        "Cash in hand",
+        "Machinery and Buildings",
+        "Employee names"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "General guidelines for decision-making are called:",
+      "opts": [
+        "Goals",
+        "Policies",
+        "Strategies",
+        "Objects"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The 'Capital Clause' shows the company's:",
+      "opts": [
+        "CEO's salary",
+        "Annual profit",
+        "Total debt",
+        "Authorized share capital"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Who issues the Certificate of Incorporation in Nigeria?",
+      "opts": [
+        "Central Bank",
+        "NAFDAC",
+        "CAC (Corporate Affairs Commission)",
+        "Police"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Mission' describes the organisation's:",
+      "opts": [
+        "Internal rules",
+        "List of machines",
+        "Future dreams",
+        "Current core purpose"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Specific, measurable targets are:",
+      "opts": [
+        "Policies",
+        "Visions",
+        "Articles",
+        "Objectives/Goals"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "A 'Business Plan' is primarily used to:",
+      "opts": [
+        "Provide a roadmap and attract funding",
+        "Pay taxes",
+        "Register the business",
+        "Fire employees"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "If a company wants to change how it holds board meetings, it must amend its:",
+      "opts": [
+        "Memorandum",
+        "Articles of Association",
+        "Vision Statement",
+        "Feasibility Study"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The document that proves someone owns a piece of the company is a:",
+      "opts": [
+        "Policy",
+        "Share Certificate",
+        "Minutes",
+        "Prospectus"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Strategies' are:",
+      "opts": [
+        "Long-term plans to achieve goals",
+        "The same as vision statements",
+        "Short-term daily tasks",
+        "Only for the government"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A 'Schedule of Directors' includes their:",
+      "opts": [
+        "Names, addresses, and occupations",
+        "High school grades",
+        "Favorite foods",
+        "Personal bank balances"
+      ],
+      "correct": 0
+    }
+  ]
+}

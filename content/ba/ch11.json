@@ -1,0 +1,216 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 11,
+  "title": "International Business Administration",
+  "objectives": [
+    "Define international business and identify why firms choose to go international.",
+    "Analyse the political, cultural, legal and economic forces shaping global trade.",
+    "Evaluate classical and modern trade theories: Absolute Advantage, Comparative Advantage, and Heckscher-Ohlin.",
+    "Understand the mechanics of foreign exchange, tariffs, risk management, and multinational corporations."
+  ],
+  "study": "<p>International business is the study of transactions across national borders that satisfy the needs of individuals and organisations (Rugman and Collinson). Firms go international to diversify against domestic business-cycle risk, tap growing world markets, respond to foreign competition, access local resources, cut costs, and get around tariff barriers by operating from within a market rather than exporting into it.</p><div class=\"callout\"><b>Key term</b>Exchange Rate — the number of units of one currency needed to purchase one unit of another currency (Morrison, 2006). The foreign exchange market is the 'lubricant' letting companies using different currencies trade without resorting to barter.</div><p>Currency deals mostly happen as a <b>spot transaction</b> (immediate exchange, generally settled the second business day) or an <b>outright forward transaction</b> (currency exchanged on a future date at a pre-agreed rate, regardless of where the spot rate actually lands). The US Dollar plays the role of the market's 'vehicle currency.' A <b>tariff</b> is a tax on imported (sometimes exported) goods, used to protect domestic industry, raise government revenue, or serve as a bargaining chip in trade talks.</p><p>Classical trade theory starts with Adam Smith's <b>Absolute Cost Advantage</b>: a country should specialise in and export whatever it can produce at a genuinely lower cost than anyone else. David Ricardo went further with <b>Comparative Cost Advantage</b>: a country should specialise based on comparative — not absolute — cost differences, since mutual gains from trade exist even if one country is better at producing everything. J.S. Mill's <b>Reciprocal Demand</b> theory then explains the actual terms of trade (the exchange ratio) between two countries' goods.</p><div class=\"callout tip\"><b>Exam tip</b>Absolute vs comparative advantage is one of the most tested distinctions in this chapter. Absolute = who's better in raw terms; Comparative = who gives up less by specialising (opportunity cost) — the second one is what actually drives beneficial trade.</div><p>The modern <b>Heckscher-Ohlin theory</b> explains trade through differences in factor endowments (relative abundance of capital vs labour): a nation exports whatever intensively uses its abundant, cheap factor, and imports whatever needs its scarce, expensive factor. Its companion, the <b>Factor Price Equalisation Theorem</b>, holds that free trade tends to equalise commodity and factor prices across trading countries over time.</p><p>International business carries distinct risk categories: political risk (instability, expropriation), economic/financial risk (currency and interest rate swings), legal risk (differing legal systems), operational risk (supply chain disruption), and cultural risk (miscommunication). A <b>Multinational Corporation (MNC)</b> is conventionally defined (Black's Law Dictionary) as a firm deriving 25% or more of its revenue from outside its home country — the East India Company (1600) is cited as one of the earliest examples. MNCs typically evolve through three stages: the <b>Export Stage</b> (starting with export agents), the <b>Foreign Production Stage</b> (choosing between Licensing — low capital and risk, but limited control over the licensee — and Direct Foreign Investment — higher capital and risk, but full control), and finally the <b>Multinational Stage</b>, where production, marketing, R&D and financing are all coordinated globally.</p>",
+  "recap": "<ul><li>Firms go international to diversify risk, access new markets, cut costs, and work around trade barriers.</li><li>Exchange rate = price of one currency in another; spot (immediate) vs forward (future, pre-agreed rate) transactions; USD is the 'vehicle currency.'</li><li>Tariff = tax on imports/exports, protecting domestic industry or raising revenue.</li><li>Absolute Advantage (Smith) = who's outright better; Comparative Advantage (Ricardo) = who has the lower opportunity cost — the real driver of beneficial trade.</li><li>Heckscher-Ohlin: trade driven by factor endowments (capital vs labour abundance); Factor Price Equalisation: free trade tends to equalise prices across countries over time.</li><li>Risk types: political, economic/financial, legal, operational, cultural.</li><li>MNC = 25%+ revenue from abroad; evolves through Export &rarr; Foreign Production (Licensing or FDI) &rarr; Multinational stages.</li></ul>",
+  "quiz": [
+    {
+      "q": "According to Rugman and Collinson (2006), international business is best described as:",
+      "opts": [
+        "Only transactions occurring within a single country",
+        "A synonym for domestic retail trade",
+        "The study of transactions taking place across national borders to satisfy the needs of individuals and organisations",
+        "Only government-to-government aid transfers"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of the following is a reason firms decide to go international, according to Rugman and Collinson (2006)?",
+      "opts": [
+        "To eliminate the need for foreign exchange",
+        "To restrict operations strictly to a single city",
+        "To diversify against the risks and uncertainties of the domestic business cycle",
+        "To avoid any form of competition entirely"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "An exchange rate, according to Morrison (2006), is defined as:",
+      "opts": [
+        "The number of units of one currency needed to purchase one unit of another currency",
+        "The total value of a country's exports",
+        "A synonym for a tariff",
+        "A fixed tax on all imported goods"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The foreign exchange market is described as the 'lubricant' that enables:",
+      "opts": [
+        "Only domestic transactions within one country",
+        "Companies in countries using different currencies to trade with each other without resorting to barter",
+        "Government tax collection exclusively",
+        "The complete elimination of international trade"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A Spot Transaction in the foreign exchange market involves:",
+      "opts": [
+        "A transaction that never actually settles",
+        "A permanent, irrevocable currency conversion with no settlement date",
+        "An exchange of currency scheduled several years into the future with no fixed rate",
+        "The immediate exchange of currency, generally settled the second business day after agreement"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "An Outright Forward Transaction involves:",
+      "opts": [
+        "Only immediate, same-day currency exchange",
+        "A transaction limited exclusively to central banks",
+        "A transaction with no fixed rate agreed in advance",
+        "The exchange of currency on a future date at a pre-agreed forward rate, regardless of the actual spot rate at settlement"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The foreign exchange market is characterised by the important role of which currency, described as a 'vehicle currency'?",
+      "opts": [
+        "The US Dollar",
+        "The Nigerian Naira exclusively",
+        "The Japanese Yen exclusively",
+        "Cryptocurrency exclusively"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A Tariff is best described as:",
+      "opts": [
+        "A type of insurance policy for exporters",
+        "A tax imposed on imported (or sometimes exported) goods to raise their price and protect domestic industry",
+        "A form of foreign direct investment",
+        "A synonym for a currency swap"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "According to Adam Smith's Absolute Cost Advantage Theory, a country should:",
+      "opts": [
+        "Avoid all forms of international trade entirely",
+        "Focus solely on domestic consumption with no exports",
+        "Specialise in and export a commodity in which it has an absolute cost advantage",
+        "Import every commodity regardless of cost"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "David Ricardo's Comparative Cost Advantage Theory holds that trade is determined by:",
+      "opts": [
+        "Government decree alone",
+        "Random chance with no economic basis",
+        "Only the absolute cost of production, ignoring comparative advantage entirely",
+        "Comparative, not absolute, differences in costs between countries"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "J.S. Mill's theory of Reciprocal Demand primarily helps explain:",
+      "opts": [
+        "The terms of trade (exchange ratio) between two commodities/countries",
+        "The total number of firms in a domestic industry",
+        "The population growth rate of a nation",
+        "The exact location of a country's capital city"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Heckscher-Ohlin theory explains international trade based on differences in:",
+      "opts": [
+        "The size of a country's military",
+        "The number of political parties in a country",
+        "Factor endowments (relative abundance of capital versus labour) between countries",
+        "The colour of national flags"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "According to the Heckscher-Ohlin theorem, a nation will export the commodity that:",
+      "opts": [
+        "Requires intensive use of the nation's scarce and expensive factor of production",
+        "Requires intensive use of the nation's relatively abundant and cheap factor of production",
+        "Has no relationship to its factor endowments whatsoever",
+        "Is produced using only imported raw materials"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Factor Price Equalisation Theorem suggests that free international trade will:",
+      "opts": [
+        "Have absolutely no effect on prices",
+        "Cause permanent, ever-widening price divergence between countries",
+        "Only apply to domestic trade, not international trade",
+        "Ultimately lead to equalisation of commodity and factor prices across trading countries"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "New Trade Theories were developed largely because classical and Heckscher-Ohlin theories struggled to explain:",
+      "opts": [
+        "Intra-industry trade between similar developed countries in similar products",
+        "The concept of currency exchange rates",
+        "The existence of tariffs",
+        "Trade between any two countries whatsoever"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is a risk category identified in international business risk management?",
+      "opts": [
+        "Political Risk, Economic/Financial Risk, and Cultural Risk",
+        "Only risks related to domestic retail sales",
+        "Only risks related to weather forecasting",
+        "Only risks affecting government employees"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "According to Black's Law Dictionary, a company is considered a multinational corporation if it derives what percentage or more of its revenue from out-of-home-country operations?",
+      "opts": [
+        "100%",
+        "25%",
+        "5%",
+        "75%"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of the following is cited as one of the first multinational companies, established in 1600?",
+      "opts": [
+        "The World Bank",
+        "Nestle",
+        "Apple Inc.",
+        "The East India Company"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "In the Export Stage of MNC evolution, firms initially rely on:",
+      "opts": [
+        "Foreign direct manufacturing subsidiaries only",
+        "Government-owned trading companies exclusively",
+        "Export agents",
+        "No form of external assistance whatsoever"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "In the Foreign Production Stage, Licensing (compared to Direct Foreign Investment) is characterised by:",
+      "opts": [
+        "Complete elimination of any payment to the licensor",
+        "Low capital requirement and low risk, but limited managerial control over the licensee",
+        "Guaranteed prevention of any rival firm emerging",
+        "High capital requirement and full managerial control"
+      ],
+      "correct": 1
+    }
+  ]
+}

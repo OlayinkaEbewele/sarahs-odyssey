@@ -1,0 +1,218 @@
+{
+  "subject": "ba",
+  "subjectName": "Business Administration & Practices",
+  "chapter": 3,
+  "title": "The Environment of Business",
+  "objectives": [
+    "Define the business environment and explain its importance.",
+    "Distinguish between the internal, micro (task), and macro business environments.",
+    "Explain the key characteristics of the business environment.",
+    "Examine the relationship between an organisation and its environment.",
+    "Conduct environmental analysis using SWOT and PESTEL frameworks.",
+    "Recommend appropriate organisational responses to environmental change."
+  ],
+  "study": "<p>No organisation operates in isolation. Every business — whether Dangote Cement or MTN Nigeria — depends on customers, suppliers, employees, government, financial institutions, technology and the wider society for its survival. The business environment is the sum of all these internal and external conditions, events and influences surrounding a firm.</p><div class=\"callout\"><b>Key term</b>Business Environment — all internal and external factors affecting an organisation's operations; the aggregate of conditions surrounding and influencing its life and development.</div><p>It helps to think of the environment in three layers. The <b>internal environment</b> sits entirely within management's control — the firm's value system (the ethical foundation set by its founders), its mission and objectives, its management structure, and its physical and human resources. The <b>micro (task) environment</b> has a direct, immediate impact and includes customers, suppliers, competitors, marketing intermediaries (such as wholesalers) and labour unions. The <b>macro environment</b> covers broad forces affecting every firm in the economy, and is best analysed using the PESTEL framework.</p><div class=\"callout tip\"><b>Exam tip</b>PESTEL only screens the macro-environment — it is external-only. SWOT, by contrast, spans both internal (Strengths, Weaknesses) and external (Opportunities, Threats) factors. Questions frequently test this distinction.</div><p>PESTEL stands for Political (government stability, taxation), Economic (inflation, interest and exchange rates), Social (demographic shifts, consumer lifestyle), Technological (pace of innovation, automation), Environmental (climate regulation) and Legal (employment and safety law) factors.</p><p>The business environment has several defining characteristics: it is <b>complex</b> (many factors interacting at once), <b>dynamic</b> (constantly shifting), <b>uncertain</b> (the future is difficult to predict), and <b>relative</b> — the same change can be a threat to one firm and an opportunity to another. The relationship between a business and its environment is one of mutual interdependence: the firm draws inputs like capital and labour from its environment and discharges outputs like products and waste back into it, while also trying to shape that environment through lobbying and marketing.</p><p>Managing this relationship involves environmental scanning (continuously monitoring external trends) and environmental forecasting, alongside building buffers such as safety stock to absorb supply-chain fluctuations. When change does hit, organisations tend to respond in one of three ways: <b>reactive</b> (responding only after a crisis has already occurred), <b>proactive</b> (anticipating change and moving first), or <b>administrative</b> (adjusting internal policy or forming alliances to soften external pressure).</p>",
+  "recap": "<ul><li>Business environment = all internal + external factors affecting an organisation.</li><li>Three layers: internal (within control), micro/task (direct impact — customers, suppliers, competitors), macro (broad, PESTEL).</li><li>PESTEL = Political, Economic, Social, Technological, Environmental, Legal — external only.</li><li>SWOT = Strengths, Weaknesses (internal) + Opportunities, Threats (external).</li><li>Characteristics: complex, dynamic, uncertain, relative.</li><li>Business &harr; environment relationship is mutually interdependent.</li><li>Responses to change: reactive, proactive, or administrative.</li></ul>",
+  "quiz": [
+    {
+      "q": "Which environment includes factors within the organisation's control?",
+      "opts": [
+        "Macro",
+        "Micro",
+        "External",
+        "Internal"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "What does the 'S' in PESTEL stand for?",
+      "opts": [
+        "Social",
+        "Strength",
+        "Structure",
+        "Strategy"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The 'Relativity' characteristic of the business environment means:",
+      "opts": [
+        "It never changes",
+        "It is the same for everyone",
+        "Its impact varies across different firms/countries",
+        "It is always negative"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of these is a 'Task' (Micro) environment factor?",
+      "opts": [
+        "Global warming",
+        "Interest rates",
+        "National culture",
+        "Competitors"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "SWOT analysis identifies internal:",
+      "opts": [
+        "Sales and Marketing",
+        "Opportunities and Threats",
+        "Profits and Losses",
+        "Strengths and Weaknesses"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which macro-factor involves laws and regulations?",
+      "opts": [
+        "Social",
+        "Political",
+        "Legal",
+        "Economic"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A firm that anticipates a new technology and adopts it first is being:",
+      "opts": [
+        "Proactive",
+        "Administrative",
+        "Passive",
+        "Reactive"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Inflation and exchange rates are part of the:",
+      "opts": [
+        "Technological environment",
+        "Economic environment",
+        "Social environment",
+        "Internal environment"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Environmental Scanning' refers to:",
+      "opts": [
+        "Monitoring external trends and events",
+        "Paying taxes",
+        "Hiring new staff",
+        "Cleaning the office"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which characteristic refers to the difficulty of predicting the future?",
+      "opts": [
+        "Complexity",
+        "Dynamic",
+        "Multi-faceted",
+        "Uncertainty"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Suppliers are part of the:",
+      "opts": [
+        "Political environment",
+        "Macro environment",
+        "Micro (Task) environment",
+        "Internal environment"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Demographic changes like an aging population are:",
+      "opts": [
+        "Economic factors",
+        "Political factors",
+        "Social factors",
+        "Technological factors"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Lobbying' is a way for businesses to influence the:",
+      "opts": [
+        "Internal environment",
+        "Political environment",
+        "Competitors",
+        "Physical environment"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The 'T' in SWOT stands for:",
+      "opts": [
+        "Turnover",
+        "Threats",
+        "Training",
+        "Technology"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "What is the relationship between business and environment?",
+      "opts": [
+        "One-way impact",
+        "Mutual interdependence",
+        "Hostile only",
+        "Independent"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A wholesaler is considered a:",
+      "opts": [
+        "Supplier",
+        "Competitor",
+        "Marketing intermediary",
+        "Regulator"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which environmental factor deals with R&D and automation?",
+      "opts": [
+        "Technological",
+        "Legal",
+        "Economic",
+        "Social"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A 'Strength' in SWOT could be:",
+      "opts": [
+        "New regulations",
+        "Skilled workforce",
+        "High market growth",
+        "Competitor failure"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which approach responds only after a crisis occurs?",
+      "opts": [
+        "Reactive",
+        "Proactive",
+        "Dynamic",
+        "Strategic"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Corporate Culture' is a factor of the:",
+      "opts": [
+        "Global environment",
+        "Macro environment",
+        "External environment",
+        "Internal environment"
+      ],
+      "correct": 3
+    }
+  ]
+}
