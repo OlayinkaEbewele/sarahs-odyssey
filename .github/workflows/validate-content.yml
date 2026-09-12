@@ -1,0 +1,28 @@
+name: Validate chapter content
+
+# Every chapter JSON must match the schema the app expects. A malformed file would
+# otherwise deploy fine and just show as "not yet charted" in production.
+on:
+  push:
+    paths: ["content/**", "content.js", "scripts/validate-content.py", ".github/workflows/validate-content.yml"]
+  pull_request:
+    paths: ["content/**", "content.js", "scripts/validate-content.py"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate every chapter file
+        run: python3 scripts/validate-content.py --no-write
+      - name: Manifests are up to date
+        run: |
+          python3 scripts/validate-content.py >/dev/null
+          if ! git diff --quiet -- content/*/index.json; then
+            echo "::error::content/*/index.json is stale — run  python3 scripts/validate-content.py  and commit the result"
+            git --no-pager diff --stat -- content/*/index.json
+            exit 1
+          fi

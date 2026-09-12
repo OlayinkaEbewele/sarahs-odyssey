@@ -1,0 +1,80 @@
+{
+  "subject": "ba",
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Nature of Business",
+      "questions": 5
+    },
+    {
+      "n": 2,
+      "title": "Evolution of Business",
+      "questions": 20
+    },
+    {
+      "n": 3,
+      "title": "The Environment of Business",
+      "questions": 20
+    },
+    {
+      "n": 4,
+      "title": "The Organic Business Functions",
+      "questions": 20
+    },
+    {
+      "n": 5,
+      "title": "Business Analysis and Evaluation Tools",
+      "questions": 20
+    },
+    {
+      "n": 6,
+      "title": "The Legal Forms of Business Ownership",
+      "questions": 20
+    },
+    {
+      "n": 7,
+      "title": "Forms of Business Combinations",
+      "questions": 20
+    },
+    {
+      "n": 8,
+      "title": "Documents Used by Business Organisations",
+      "questions": 20
+    },
+    {
+      "n": 9,
+      "title": "Economies of Scale, Economic Systems and Market Structures",
+      "questions": 20
+    },
+    {
+      "n": 10,
+      "title": "The Role of Government in Business",
+      "questions": 20
+    },
+    {
+      "n": 11,
+      "title": "International Business Administration",
+      "questions": 20
+    },
+    {
+      "n": 12,
+      "title": "Business Social Responsibility",
+      "questions": 20
+    },
+    {
+      "n": 13,
+      "title": "Business Survival and Failure in Nigeria",
+      "questions": 20
+    },
+    {
+      "n": 14,
+      "title": "Business Ethics and Corporate Governance",
+      "questions": 20
+    },
+    {
+      "n": 15,
+      "title": "Globalisation and Global Warming",
+      "questions": 20
+    }
+  ]
+}

@@ -50,11 +50,13 @@ change, no rebuild, no restart. Refresh the page and the chapter is live.
   "objectives": ["...", "..."],
   "study": "<p>HTML string</p>",
   "recap": "<ul><li>HTML string</li></ul>",
-  "quiz": [{ "q": "...", "opts": ["...", "..."], "correct": 1 }]
+  "quiz": [{ "q": "...", "opts": ["...", "..."], "correct": 1, "why": "optional" }]
 }
 ```
 
-`correct` is a 0-based index into `opts`. Inside `study` and `recap` you can use
+`correct` is a 0-based index into `opts`. `why` is optional — when present, the verdict
+box after each answer *explains* rather than just correcting, and it's repeated in the
+end-of-trial review. The validator notes which chapters lack it. Inside `study` and `recap` you can use
 `<p>`, `<ul>`/`<ol>`, `<b>`, `<table>`, plus two styled boxes:
 
 ```html
@@ -64,6 +66,22 @@ change, no rebuild, no restart. Refresh the page and the chapter is live.
 
 A chapter with no file shows the "island hasn't been charted yet" placeholder. Its region
 card reads "Uncharted". Everything else in the voyage keeps working.
+
+## Validating content
+
+```bash
+python3 scripts/validate-content.py
+```
+
+Checks every `content/*/ch*.json` against the schema — required keys, `subject` and
+`chapter` matching the file's location, option lists, `correct` in range, `why` a string
+when present — and exits non-zero on any error. It also writes `content/<sea>/index.json`,
+a small manifest of chapter titles that the region page loads instead of fetching every
+chapter file. **Run it before you commit new chapters** and commit the manifest with them.
+
+The same script runs in GitHub Actions on every push that touches `content/`; a broken
+file or a stale manifest fails the check. (Vercel deploys regardless — the check is a
+signal, not a gate.)
 
 ## How content loads
 
@@ -152,6 +170,20 @@ celebration fires only on a genuine first clear, not when revisiting a cleared c
 Crossing a level threshold raises a gold toast.
 
 Everything above is disabled under `prefers-reduced-motion: reduce`.
+
+## The trial
+
+- **Options are shuffled every attempt**, and **question order is shuffled on retakes**,
+  so a second run tests the material rather than the memory of "C, then A". The
+  permutation is stored in saved state, so a reload mid-trial keeps the same order.
+  Answers are recorded as the *original* option index — scoring never depends on how
+  things were displayed.
+- A right answer earns one of sixteen affirmations (chosen per question, so no two in a
+  row repeat); a wrong one is corrected. With an authored `why`, both are followed by the
+  explanation.
+- The victory screen ends with **What you missed** — every wrong answer with the question,
+  what you chose, the true answer and the `why` if there is one. A perfect run has no
+  review section.
 
 ## Redoing a chapter
 

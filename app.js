@@ -166,9 +166,34 @@
   /* Region grids show every chapter's real title, locked ones included — a sealed island
      you can name is a better invitation than a row of "Uncharted". Titles are cached into
      saved state, so this full sweep costs one pass per sea and nothing after that. */
+  const manifestTried = new Set();
+
+  /* content/<sea>/index.json is written by scripts/validate-content.py — one small
+     file carrying every chapter's title. If it's present the region page needs no
+     chapter fetches at all; if it's missing or behind, the sweep below fills the gaps. */
+  async function loadManifest(subjectId) {
+    if (manifestTried.has(subjectId)) return;
+    manifestTried.add(subjectId);
+    try {
+      const res = await fetch('content/' + subjectId + '/index.json');
+      if (!res.ok) return;
+      const m = await res.json();
+      if (!m || !Array.isArray(m.chapters)) return;
+      let changed = false;
+      m.chapters.forEach(c => {
+        if (c && c.n && c.title && S.titles[key(subjectId, c.n)] !== c.title) {
+          S.titles[key(subjectId, c.n)] = c.title;
+          changed = true;
+        }
+      });
+      if (changed) saveLocal();
+    } catch (e) { /* no manifest — fall through to the sweep */ }
+  }
+
   async function warmSubject(subjectId) {
     const sub = subjectOf(subjectId);
     if (!sub) return false;
+    await loadManifest(subjectId);
     const wanted = [];
     for (let n = 1; n <= sub.chapters; n++) {
       const k = key(subjectId, n);
@@ -705,10 +730,54 @@
     return S.pos[k];
   }
 
+  /* ---- trial ordering ----
+     Every attempt shuffles the options of each question; retakes also shuffle the
+     question order, so a second run tests the material rather than the memory of
+     "it was C, then A". The permutations live in saved state so they survive a
+     reload mid-trial. Answers are stored as ORIGINAL option indices — scoring and
+     the missed-question review never have to know how things were displayed. */
+
+  const identity = n => Array.from({ length: n }, (_, i) => i);
+  function shuffled(n) {
+    const a = identity(n);
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function beginTrial(ch, p, retake) {
+    p.stage = 2; p.qi = 0; p.answers = [];
+    p.qOrder = retake ? shuffled(ch.quiz.length) : identity(ch.quiz.length);
+    p.oOrder = ch.quiz.map(q => shuffled(q.opts.length));
+  }
+
+  /* Original question index shown at presentation slot k. */
+  const qAt = (ch, p, k) => (p.qOrder && p.qOrder.length === ch.quiz.length) ? p.qOrder[k] : k;
+  /* Display order of options for original question qi. */
+  const optOrder = (ch, p, qi) =>
+    (p.oOrder && p.oOrder[qi] && p.oOrder[qi].length === ch.quiz[qi].opts.length) ? p.oOrder[qi] : identity(ch.quiz[qi].opts.length);
+
   function trialScore(ch, p) {
     const qs = ch.quiz;
-    const right = p.answers.filter((a, i) => qs[i] && a === qs[i].correct).length;
+    let right = 0;
+    for (let k = 0; k < qs.length; k++) {
+      const a = p.answers[k];
+      if (a !== undefined && a !== null && a === qs[qAt(ch, p, k)].correct) right++;
+    }
     return { right: right, total: qs.length, pct: Math.round(right / qs.length * 100) };
+  }
+
+  /* The questions answered wrongly on this run, in the order they were shown. */
+  function missedQuestions(ch, p) {
+    const out = [];
+    for (let k = 0; k < ch.quiz.length; k++) {
+      const qi = qAt(ch, p, k), q = ch.quiz[qi], a = p.answers[k];
+      if (a === undefined || a === null || a === q.correct) continue;
+      out.push({ n: k + 1, q: q.q, picked: q.opts[a], truth: q.opts[q.correct], why: q.why || null });
+    }
+    return out;
   }
 
   function renderChapter(subjectId, n) {
@@ -796,33 +865,62 @@
       '<button class="btn pxs pop btn--inline" data-next="1" style="margin-top:24px">ENTER THE TRIAL ▶</button></div>';
   }
 
+  /* Said when a trial answer is right. Chosen deterministically from the question and
+     its slot so a re-render never swaps the line mid-read, but no two questions in a
+     row say the same thing. */
+  const AFFIRMATIONS = [
+    'True course — Athena nods.',
+    'The wind is with you.',
+    'Straight through the strait.',
+    'A steady hand on the tiller.',
+    'The stars agree with you.',
+    'Well charted, navigator.',
+    'Poseidon has no quarrel with that.',
+    'The oars pull as one.',
+    'Ithaca draws a little nearer.',
+    'The sirens could not shake you.',
+    'Nestor himself would approve.',
+    'Land ho — that is the one.',
+    'You read the chart right.',
+    'Not a rock scraped.',
+    'The crew cheers from the deck.',
+    'A clean line through the reef.'
+  ];
+  const affirmation = (qi, k) => AFFIRMATIONS[(qi * 7 + k * 3) % AFFIRMATIONS.length];
+
   function renderTrial(ch, p) {
     const qs = ch.quiz;
-    const qi = Math.min(p.qi, qs.length - 1);
+    const k = Math.min(p.qi, qs.length - 1);      // presentation slot
+    const qi = qAt(ch, p, k);                      // original question index
     const q = qs[qi];
-    const picked = p.answers[qi];
+    const order = optOrder(ch, p, qi);             // display slot j -> original option order[j]
+    const picked = p.answers[k];                   // original option index, or undefined
     const answered = picked !== undefined && picked !== null;
     const correct = answered && picked === q.correct;
-    const last = qi === qs.length - 1;
+    const last = k === qs.length - 1;
 
-    const options = q.opts.map((text, i) => {
+    const options = order.map((orig, j) => {
       let cls = '';
-      if (answered) cls = i === q.correct ? 'correct' : i === picked ? 'wrong' : 'dim';
-      return '<button class="opt ' + cls + '" data-pick="' + i + '"' + (answered ? ' disabled' : '') + '>' +
-        '<span class="k">' + 'ABCDEFGH'[i] + '</span><span class="t">' + esc(text) + '</span></button>';
+      if (answered) cls = orig === q.correct ? 'correct' : orig === picked ? 'wrong' : 'dim';
+      return '<button class="opt ' + cls + '" data-pick="' + orig + '"' + (answered ? ' disabled' : '') + '>' +
+        '<span class="k">' + 'ABCDEFGH'[j] + '</span><span class="t">' + esc(q.opts[orig]) + '</span></button>';
     }).join('');
+
+    /* A right answer earns a different word each time; with an authored `why` the
+       explanation follows. A wrong answer is corrected, then explained if it can be. */
+    let explain;
+    if (correct) explain = affirmation(qi, k) + (q.why ? ' ' + q.why : '');
+    else explain = 'The true answer is “' + q.opts[q.correct] + '”.' + (q.why ? ' ' + q.why : '');
 
     const feedback = answered ? '<div class="verdictrow">' +
       '<div class="verdict px"><div class="v">' + (correct ? 'TRUE COURSE' : 'OFF COURSE') + '</div>' +
-      '<div class="e">' + esc(correct
-        ? 'That is the right heading.'
-        : 'The true answer is “' + q.opts[q.correct] + '”.') + '</div></div>' +
+      '<div class="e">' + esc(explain) + '</div></div>' +
       '<button class="btn pxs pop" data-next="1">' + (last ? 'CLAIM VICTORY ▶' : 'NEXT TRIAL ▶') + '</button></div>' : '';
 
     return '<div class="prose">' +
-      '<div class="trialhead"><span class="q">TRIAL · Q' + (qi + 1) + '/' + qs.length + '</span>' +
+      '<div class="trialhead"><span class="q">TRIAL · Q' + (k + 1) + '/' + qs.length + '</span>' +
       '<span class="pass">PASS ' + PASS_MARK + '%</span></div>' +
-      '<div class="bar">' + bars(qi + (answered ? 1 : 0), qs.length, 'on', '') + '</div>' +
+      '<div class="bar">' + bars(k + (answered ? 1 : 0), qs.length, 'on', '') + '</div>' +
       '<div class="question">' + esc(q.q) + '</div>' +
       '<div class="options">' + options + '</div>' + feedback + '</div>';
   }
@@ -883,6 +981,18 @@
     const buttons = '<div class="btnrow">' +
       (passed ? back + again : stillCleared ? back + retry : retry) + '</div>';
 
+    /* What you missed — the moment right after a trial is when a student is most
+       ready to learn from it, so the review lives here rather than behind a click. */
+    const missed = missedQuestions(ch, p);
+    const review = missed.length ? '<div class="missed">' +
+      '<div class="label" style="color:var(--clay)">WHAT YOU MISSED · ' + missed.length + ' OF ' + sc.total + '</div>' +
+      '<ol class="missedlist">' + missed.map(m =>
+        '<li><div class="mq"><span class="mn">Q' + m.n + '</span>' + esc(m.q) + '</div>' +
+        '<div class="mrow mrow--picked"><span>YOU CHOSE</span>' + esc(m.picked) + '</div>' +
+        '<div class="mrow mrow--truth"><span>TRUE COURSE</span>' + esc(m.truth) + '</div>' +
+        (m.why ? '<div class="mwhy">' + esc(m.why) + '</div>' : '') + '</li>').join('') +
+      '</ol></div>' : '';
+
     return '<div class="victory' + (celebrate ? ' celebrate' : '') + '">' +
       '<div class="eyebrow">' + eyebrow + '</div>' +
       '<div class="medalwrap">' +
@@ -892,7 +1002,7 @@
       (sc.pct === 100 ? '<div class="medalribbon">★ PERFECT VOYAGE ★</div>' : '') +
       '<h2>' + heading + '</h2>' +
       '<div class="sub">' + esc(sub_) + '</div>' +
-      tally + buttons + '</div>';
+      tally + review + buttons + '</div>';
   }
 
   let lastRunWasBest = false;   // did the run just finished beat the previous best?
@@ -1296,10 +1406,11 @@
       /* On a cleared chapter the saved answers belong to a finished run, so stepping
          back into the Trial starts a fresh attempt rather than dropping you on the
          last question with everything already answered. */
-      if (want === 2 && isCleared(route.sea, route.n) && p.answers.length) {
-        p.qi = 0; p.answers = [];
+      if (want === 2 && p.stage === 3) {
+        beginTrial(ch, p, true);                  // any run after a victory screen is a retake
+      } else {
+        p.stage = want;
       }
-      p.stage = want;
       celebrateFor = null;
       save(); render();
       return;
@@ -1307,9 +1418,9 @@
 
     const pickEl = t.closest('[data-pick]');
     if (pickEl && !pickEl.disabled) {
-      const qi = Math.min(p.qi, ch.quiz.length - 1);
-      if (p.answers[qi] === undefined || p.answers[qi] === null) {
-        p.answers[qi] = Number(pickEl.dataset.pick);
+      const k = Math.min(p.qi, ch.quiz.length - 1);
+      if (p.answers[k] === undefined || p.answers[k] === null) {
+        p.answers[k] = Number(pickEl.dataset.pick);   // original option index
         markStudiedToday();
         save(); render();
       }
@@ -1320,6 +1431,9 @@
       if (p.stage === 2) {
         if (p.qi < ch.quiz.length - 1) p.qi++;
         else { p.stage = 3; clearChapter(sub, ch, p); }
+      } else if (p.stage === 1) {
+        beginTrial(ch, p, !!S.cleared[key(route.sea, route.n)]);
+        markStudiedToday();
       } else {
         p.stage = Math.min(p.stage + 1, 3);
         markStudiedToday();
@@ -1330,14 +1444,14 @@
     }
 
     if (t.closest('[data-retry]')) {
-      p.stage = 2; p.qi = 0; p.answers = [];
+      beginTrial(ch, p, true);
       celebrateFor = null;
       save(); render();
       return;
     }
 
     if (t.closest('[data-redo]')) {
-      p.stage = 0; p.qi = 0; p.answers = [];    // re-read from the top, clean trial waiting
+      p.stage = 0; p.qi = 0; p.answers = []; p.qOrder = null; p.oOrder = null;   // re-read; beginTrial runs at Recap
       celebrateFor = null;
       save(); render();
       window.scrollTo(0, 0);
