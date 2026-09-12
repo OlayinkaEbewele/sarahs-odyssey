@@ -53,9 +53,11 @@
       pos: {},            // 'ba-1' -> {stage, qi, answers:[]}
       titles: {},         // 'ba-1' -> 'Nature of Business'  (so regions render without refetching)
       studied: [],        // ISO dates on which something was completed
-      sched: {},          // cardId -> {due, ivl, last}
+      sched: {},          // cardId -> {due, ivl, ease, reps, last}
       cardsReviewed: 0,
-      perfectTrial: false
+      perfectTrial: false,
+      relics: {},         // relic name -> ISO date found
+      mocks: []           // finished mock exams, oldest first
     };
   }
 
@@ -70,6 +72,8 @@
         if (parsed && parsed.v === 2) {
           S = parsed;
           if (!S.startedOn) S.startedOn = S.studied && S.studied.length ? S.studied.slice().sort()[0] : today();
+          if (!S.relics) S.relics = {};
+          if (!S.mocks) S.mocks = [];
         }
       }
       EMAIL = localStorage.getItem(EMAIL_STORE) || null;
@@ -119,6 +123,7 @@
   /* Every mutation goes through save(): local first, cloud on a debounce. */
   function save() {
     saveLocal();
+    checkRelics();
     pushRemote();
   }
 
@@ -243,6 +248,7 @@
   const totalChapters = () => SUBJECTS.reduce((a, s) => a + s.chapters, 0);
   const voyagePercent = () => Math.round(totalCleared() / totalChapters() * 100);
 
+  const rankOf = lv => RANKS[Math.min(lv, RANKS.length) - 1];
   function levelOf(xp) { let lv = 1; for (let i = 0; i < LEVELS.length; i++) if (xp >= LEVELS[i]) lv = i + 1; return lv; }
   function xpToNext(xp) { const n = LEVELS[levelOf(xp)]; return n === undefined ? 0 : n - xp; }
   function levelFill(xp) {
@@ -261,13 +267,36 @@
   }
 
   function badgeState() {
+    const seasDone = {};
+    SUBJECTS.forEach(s => { seasDone[s.id] = subjectDone(s.id); });
     return {
       clearedCount: totalCleared(),
       streak: streakLength(),
       cardsReviewed: S.cardsReviewed,
       subjectsCleared: SUBJECTS.filter(s => subjectDone(s.id)).length,
-      perfectTrial: S.perfectTrial
+      perfectTrial: S.perfectTrial,
+      seasDone: seasDone,
+      bestMock: (S.mocks || []).reduce((m, r) => Math.max(m, r.pct), 0)
     };
+  }
+
+  /* Relics are earned by state, not by event — so a navigator who cleared a sea before
+     this existed still gets the relic. New ones are dated and announced. */
+  function checkRelics() {
+    if (!S.relics) S.relics = {};
+    const st = badgeState();
+    const found = [];
+    BADGES.forEach(b => {
+      if (b.test(st) && !S.relics[b.name]) { S.relics[b.name] = today(); found.push(b); }
+    });
+    if (found.length) {
+      saveLocal();
+      found.forEach((b, i) => setTimeout(() => {
+        toast('RELIC FOUND — ' + b.icon + ' ' + b.name, 'levelup');
+        sfx('relic');
+      }, 2000 + i * 3000));
+    }
+    return found;
   }
 
   /* ---------------- flashcard deck ----------------
@@ -279,15 +308,31 @@
     Object.keys(S.cleared).forEach(k => {
       const ch = chapterCache.get(k);
       if (!ch) return;
-      ch.quiz.forEach((q, i) => out.push({
-        id: k + '-q' + i,
-        front: q.q,
-        back: q.opts[q.correct],
-        src: (subjectOf(ch.subject) || {}).roman + ' · CH ' + ch.chapter
-      }));
+      const src = (subjectOf(ch.subject) || {}).roman + ' · CH ' + ch.chapter;
+      /* Authored cards are proper recall prompts; the quiz fallback keeps the deck
+         alive for chapters written before `cards` existed in the schema. */
+      if (Array.isArray(ch.cards) && ch.cards.length) {
+        ch.cards.forEach((c, i) => { if (c && c.front && c.back) out.push({ id: k + '-c' + i, front: c.front, back: c.back, src: src }); });
+      } else {
+        ch.quiz.forEach((q, i) => out.push({ id: k + '-q' + i, front: q.q, back: q.opts[q.correct], src: src }));
+      }
     });
     return out;
   }
+
+  /* ---- scheduling ----
+     A light SM-2. Intervals grow with every successful review, scaled by an ease that
+     drifts with how hard the card has been; a lapse sends it back to today and dents
+     the ease. Over a two-month runway this is what keeps easy cards out of the way. */
+  function nextSchedule(prev, kind) {
+    const ease = prev && prev.ease ? prev.ease : 2.5;
+    const reps = prev && prev.reps ? prev.reps : 0;
+    const ivl = prev && prev.ivl ? prev.ivl : 0;
+    if (kind === 'again') return { ivl: 0, ease: Math.max(1.3, ease - 0.2), reps: 0 };
+    if (kind === 'hard')  return { ivl: reps === 0 ? 1 : Math.max(ivl + 1, Math.round(ivl * 1.2)), ease: Math.max(1.3, ease - 0.15), reps: reps + 1 };
+    /* easy */            return { ivl: reps === 0 ? 4 : reps === 1 ? 10 : Math.round(ivl * ease), ease: Math.min(3.0, ease + 0.05), reps: reps + 1 };
+  }
+  const ivlLabel = d => d === 0 ? '<1 MIN' : d === 1 ? '1 DAY' : d < 30 ? d + ' DAYS' : Math.round(d / 30) + ' MO';
 
   async function warmDeck() {
     const missing = Object.keys(S.cleared).filter(k => !chapterCache.has(k));
@@ -311,6 +356,7 @@
     if (p[0] === 'counsel' || p[0] === 'cards') return { name: 'counsel' };
     if (p[0] === 'stats') return { name: 'stats' };
     if (p[0] === 'crew') return { name: 'crew' };
+    if (p[0] === 'ithaca') return { name: p[1] === 'exam' ? 'mockexam' : p[1] === 'result' ? 'mockresult' : 'ithaca' };
     if (p[0] === 'sea' && p[1]) {
       if (p[2] === 'ch') return { name: 'chapter', sea: p[1], n: Number(p[3]) };
       return { name: 'region', sea: p[1] };
@@ -405,6 +451,51 @@
     document.addEventListener('keydown', go, true);
   }
 
+  /* ---------------- 8-bit sound effects ----------------
+     Synthesised with WebAudio so there are no files to fetch. The AudioContext is
+     created lazily inside a click, which is what browsers require. Follows the
+     music toggle: muted is muted. */
+
+  let actx = null;
+  function ac() {
+    if (!actx) {
+      const C = window.AudioContext || window.webkitAudioContext;
+      if (!C) return null;
+      actx = new C();
+    }
+    if (actx.state === 'suspended') actx.resume().catch(() => {});
+    return actx;
+  }
+
+  /* One square-wave note. */
+  function blip(freq, at, dur, type, gain) {
+    const c = ac(); if (!c) return;
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = type || 'square';
+    o.frequency.setValueAtTime(freq, c.currentTime + at);
+    g.gain.setValueAtTime(0.0001, c.currentTime + at);
+    g.gain.exponentialRampToValueAtTime(gain || 0.12, c.currentTime + at + 0.008);
+    g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + at + dur);
+    o.connect(g).connect(c.destination);
+    o.start(c.currentTime + at);
+    o.stop(c.currentTime + at + dur + 0.02);
+  }
+
+  const SFX = {
+    right:   () => { blip(660, 0, .07); blip(990, .07, .10); },
+    wrong:   () => { blip(160, 0, .18, 'sawtooth', .10); blip(120, .12, .16, 'sawtooth', .08); },
+    tick:    () => { blip(880, 0, .035, 'square', .06); },
+    victory: () => { [523, 659, 784, 1047].forEach((f, i) => blip(f, i * .09, .12)); blip(1319, .4, .28); },
+    fail:    () => { [392, 349, 311].forEach((f, i) => blip(f, i * .16, .18, 'triangle', .1)); },
+    relic:   () => { [1047, 1319, 1568, 2093].forEach((f, i) => blip(f, i * .06, .1, 'triangle', .09)); blip(2637, .28, .3, 'triangle', .07); },
+    levelup: () => { [523, 659, 784, 1047, 1319].forEach((f, i) => blip(f, i * .08, .14)); }
+  };
+
+  function sfx(name) {
+    if (!musicOn) return;
+    try { SFX[name] && SFX[name](); } catch (e) { /* audio is optional */ }
+  }
+
   /* ---------------- chrome ---------------- */
 
   function tabFor(r) {
@@ -431,7 +522,12 @@
     } else if (route.name === 'stats') {
       brand.textContent = "CAPTAIN'S LOG";
       const d = daysBetween(today(), EXAM_DATE);
-      meta.innerHTML = '<span>' + (d > 0 ? 'EXAM IN ' + d + ' DAYS' : 'EXAM DAY') + '</span>';
+      meta.innerHTML = '<span class="dt-only">' + (d > 0 ? 'EXAM IN ' + d + ' DAYS' : 'EXAM DAY') + '</span>' +
+        '<span class="mb-only">' + (d > 0 ? d + 'D' : 'EXAM') + '</span>';
+    } else if (route.name === 'ithaca' || route.name === 'mockexam' || route.name === 'mockresult') {
+      brand.textContent = 'ITHACA';
+      meta.innerHTML = '<span class="dt-only">LV ' + lv + ' · ' + S.xp.toLocaleString('en-US') + ' XP</span>' +
+        '<span class="mb-only">LV ' + lv + '</span>';
     } else if (route.name === 'chapter') {
       const s = subjectOf(route.sea);
       brand.textContent = 'ODYSSEY';
@@ -482,6 +578,8 @@
       if (!S.titles) S.titles = {};
       if (!S.studied) S.studied = [];
       if (!S.sched) S.sched = {};
+      if (!S.relics) S.relics = {};
+      if (!S.mocks) S.mocks = [];
       if (!S.startedOn) S.startedOn = S.studied.length ? S.studied.slice().sort()[0] : today();
       syncState = 'ok';
     } else if (!failed) {
@@ -517,6 +615,8 @@
       if (!S.titles) S.titles = {};
       if (!S.studied) S.studied = [];
       if (!S.sched) S.sched = {};
+      if (!S.relics) S.relics = {};
+      if (!S.mocks) S.mocks = [];
       if (!S.startedOn) S.startedOn = S.studied.length ? S.studied.slice().sort()[0] : today();
       saveLocal();
       return true;
@@ -582,13 +682,23 @@
       '<div class="bar">' + bars(Math.round(pct / 100 * 9), 9, 'on', '') + '</div>' +
       '<div class="pct">' + pct + '%</div></div>';
 
+    /* Two reasons to come back today, surfaced where the eye lands first. */
+    const due = dueCards().length;
+    const streak = streakLength();
+    const studiedToday = S.studied.indexOf(today()) !== -1;
+    const nudges = [];
+    if (due > 0) nudges.push('<button class="nudge" data-go="#/counsel">✦ ' + due + ' card' + (due === 1 ? '' : 's') + ' due in Athena’s Counsel</button>');
+    if (streak > 0 && !studiedToday) nudges.push('<span class="nudge nudge--warn">⚑ Your ' + streak + '-day streak ends tonight</span>');
+    const nudgeHTML = nudges.length ? '<div class="nudges">' + nudges.join('') + '</div>' : '';
+
     const nextCard = '<div class="panel panel--parch nextport">' +
       '<div class="label">NEXT PORT OF CALL</div>' +
       '<h2>' + esc(sub.title) + ' — Ch. ' + n + '</h2>' +
       '<p>' + (title
         ? esc(title) + '. Study, recap, then the trial — ' + PASS_MARK + '% to break the seal on Chapter ' + (n + 1) + '.'
         : esc(sub.name) + '. Chapter ' + n + ' has not been charted yet.') + '</p>' +
-      '<button class="btn pxs pop" data-go="#/sea/' + sub.id + '/ch/' + n + '">SET SAIL ▶</button></div>';
+      '<button class="btn pxs pop" data-go="#/sea/' + sub.id + '/ch/' + n + '">SET SAIL ▶</button>' +
+      nudgeHTML + '</div>';
 
     const voyagePanel = '<div class="panel panel--deep">' +
       '<div class="label">VOYAGE TO ITHACA</div>' +
@@ -1030,7 +1140,7 @@
       save();
       celebrateFor = k;
       const lvAfter = levelOf(S.xp);
-      if (lvAfter > lvBefore) setTimeout(() => toast('LEVEL UP — LV ' + lvAfter, 'levelup'), 1300);
+      if (lvAfter > lvBefore) setTimeout(() => { toast('LEVEL UP — LV ' + lvAfter + ' · ' + rankOf(lvAfter), 'levelup'); sfx('levelup'); }, 1300);
     } else {
       prev.attempts = (prev.attempts || 1) + 1;
       if (sc.pct > prev.score) { prev.score = sc.pct; prev.on = today(); lastRunWasBest = true; }
@@ -1043,12 +1153,13 @@
 
   /* ---------------- screen: Athena's Counsel (flashcard review) ---------------- */
 
-  function startSession() {
+  function dueCards() {
     const t = today();
-    const due = deckCards().filter(c => {
-      const s = S.sched[c.id];
-      return !s || s.due <= t;
-    });
+    return deckCards().filter(c => { const s = S.sched[c.id]; return !s || s.due <= t; });
+  }
+
+  function startSession() {
+    const due = dueCards();
     cardSession = { cards: due, queue: due.map(c => c.id), total: due.length, done: 0, flipped: false, xp: 0 };
   }
 
@@ -1077,11 +1188,14 @@
       (cs.flipped ? '' : '<span class="hint">TAP TO REVEAL · SPACE</span>') +
       '<span class="src">SEA ' + esc(card.src) + '</span></button>';
 
+    const prev = S.sched[card.id];
     const rates = cs.flipped ? '<div><div class="rates">' +
       '<button class="rate again pop" data-rate="again">AGAIN</button>' +
       '<button class="rate hard pop" data-rate="hard">HARD</button>' +
       '<button class="rate easy pop" data-rate="easy">EASY</button></div>' +
-      '<div class="ratehints"><div>&lt;1 MIN</div><div>2 DAYS</div><div>6 DAYS</div></div></div>' : '';
+      '<div class="ratehints"><div>' + ivlLabel(nextSchedule(prev, 'again').ivl) + '</div>' +
+      '<div>' + ivlLabel(nextSchedule(prev, 'hard').ivl) + '</div>' +
+      '<div>' + ivlLabel(nextSchedule(prev, 'easy').ivl) + '</div></div></div>' : '';
 
     const deckStats = '<dl class="deckstats">' +
       '<div><dt>DUE</dt><dd>' + cs.queue.length + '</dd></div>' +
@@ -1095,7 +1209,7 @@
         '<span class="mono" class="pixnum pixnum--parch">' + k + '</span>' +
         '<span class="mono" class="pixnum pixnum--gold">' + v + '</span></div>').join('') + '</div>' +
       '<div class="panel panel--parch"><div class="label label--ink">DECK SOURCE</div>' +
-      '<div style="font-size:14px;line-height:1.6;color:rgba(38,34,26,.8)">Every question from a cleared trial becomes a card. ' +
+      '<div class="txt txt--ink">Cards come from the chapters you have cleared — authored recall prompts where the chapter has them, its trial questions otherwise. ' +
       totalCleared() + ' of ' + totalChapters() + ' chapters cleared so far.</div></div>' +
       '<div class="panel panel--deep"><div class="label label--gold">SHORTCUTS</div>' +
       '<div class="txt txt--parch">Space — flip<br>1 / 2 / 3 — again · hard · easy</div></div>';
@@ -1114,8 +1228,8 @@
     if (!cs || !cs.flipped || !cs.queue.length) return;
     const id = cs.queue.shift();
     const t = today();
-    const ivl = kind === 'again' ? 0 : kind === 'hard' ? 2 : 6;
-    S.sched[id] = { due: addDays(t, ivl), ivl: ivl, last: t };
+    const nx = nextSchedule(S.sched[id], kind);
+    S.sched[id] = { due: addDays(t, nx.ivl), ivl: nx.ivl, ease: nx.ease, reps: nx.reps, last: t };
     if (kind === 'again') cs.queue.push(id); else cs.done++;
     cs.turn = true;
     S.cardsReviewed++;
@@ -1149,7 +1263,7 @@
     }
 
     const navigator = '<div class="panel panel--sea"><div class="navigator">' +
-      '<div><div class="label label--gold" style="margin:0">NAVIGATOR</div><div class="lv">LV ' + lv + '</div></div>' +
+      '<div><div class="label label--gold" style="margin:0">' + esc(rankOf(lv)) + '</div><div class="lv">LV ' + lv + '</div></div>' +
       '<div style="text-align:right"><div class="xp">' + S.xp.toLocaleString('en-US') + ' XP</div>' +
       '<div class="togo">' + (togo ? togo + ' TO LV ' + (lv + 1) : 'MAX RANK') + '</div></div></div>' +
       '<div class="bar bar--tall">' + bars(fill, 10, 'on', 'lvoff') + '</div></div>';
@@ -1171,12 +1285,55 @@
       }).join('') + '</div></div>';
 
     const bs = badgeState();
-    const relicsPanel = '<div class="panel panel--deep"><div class="label label--gold">RELICS</div>' +
+    const relicsPanel = '<div class="panel panel--deep"><div class="label label--gold">RELICS · ' +
+      BADGES.filter(b => b.test(bs)).length + ' OF ' + BADGES.length + '</div>' +
       '<div class="relics">' + BADGES.map(b => {
         const on = b.test(bs);
-        return '<div class="relic' + (on ? '' : ' off') + '"><div class="ic pxs">' + b.icon + '</div>' +
-          '<div class="nm">' + b.name + '</div></div>';
+        const when = S.relics && S.relics[b.name];
+        return '<div class="relic' + (on ? '' : ' off') + '" title="' + esc(b.hint + (when ? ' — found ' + when : '')) + '">' +
+          '<div class="ic pxs">' + b.icon + '</div><div class="nm">' + b.name + '</div></div>';
       }).join('') + '</div></div>';
+
+    /* The log proper — every dated event, newest first. Old saves already carry the
+       dates, so this fills in retroactively. */
+    const events = [];
+    Object.keys(S.cleared).forEach(k => {
+      const rec = S.cleared[k];
+      const sid = k.slice(0, k.lastIndexOf('-')), n = Number(k.slice(k.lastIndexOf('-') + 1));
+      const sub = subjectOf(sid);
+      if (rec.on) events.push({ on: rec.on, kind: 'chapter', text: 'Cleared ' + (sub ? sub.roman : sid) + '·' + n +
+        (S.titles[k] ? ' — ' + S.titles[k] : '') + ' at ' + rec.score + '%' });
+    });
+    SUBJECTS.forEach(sub => {
+      if (!subjectDone(sub.id)) return;
+      let last = '';
+      for (let n = 1; n <= sub.chapters; n++) { const r = S.cleared[key(sub.id, n)]; if (r && r.on > last) last = r.on; }
+      if (last) events.push({ on: last, kind: 'sea', text: 'Left ' + sub.title + ' behind — every chapter charted' });
+    });
+    Object.keys(S.relics || {}).forEach(name => {
+      const b = BADGES.find(x => x.name === name);
+      events.push({ on: S.relics[name], kind: 'relic', text: 'Relic found — ' + (b ? b.icon + ' ' : '') + name });
+    });
+    (S.mocks || []).forEach(m => events.push({ on: m.on, kind: 'mock',
+      text: (m.mode === 'landfall' ? 'Landfall' : 'Sea trial') + ' — ' + m.right + ' of ' + m.total + ' (' + m.pct + '%)' }));
+    if (S.startedOn) events.push({ on: S.startedOn, kind: 'start', text: 'Set sail from the harbour' });
+    events.sort((a, b) => (b.on > a.on ? 1 : b.on < a.on ? -1 : 0));
+    const fmt = niceDate;
+    const logPanel = '<div class="panel panel--parch"><div class="label label--ink">THE LOG</div>' +
+      (events.length ? '<ul class="loglist">' + events.slice(0, 12).map(e =>
+        '<li class="log-' + e.kind + '"><span class="logdate">' + fmt(e.on) + '</span><span class="logtext">' + esc(e.text) + '</span></li>').join('') +
+        '</ul>' + (events.length > 12 ? '<div class="txt txt--sm txt--ink" style="margin-top:10px">… and ' + (events.length - 12) + ' earlier entries</div>' : '')
+      : '<div class="txt txt--ink">Nothing written yet. Clear a chapter and the log begins.</div>') + '</div>';
+
+    /* Mock exam history — the trend line that matters in the last month. */
+    const mocks = (S.mocks || []).slice(-6);
+    const mockPanel = '<div class="panel panel--sea"><div class="label label--gold">SEA TRIALS</div>' +
+      (mocks.length ? '<div class="mocklist">' + mocks.map(m =>
+        '<div class="mockrow"><span class="pixnum pixnum--parch">' + fmt(m.on) + '</span>' +
+        '<div class="bar" style="flex:1;height:12px;gap:2px;padding:2px">' + bars(Math.round(m.pct / 10), 10, m.pct >= PASS_MARK ? 'on' : 'mockfail', '') + '</div>' +
+        '<span class="pixnum ' + (m.pct >= PASS_MARK ? 'pixnum--gold' : 'pixnum--clay') + '">' + m.pct + '%</span></div>').join('') + '</div>'
+      : '<div class="txt txt--parch">No mock exams yet. Sail to Ithaca on the map to sit one.</div>') +
+      '<button class="btn pxs pop" data-go="#/ithaca" style="margin-top:14px">' + (mocks.length ? 'SIT ANOTHER' : 'SAIL TO ITHACA') + '</button></div>';
 
     const syncLabel = syncState === 'ok' ? 'SYNCED' : syncState === 'error' ? 'LOCAL ONLY' : 'OFF';
     const syncColor = syncState === 'ok' ? 'var(--gold)' : syncState === 'error' ? 'var(--clay)' : 'var(--parch)';
@@ -1190,8 +1347,10 @@
     return '<div class="shell"><div class="stack" style="margin-bottom:14px">' +
       '<div class="cols cols--wide"><div class="main">' + navigator + '</div>' +
       '<div class="side">' + streakPanel + '</div></div>' +
-      '<div class="cols cols--wide"><div class="main">' + seasPanel + '</div>' +
-      '<div class="side">' + relicsPanel + syncPanel + '</div></div></div></div>';
+      '<div class="cols cols--wide"><div class="main vstack vstack--md">' + seasPanel + mockPanel + '</div>' +
+      '<div class="side">' + relicsPanel + '</div></div>' +
+      '<div class="cols cols--wide"><div class="main">' + logPanel + '</div>' +
+      '<div class="side">' + syncPanel + '</div></div></div></div>';
   }
 
   /* ---------------- screen: crew ---------------- */
@@ -1232,7 +1391,7 @@
       esc(m.name.slice(0, 1).toUpperCase()) + '</div>' +
       '<div class="crewbody">' +
       '<div class="crewname">' + esc(m.name) + (m.you ? ' <span class="youtag">YOU</span>' : '') + '</div>' +
-      '<div class="crewmeta">LV ' + lv + ' · ' + m.xp.toLocaleString('en-US') + ' XP</div>' +
+      '<div class="crewmeta">' + esc(rankOf(lv)) + ' · LV ' + lv + ' · ' + m.xp.toLocaleString('en-US') + ' XP</div>' +
       '<div class="bar crewbar">' + bars(Math.max(m.cleared ? 1 : 0, Math.round(pct / 100 * 10)), 10, 'on', 'off') + '</div>' +
       '<div class="crewsub">' + m.cleared + ' of ' + totalChapters() + ' chapters' +
       (m.lastStudied ? ' · last seen ' + esc(m.lastStudied) : ' · not yet sailed') + '</div>' +
@@ -1262,6 +1421,263 @@
       '<div class="crewgrid">' + crewRoster.map(crewCard).join('') + '</div></div>';
   }
 
+  /* ---------------- Ithaca: the mock exam ----------------
+     Sea Trials draw from every chapter you've cleared, so the paper grows with the
+     voyage; Landfall is the same exam once all 83 are charted. Timed, no feedback
+     until the end, answers changeable until you submit. The paper lives in saved
+     state with a wall-clock deadline, so a reload resumes with the time you had left. */
+
+  let mockTimer = null;
+
+  function mockPool() {
+    const pool = [];
+    Object.keys(S.cleared).forEach(k => {
+      const ch = chapterCache.get(k);
+      if (!ch) return;
+      ch.quiz.forEach((q, qi) => pool.push({ sid: ch.subject, n: ch.chapter, qi: qi }));
+    });
+    return pool;
+  }
+
+  /* Stratified draw: each sea contributes in proportion to its share of the pool. */
+  function drawPaper(pool, want) {
+    if (pool.length <= want) return shuffled(pool.length).map(i => pool[i]);
+    const bySid = {};
+    pool.forEach(q => { (bySid[q.sid] = bySid[q.sid] || []).push(q); });
+    const sids = Object.keys(bySid);
+    const quota = {};
+    let assigned = 0;
+    sids.forEach(sid => { quota[sid] = Math.floor(want * bySid[sid].length / pool.length); assigned += quota[sid]; });
+    /* hand out the rounding remainder to the largest pools */
+    sids.sort((a, b) => bySid[b].length - bySid[a].length);
+    for (let i = 0; assigned < want; i = (i + 1) % sids.length) { quota[sids[i]]++; assigned++; }
+    const paper = [];
+    sids.forEach(sid => {
+      const idx = shuffled(bySid[sid].length).slice(0, quota[sid]);
+      idx.forEach(i => paper.push(bySid[sid][i]));
+    });
+    return shuffled(paper.length).map(i => paper[i]);
+  }
+
+  function startMock(mode) {
+    const paper = drawPaper(mockPool(), MOCK_QUESTIONS).map(q => {
+      const ch = chapterCache.get(key(q.sid, q.n));
+      return { sid: q.sid, n: q.n, qi: q.qi, order: shuffled(ch.quiz[q.qi].opts.length) };
+    });
+    S.mock = {
+      mode: mode,
+      started: today(),
+      deadline: Date.now() + MOCK_MINUTES * 60000,
+      qs: paper,
+      k: 0,
+      answers: paper.map(() => null)
+    };
+    saveLocal();
+    go('#/ithaca/exam');
+  }
+
+  function mockQuestion(i) {
+    const q = S.mock.qs[i];
+    const ch = chapterCache.get(key(q.sid, q.n));
+    return ch ? ch.quiz[q.qi] : null;
+  }
+
+  function submitMock(reason) {
+    const m = S.mock;
+    if (!m) return;
+    clearInterval(mockTimer); mockTimer = null;
+    let right = 0;
+    const bySubject = {};
+    const missed = [];
+    m.qs.forEach((q, i) => {
+      const qq = mockQuestion(i);
+      if (!qq) return;
+      const b = bySubject[q.sid] = bySubject[q.sid] || { right: 0, total: 0 };
+      b.total++;
+      const a = m.answers[i];
+      if (a === qq.correct) { right++; b.right++; }
+      else missed.push({ sid: q.sid, n: q.n, qi: q.qi, picked: a });
+    });
+    const total = m.qs.length;
+    const rec = {
+      on: today(), mode: m.mode, total: total, right: right,
+      pct: Math.round(right / total * 100),
+      minutes: Math.max(1, Math.round((MOCK_MINUTES * 60000 - Math.max(0, m.deadline - Date.now())) / 60000)),
+      bySubject: bySubject, missed: missed, reason: reason || 'submitted'
+    };
+    if (!S.mocks) S.mocks = [];
+    S.mocks.push(rec);
+    const lvBefore = levelOf(S.xp);
+    S.xp += right * MOCK_XP_PER_CORRECT;
+    delete S.mock;
+    markStudiedToday();
+    save();
+    const lvAfter = levelOf(S.xp);
+    if (lvAfter > lvBefore) setTimeout(() => { toast('LEVEL UP — LV ' + lvAfter + ' · ' + rankOf(lvAfter), 'levelup'); sfx('levelup'); }, 1300);
+    sfx(rec.pct >= PASS_MARK ? 'victory' : 'fail');
+    celebrateFor = 'mock';
+    go('#/ithaca/result');
+  }
+
+  const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  const niceDate = d => { const [y, m, dd] = String(d).split('-'); return dd + ' ' + MONTHS[Number(m) - 1]; };
+
+  const mmss = ms => {
+    const t = Math.max(0, Math.ceil(ms / 1000));
+    return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0');
+  };
+
+  function tickMock() {
+    const m = S.mock;
+    const el = document.getElementById('mockClock');
+    if (!m || !el) { clearInterval(mockTimer); mockTimer = null; return; }
+    const left = m.deadline - Date.now();
+    el.textContent = mmss(left);
+    el.classList.toggle('late', left < 5 * 60000);
+    if (left <= 0) submitMock('time');
+  }
+
+  function renderIthaca() {
+    const cleared = totalCleared();
+    const all = cleared >= totalChapters();
+    const pool = mockPool();
+    const history = (S.mocks || []).slice().reverse();
+    const best = history.reduce((b, r) => Math.max(b, r.pct), 0);
+    const inProgress = S.mock && S.mock.deadline > Date.now();
+
+    let action;
+    if (!cleared) {
+      action = '<div class="empty" style="padding:24px 0 0"><h2>The harbour is quiet</h2>' +
+        '<p>Clear at least one chapter and Ithaca will set you a paper drawn from it.</p>' +
+        '<button class="btn pxs pop btn--inline" data-go="#/map" style="margin:0 auto">BACK TO THE MAP</button></div>';
+    } else if (inProgress) {
+      action = '<div class="panel panel--clay"><div class="label" style="color:var(--cream)">A PAPER IS OPEN</div>' +
+        '<div class="txt" style="color:var(--cream)">You have <b>' + mmss(S.mock.deadline - Date.now()) + '</b> left and ' +
+        S.mock.answers.filter(a => a !== null).length + ' of ' + S.mock.qs.length + ' answered.</div>' +
+        '<button class="btn pxs pop" data-go="#/ithaca/exam" style="margin-top:14px">RESUME ▶</button></div>';
+    } else {
+      const n = Math.min(MOCK_QUESTIONS, pool.length);
+      action = '<div class="panel panel--parch">' +
+        '<div class="label">' + (all ? 'LANDFALL' : 'SEA TRIAL') + '</div>' +
+        '<div class="serif" style="font-size:20px;color:var(--ink)">' + n + ' questions · ' + MOCK_MINUTES + ' minutes</div>' +
+        '<p class="txt txt--ink" style="margin:8px 0 14px">Drawn from the ' + cleared + ' chapter' + (cleared === 1 ? '' : 's') +
+        ' you have cleared — ' + pool.length + ' questions in the pool, spread across every sea you have sailed. ' +
+        'No feedback until the end; you can change an answer until you submit. ' + PASS_MARK + '% is a pass.' +
+        (all ? '' : ' Clear more chapters and the paper widens with you.') + '</p>' +
+        '<button class="btn pxs pop" data-mockstart="' + (all ? 'landfall' : 'trial') + '">' +
+        (all ? 'MAKE LANDFALL ▶' : 'BEGIN THE TRIAL ▶') + '</button></div>';
+    }
+
+    const fmt = niceDate;
+    const histPanel = '<div class="panel panel--sea"><div class="label label--gold">PAST PAPERS' + (best ? ' · BEST ' + best + '%' : '') + '</div>' +
+      (history.length ? '<div class="mocklist">' + history.slice(0, 8).map((m, i) =>
+        '<div class="mockrow"><span class="pixnum pixnum--parch">' + fmt(m.on) + '</span>' +
+        '<div class="bar" style="flex:1;height:12px;gap:2px;padding:2px">' + bars(Math.round(m.pct / 10), 10, m.pct >= PASS_MARK ? 'on' : 'mockfail', '') + '</div>' +
+        '<span class="pixnum ' + (m.pct >= PASS_MARK ? 'pixnum--gold' : 'pixnum--clay') + '">' + m.pct + '%</span></div>').join('') + '</div>'
+      : '<div class="txt txt--parch">No papers sat yet.</div>') + '</div>';
+
+    const about = '<div class="panel panel--deep"><div class="label label--gold">WHY ITHACA</div>' +
+      '<div class="txt txt--parch">Chapter trials teach; the exam tests. A paper mixes every sea, gives nothing away as you go, ' +
+      'and runs against the clock — the closer to the real thing, the fewer surprises on the day. Your scores are kept in the Ship’s Log so you can see the line climb.</div></div>';
+
+    return '<div class="subhead subhead--deep">' +
+      '<button class="back" data-go="#/map" aria-label="Back to map">◀</button>' +
+      '<div><div class="eyebrow">✦ ITHACA</div><h1>The exam itself</h1></div></div>' +
+      '<div class="shell"><div class="cols"><div class="main vstack vstack--md">' + action + about + '</div>' +
+      '<div class="side">' + histPanel + '</div></div></div>';
+  }
+
+  function renderMockExam() {
+    const m = S.mock;
+    if (!m) return renderIthaca();
+    if (m.deadline <= Date.now()) { setTimeout(() => submitMock('time'), 0); return renderIthaca(); }
+    const i = Math.max(0, Math.min(m.k, m.qs.length - 1));
+    const q = mockQuestion(i);
+    if (!q) {
+      return '<div class="shell"><div class="empty"><h2>Reading the charts…</h2><p>Loading the chapters this paper draws on.</p></div></div>';
+    }
+    const spec = m.qs[i];
+    const sub = subjectOf(spec.sid);
+    const picked = m.answers[i];
+    const answered = m.answers.filter(a => a !== null).length;
+    const last = i === m.qs.length - 1;
+
+    const options = spec.order.map((orig, j) =>
+      '<button class="opt' + (picked === orig ? ' chosen' : '') + '" data-mockpick="' + orig + '">' +
+      '<span class="k">' + 'ABCDEFGH'[j] + '</span><span class="t">' + esc(q.opts[orig]) + '</span></button>').join('');
+
+    return '<div class="subhead subhead--deep examhead">' +
+      '<div class="rowbetween">' +
+      '<span class="mono" style="font-size:var(--px-sm);color:var(--gold)">✦ ' + (m.mode === 'landfall' ? 'LANDFALL' : 'SEA TRIAL') + '</span>' +
+      '<span class="mockclock" id="mockClock">' + mmss(m.deadline - Date.now()) + '</span></div>' +
+      '<div class="bar" style="margin-top:12px">' + bars(answered, m.qs.length, 'on', '') + '</div>' +
+      '</div>' +
+      '<div class="shell"><div class="paper exam">' +
+      '<div class="trialhead"><span class="q">Q' + (i + 1) + ' OF ' + m.qs.length + ' · ' + (answered) + ' ANSWERED</span>' +
+      '<span class="pass" style="color:var(--bronze)">' + esc(sub ? sub.roman + ' · CH ' + spec.n : '') + '</span></div>' +
+      '<div class="question">' + esc(q.q) + '</div>' +
+      '<div class="options">' + options + '</div>' +
+      '<div class="examnav">' +
+      '<button class="btn pxs pop btn--inline btn--deep" data-mocknav="-1"' + (i === 0 ? ' disabled' : '') + '>◀ PREV</button>' +
+      (last
+        ? '<button class="btn pxs pop btn--inline" data-mocksubmit="1">SUBMIT THE PAPER ▶</button>'
+        : '<button class="btn pxs pop btn--inline" data-mocknav="1">NEXT ▶</button>') +
+      '</div>' +
+      (last ? '' : '<button class="linkbtn" data-mocksubmit="1">Finish early and submit ' + answered + ' of ' + m.qs.length + '</button>') +
+      '</div></div>';
+  }
+
+  function renderMockResult() {
+    const hist = S.mocks || [];
+    const r = hist[hist.length - 1];
+    if (!r) return renderIthaca();
+    const passed = r.pct >= PASS_MARK;
+    const tier = !passed ? 'fail' : r.pct >= 85 ? 'gold' : 'bronze';
+    const celebrate = celebrateFor === 'mock';
+    const prevBest = hist.slice(0, -1).reduce((b, x) => Math.max(b, x.pct), 0);
+    const newBest = hist.length > 1 && r.pct > prevBest;
+
+    const breakdown = '<div class="panel panel--parch" style="text-align:left;max-width:720px;margin:0 auto 18px">' +
+      '<div class="label label--ink">BY SEA</div><div class="vstack vstack--md">' +
+      SUBJECTS.filter(s => r.bySubject[s.id]).map(s => {
+        const b = r.bySubject[s.id], pct = Math.round(b.right / b.total * 100);
+        return '<div><div class="seasrow"><span class="nm">' + esc(s.name) + '</span><span class="pc">' + b.right + '/' + b.total + '</span></div>' +
+          '<div class="bar" style="height:13px;gap:2px;padding:2px">' + bars(Math.round(pct / 10), 10, pct >= PASS_MARK ? 'on' : 'mockfail', 'off') + '</div></div>';
+      }).join('') + '</div></div>';
+
+    const missed = r.missed.map(x => {
+      const ch = chapterCache.get(key(x.sid, x.n));
+      const q = ch && ch.quiz[x.qi];
+      if (!q) return null;
+      const sub = subjectOf(x.sid);
+      return { n: (sub ? sub.roman : x.sid) + '·' + x.n, q: q.q,
+        picked: x.picked === null || x.picked === undefined ? '— (unanswered)' : q.opts[x.picked],
+        truth: q.opts[q.correct], why: q.why || null };
+    }).filter(Boolean);
+    const review = missed.length ? '<div class="missed">' +
+      '<div class="label" style="color:var(--clay)">WHAT YOU MISSED · ' + missed.length + ' OF ' + r.total + '</div>' +
+      '<ol class="missedlist">' + missed.map(mm =>
+        '<li><div class="mq"><span class="mn">' + esc(mm.n) + '</span>' + esc(mm.q) + '</div>' +
+        '<div class="mrow mrow--picked"><span>YOU CHOSE</span>' + esc(mm.picked) + '</div>' +
+        '<div class="mrow mrow--truth"><span>TRUE COURSE</span>' + esc(mm.truth) + '</div>' +
+        (mm.why ? '<div class="mwhy">' + esc(mm.why) + '</div>' : '') + '</li>').join('') + '</ol></div>' : '';
+
+    return '<div class="subhead subhead--deep">' +
+      '<button class="back" data-go="#/ithaca" aria-label="Back to Ithaca">◀</button>' +
+      '<div><div class="eyebrow">✦ ITHACA</div><h1>' + (r.mode === 'landfall' ? 'Landfall' : 'Sea trial') + ' — ' + niceDate(r.on) + '</h1></div></div>' +
+      '<div class="shell"><div class="paper"><div class="victory' + (celebrate ? ' celebrate' : '') + '">' +
+      '<div class="eyebrow">' + (newBest ? 'A NEW BEST' : passed ? 'A PASSING PAPER' : 'THE PAPER HOLDS') + '</div>' +
+      '<div class="medalwrap">' + (celebrate && passed ? '<div class="confetti" aria-hidden="true">' + confettiHTML() + '</div>' : '') +
+      '<div class="medal px tier-' + tier + (String(r.pct).length > 2 ? ' medal--wide' : '') + '">' + r.pct + '%</div></div>' +
+      '<h2>' + (passed ? 'You would have passed' : 'Not yet — but now you know where') + '</h2>' +
+      '<div class="sub">' + r.right + ' of ' + r.total + ' answered true in ' + r.minutes + ' minute' + (r.minutes === 1 ? '' : 's') +
+      (r.reason === 'time' ? ' — time ran out.' : '.') + (r.right ? ' +' + (r.right * MOCK_XP_PER_CORRECT) + ' XP.' : '') + '</div>' +
+      breakdown + review +
+      '<div class="btnrow"><button class="btn pxs pop btn--inline btn--deep" data-go="#/map">BACK TO THE MAP</button>' +
+      '<button class="btn pxs pop btn--inline" data-go="#/ithaca">SIT ANOTHER ▶</button></div>' +
+      '</div></div></div>';
+  }
+
   /* ---------------- render ---------------- */
 
   function view(html) { $('#view').innerHTML = html; }
@@ -1285,6 +1701,8 @@
     }
     if (route.name === 'counsel') return 'counsel/' + (cardSession ? 'r' : 'l');
     if (route.name === 'crew') return 'crew/' + (crewRoster ? 'r' : 'l');
+    if (route.name === 'mockexam') return 'mockexam/' + (S.mock ? S.mock.k : 'none');
+    if (route.name === 'ithaca' || route.name === 'mockresult') return route.name + '/' + (mockPool().length ? 'r' : 'l');
     if (route.name === 'map') {
       const sub = currentSubject();
       return 'map/' + (S.titles[key(sub.id, firstOpenChapter(sub.id))] ? 'r' : 'l');
@@ -1303,9 +1721,14 @@
     else if (route.name === 'chapter') html = renderChapter(route.sea, route.n);
     else if (route.name === 'counsel') html = renderCounsel();
     else if (route.name === 'stats') html = renderStats();
+    else if (route.name === 'ithaca') html = renderIthaca();
+    else if (route.name === 'mockexam') html = renderMockExam();
+    else if (route.name === 'mockresult') html = renderMockResult();
     else html = renderCrew();
     view(html);
     renderChrome();
+    if (route.name === 'mockexam' && S.mock) { if (!mockTimer) mockTimer = setInterval(tickMock, 1000); }
+    else if (mockTimer) { clearInterval(mockTimer); mockTimer = null; }
 
     const vk = viewKey();
     const el = $('#view');
@@ -1332,12 +1755,14 @@
         await warmSubject(r.sea);
       } else if (r.name === 'map') {
         const sub = currentSubject();
-        await loadChapter(sub.id, firstOpenChapter(sub.id));
+        await Promise.all([loadChapter(sub.id, firstOpenChapter(sub.id)), warmDeck()]);
       } else if (r.name === 'counsel') {
         await warmDeck();
         startSession();
       } else if (r.name === 'crew') {
         await loadCrew();
+      } else if (r.name === 'ithaca' || r.name === 'mockexam' || r.name === 'mockresult') {
+        await warmDeck();
       }
     } catch (e) { /* loader already degrades to the placeholder */ }
     pending = false;
@@ -1371,10 +1796,23 @@
 
     if (t.closest('[data-crewretry]')) { crewRoster = null; render(); hydrate(); return; }
 
+    const ms = t.closest('[data-mockstart]');
+    if (ms) { if (!mockPool().length) { toast('THE CHARTS ARE STILL LOADING'); return; } sfx('tick'); startMock(ms.dataset.mockstart); return; }
+    const mp = t.closest('[data-mockpick]');
+    if (mp && S.mock) { S.mock.answers[S.mock.k] = Number(mp.dataset.mockpick); sfx('tick'); saveLocal(); render(); return; }
+    const mn = t.closest('[data-mocknav]');
+    if (mn && !mn.disabled && S.mock) { S.mock.k = Math.max(0, Math.min(S.mock.qs.length - 1, S.mock.k + Number(mn.dataset.mocknav))); saveLocal(); render(); window.scrollTo(0, 0); return; }
+    const msub = t.closest('[data-mocksubmit]');
+    if (msub && S.mock) {
+      const left = S.mock.answers.filter(a => a === null).length;
+      if (left && !msub.dataset.armed) { msub.dataset.armed = '1'; msub.textContent = left + ' UNANSWERED — TAP AGAIN TO SUBMIT'; setTimeout(() => { if (msub.isConnected) { delete msub.dataset.armed; render(); } }, 4000); return; }
+      submitMock('submitted'); return;
+    }
+
     const seaEl = t.closest('[data-sea]:not([data-ch])');
     if (seaEl) {
       const id = seaEl.dataset.sea;
-      if (id === 'ithaca') { toast('ITHACA — EXAM DAY. FINISH THE FIVE SEAS FIRST.'); return; }
+      if (id === 'ithaca') { go('#/ithaca'); return; }
       if (subjectState(id) === 'locked') { toast('THAT SEA IS STILL SEALED'); return; }
       go('#/sea/' + id);
       return;
@@ -1391,7 +1829,7 @@
     if (route.name !== 'chapter') {
       const rateEl = t.closest('[data-rate]');
       if (rateEl) { rateCard(rateEl.dataset.rate); return; }
-      if (t.closest('[data-flip]')) { if (cardSession) { cardSession.flipped = !cardSession.flipped; cardSession.turn = true; render(); } return; }
+      if (t.closest('[data-flip]')) { if (cardSession) { cardSession.flipped = !cardSession.flipped; cardSession.turn = true; sfx('tick'); render(); } return; }
       return;
     }
 
@@ -1421,6 +1859,7 @@
       const k = Math.min(p.qi, ch.quiz.length - 1);
       if (p.answers[k] === undefined || p.answers[k] === null) {
         p.answers[k] = Number(pickEl.dataset.pick);   // original option index
+        sfx(p.answers[k] === ch.quiz[qAt(ch, p, k)].correct ? 'right' : 'wrong');
         markStudiedToday();
         save(); render();
       }
@@ -1430,7 +1869,7 @@
     if (t.closest('[data-next]')) {
       if (p.stage === 2) {
         if (p.qi < ch.quiz.length - 1) p.qi++;
-        else { p.stage = 3; clearChapter(sub, ch, p); }
+        else { p.stage = 3; clearChapter(sub, ch, p); sfx(trialScore(ch, p).pct >= PASS_MARK ? 'victory' : 'fail'); }
       } else if (p.stage === 1) {
         beginTrial(ch, p, !!S.cleared[key(route.sea, route.n)]);
         markStudiedToday();
@@ -1479,7 +1918,7 @@
     route = parseHash();
     if (route.name !== 'counsel') cardSession = null;
     if (route.name !== 'crew') crewRoster = null;   // refetch the roster on each visit
-    if (route.name !== 'chapter') celebrateFor = null;
+    if (route.name !== 'chapter' && route.name !== 'mockresult') celebrateFor = null;
     render();
     hydrate();
     window.scrollTo(0, 0);

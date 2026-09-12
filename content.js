@@ -20,16 +20,32 @@ const PASS_MARK = 70;   // % required in a trial to clear a chapter
 const CHAPTER_XP = 40;  // XP awarded for clearing a chapter
 const CARD_XP = 5;      // XP per flashcard rated
 
+/* Relics — found along the voyage. `test` receives the summary from badgeState(). */
 const BADGES = [
-  { icon: '⚑', name: 'FIRST SAIL', test: s => s.clearedCount >= 1 },
-  { icon: '✦', name: '7 DAY',      test: s => s.streak >= 7 },
-  { icon: '≡', name: 'SCHOLAR',    test: s => s.cardsReviewed >= 25 },
-  { icon: '◈', name: 'LAW I',      test: s => s.clearedCount >= 5 },
-  { icon: '≈', name: 'SEA II',     test: s => s.subjectsCleared >= 1 },
-  { icon: '⌂', name: 'ITHACA',     test: s => s.subjectsCleared >= 5 },
-  { icon: '★', name: 'PERFECT',    test: s => s.perfectTrial },
-  { icon: '⚿', name: 'ALL KEYS',   test: s => s.clearedCount >= 83 }
+  { icon: '⚑', name: 'FIRST SAIL',     test: s => s.clearedCount >= 1,        hint: 'Clear your first chapter' },
+  { icon: '✦', name: '7 DAY',          test: s => s.streak >= 7,              hint: 'Study seven days running' },
+  { icon: '☀', name: '30 DAY',         test: s => s.streak >= 30,             hint: 'Study thirty days running' },
+  { icon: '≡', name: 'SCHOLAR',        test: s => s.cardsReviewed >= 50,      hint: 'Review fifty cards in Athena’s Counsel' },
+  { icon: '★', name: 'PERFECT',        test: s => s.perfectTrial,             hint: 'Score 100% in a trial' },
+  { icon: '❀', name: 'LOTUS BLOOM',    test: s => s.seasDone.ba,              hint: 'Clear every chapter of Lotus Shore' },
+  { icon: '≈', name: 'BAG OF WINDS',   test: s => s.seasDone.comm,            hint: 'Clear every chapter of the Tower of Winds' },
+  { icon: '◎', name: 'CHARON’S OBOL',  test: s => s.seasDone.stats,           hint: 'Clear every chapter of the Isle of Shades' },
+  { icon: '◈', name: 'SCYLLA’S TOOTH', test: s => s.seasDone.econs,           hint: 'Clear every chapter of Spire & Maelstrom' },
+  { icon: '☉', name: 'HELIOS’S BRAND', test: s => s.seasDone.fin,             hint: 'Clear every chapter of Sun Pastures' },
+  { icon: '⚓', name: 'SEA TRIAL',      test: s => s.bestMock >= 70,           hint: 'Score 70% or better in a mock exam' },
+  { icon: '⌂', name: 'ITHACA',         test: s => s.clearedCount >= 83,       hint: 'Chart all 83 chapters' }
 ];
+
+/* Rank names by level. The last entry holds for every level beyond the list. */
+const RANKS = [
+  'DECKHAND', 'OARSMAN', 'LOOKOUT', 'HELMSMAN', 'NAVIGATOR', 'QUARTERMASTER',
+  'FIRST MATE', 'CAPTAIN', 'ADMIRAL', 'HERO OF ITHACA'
+];
+
+/* Mock exams at Ithaca. Change these once the real paper's format is known. */
+const MOCK_QUESTIONS = 40;   // drawn across every chapter you have cleared
+const MOCK_MINUTES = 60;
+const MOCK_XP_PER_CORRECT = 1;
 
 /* XP required to reach each level. */
 const LEVELS = [0, 200, 450, 750, 1100, 1500, 1950, 2500, 3100, 3750, 4450, 5200, 6000, 6850, 7750];

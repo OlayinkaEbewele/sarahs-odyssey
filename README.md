@@ -50,13 +50,17 @@ change, no rebuild, no restart. Refresh the page and the chapter is live.
   "objectives": ["...", "..."],
   "study": "<p>HTML string</p>",
   "recap": "<ul><li>HTML string</li></ul>",
-  "quiz": [{ "q": "...", "opts": ["...", "..."], "correct": 1, "why": "optional" }]
+  "quiz": [{ "q": "...", "opts": ["...", "..."], "correct": 1, "why": "optional" }],
+  "cards": [{ "front": "optional recall prompt", "back": "the answer" }]
 }
 ```
 
 `correct` is a 0-based index into `opts`. `why` is optional — when present, the verdict
 box after each answer *explains* rather than just correcting, and it's repeated in the
-end-of-trial review. The validator notes which chapters lack it. Inside `study` and `recap` you can use
+end-of-trial review. `cards` is optional too — proper recall prompts for Athena's Counsel.
+Without them the deck falls back to the chapter's quiz questions, which work but are weaker
+cards (a multiple-choice stem isn't a recall cue). The validator notes which chapters lack
+either. Inside `study` and `recap` you can use
 `<p>`, `<ul>`/`<ol>`, `<b>`, `<table>`, plus two styled boxes:
 
 ```html
@@ -130,6 +134,7 @@ is unauthenticated, so treat the roster as public.
   `#/counsel` is the route, `#/cards` still works as an alias)
 - **Ship's Log** — level, XP, streak, per-sea progress, relics, sync panel
 - **Crew** — every navigator as a character, ranked by XP
+- **Ithaca** — the mock exam (see below)
 
 ## Design system
 
@@ -229,6 +234,59 @@ The source was 256 kbps MP3; re-encoding to AAC cut the transfer by ~62% with no
 loss for an ambient bed. The loop is 91.7s and seams on repeat — unavoidable without a
 crossfade layer.
 
+## Ithaca — the mock exam
+
+Chapter trials teach; the exam tests. Click Ithaca on the map to sit a paper.
+
+- **Sea Trial** is available from the first cleared chapter. It draws
+  `MOCK_QUESTIONS` (40) questions across *every chapter you've cleared*, stratified so each
+  sea contributes in proportion to how much of it you've charted. The paper widens as the
+  voyage does.
+- **Landfall** is the same exam once all 83 chapters are cleared.
+- `MOCK_MINUTES` (60) on the clock. No feedback until the end. Answers can be changed and
+  questions revisited until you submit; submitting with blanks asks you to confirm.
+- **A reload resumes the paper** with the time you had left — the deadline is wall-clock,
+  saved in state. Time running out submits automatically.
+- Results: score, a per-sea breakdown, and the same "what you missed" review as a trial.
+  `MOCK_XP_PER_CORRECT` (1) XP per right answer. Every paper is kept, and Ship's Log shows
+  the last six as a trend.
+
+The 40 / 60 defaults are a guess at the real paper's shape. All three constants live in
+`content.js` — change them the moment the real format is known.
+
+## Spaced repetition
+
+Athena's Counsel schedules each card with a light SM-2. Rating **easy** grows the interval
+by an ease factor that itself drifts with how the card has gone — roughly 4, 10, 26, 69
+days on successive easies — so well-known cards get out of the way. **Hard** creeps
+(1, 2, 3, 4 days) and dents the ease; **again** sends the card back to today and resets it.
+The intervals shown under the three buttons are the real ones for that card.
+
+## Ranks, relics, the log
+
+Levels carry rank names (`RANKS` in `content.js`): Deckhand → Oarsman → Lookout → Helmsman →
+Navigator → Quartermaster → First Mate → Captain → Admiral → Hero of Ithaca. Shown in Ship's
+Log and on the Crew roster.
+
+Twelve relics, earned by state rather than by event, so a navigator who cleared a sea before
+a relic existed still gets it: one per sea named for its myth (Lotus Bloom, Bag of Winds,
+Charon's Obol, Scylla's Tooth, Helios's Brand), streaks of 7 and 30 days, 50 cards reviewed,
+a perfect trial, a passing mock, and Ithaca itself. New relics are dated, announced with a
+toast, and hover shows how to earn each one.
+
+**The Log** in Ship's Log is a dated timeline — chapters cleared, seas finished, relics found,
+papers sat — derived entirely from saved state, so it fills in retroactively.
+
+The map's "Next port" card nudges: cards due in Athena's Counsel, and a streak that ends
+tonight if nothing is studied.
+
+## Sound
+
+Alongside the ambient score, short synthesised 8-bit effects: a rising blip on a right
+answer, a low buzz on a wrong one, a fanfare on clearing a chapter or passing a paper, a
+sparkle on a relic, a tick on a card flip. Generated with WebAudio — no files. They follow
+the same **♪** toggle as the music, so muting one mutes both.
+
 ## Mechanics
 
 Strictly sequential. A chapter unlocks when the one before it is cleared; a sea unlocks
@@ -241,6 +299,8 @@ table in `content.js`.
 
 - **Crew sprites are placeholders** — a deterministic colour tile with the navigator's
   initial. Swap `crewCard()` in `app.js` to render real character art when it exists.
+- **The mock exam format (40 questions / 60 minutes) is a placeholder** until the real
+  CIPM paper's shape is confirmed.
 - **Reduced-motion is implemented but not runtime-verified** — the media block is in place
   and parses, but I had no way to emulate the setting in the preview browser.
 - **Flashcards are derived from quiz questions** (prompt = question, answer = correct

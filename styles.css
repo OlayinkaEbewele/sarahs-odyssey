@@ -482,6 +482,55 @@ body.gated .musicbtn{display:none}
 .mwhy{font-size:var(--t-sm);line-height:1.6;color:var(--ink-65);margin-top:8px;padding-left:12px;border-left:3px solid var(--bronze)}
 .victory.celebrate .missed{animation:revealUp .3s ease-out 1s both}
 
+/* ---------- the log + sea trials ---------- */
+
+.loglist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.loglist li{display:flex;gap:12px;align-items:baseline;font-size:var(--t-sm);line-height:1.5;color:var(--ink)}
+.logdate{font-family:var(--px);font-size:var(--px-xs);line-height:1.6;color:var(--bronze);flex:none;width:52px}
+.log-relic .logtext{color:var(--bronze)}
+.log-sea .logtext{font-weight:600}
+.log-mock .logtext{color:var(--sea)}
+.log-start .logtext{color:var(--ink-65);font-style:italic}
+
+.mocklist{display:flex;flex-direction:column;gap:10px}
+.mockrow{display:flex;align-items:center;gap:10px}
+.mockrow .pixnum{flex:none}
+.mockrow .pixnum:first-child{width:52px}
+.pixnum--clay{color:var(--clay)}
+.bar i.mockfail{background:var(--clay)}
+
+/* ---------- map nudges ---------- */
+
+.nudges{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.nudge{
+  display:block;width:100%;text-align:left;
+  font-family:var(--px);font-size:var(--px-xs);line-height:1.6;
+  color:var(--sea);background:transparent;border:2px solid var(--sea);border-radius:var(--r-xs);padding:8px 10px;
+}
+button.nudge:hover{background:rgba(47,93,104,.1)}
+.nudge--warn{color:var(--clay);border-color:var(--clay)}
+
+/* ---------- Ithaca / mock exam ---------- */
+
+.examhead{display:block}
+.mockclock{font-family:var(--px);font-size:var(--px-lg);color:var(--parch);letter-spacing:1px;font-variant-numeric:tabular-nums}
+.mockclock.late{color:var(--clay);animation:clockPulse 1s steps(2,end) infinite}
+@keyframes clockPulse{0%,100%{opacity:1}50%{opacity:.55}}
+
+.opt.chosen{background:var(--gold)}
+.opt.chosen .k{color:var(--ink)}
+.opt.chosen .t{color:var(--ink);font-weight:500}
+
+.examnav{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.linkbtn{
+  display:block;margin:16px auto 0;background:transparent;
+  font-family:var(--ui);font-size:var(--t-xs);color:var(--ink-65);text-decoration:underline;
+  text-underline-offset:3px;
+}
+.linkbtn:hover{color:var(--clay)}
+.panel--clay .label{color:var(--cream)}
+.panel--clay .txt{color:var(--cream)}
+
 /* ---------- crew ---------- */
 
 .crewgrid{display:grid;grid-template-columns:1fr;gap:12px}
@@ -640,7 +689,7 @@ body.gated .musicbtn{display:none}
   .view.enter .ledger > *,.view.enter .mk,.view.enter .bar i.on,
   .victory .medal,.victory.celebrate .eyebrow,.victory.celebrate h2,.victory.celebrate .sub,
   .victory.celebrate .tally > *,.victory.celebrate .btn,.victory.celebrate .medalribbon,
-  .card.turn,.opt.correct,.opt.wrong,.verdictrow{animation:none !important;opacity:1 !important;transform:none !important}
+  .card.turn,.opt.correct,.opt.wrong,.verdictrow,.mockclock.late{animation:none !important;opacity:1 !important;transform:none !important}
   .pop{transition:none}
   .toast{transition:none}
 }
@@ -789,4 +838,6 @@ body.gated .musicbtn{display:none}
   .btnrow{flex-direction:row;justify-content:center;gap:14px;margin-top:22px}
   .missed{padding:20px}
   .mrow > span{width:110px}
+  .examnav{flex-direction:row;justify-content:space-between}
+  .mockclock{font-size:18px}
 }

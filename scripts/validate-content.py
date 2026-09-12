@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Validate every chapter file under content/ against the schema the app expects,
-and write a per-sea index.json (chapter titles) that the region page can load
+(optional per-question `why`, optional per-chapter `cards`) and write a per-sea index.json (chapter titles) that the region page can load
 instead of fetching every chapter just to learn its name.
 
     python3 scripts/validate-content.py            # validate + write manifests
@@ -80,6 +80,16 @@ def check_chapter(path, sid, n, counts):
         if len(quiz) != EXPECTED_QUESTIONS:
             warnings.append(f"{len(quiz)} questions (others have {EXPECTED_QUESTIONS})")
 
+    cards = d.get("cards")
+    if cards is not None:
+        if not isinstance(cards, list) or not cards:
+            errors.append("cards must be a non-empty list when present")
+        else:
+            for i, c in enumerate(cards):
+                if not isinstance(c, dict) or not isinstance(c.get("front"), str) or not c["front"].strip() \
+                        or not isinstance(c.get("back"), str) or not c["back"].strip():
+                    errors.append(f"cards[{i}] needs non-empty string 'front' and 'back'")
+
     return d, errors, warnings
 
 
@@ -88,6 +98,7 @@ def main():
     total_err = total_warn = total_files = 0
     manifests = {}
     no_why = []
+    no_cards = []
 
     for sid in sorted(counts):
         folder = os.path.join(CONTENT, sid)
@@ -107,6 +118,8 @@ def main():
                 chapters.append({"n": n, "title": d["title"], "questions": len(d["quiz"])})
                 if not any("why" in q for q in d["quiz"]):
                     no_why.append(f"{sid}/ch{n}")
+                if "cards" not in d:
+                    no_cards.append(f"{sid}/ch{n}")
         manifests[sid] = chapters
 
         # stray files that aren't chNN.json
@@ -134,6 +147,9 @@ def main():
     if no_why:
         print(f"note    {len(no_why)} of {total_files} chapters have no 'why' explanations — "
               f"the verdict box corrects but cannot explain (optional per-question field)")
+    if no_cards:
+        print(f"note    {len(no_cards)} of {total_files} chapters have no authored 'cards' — "
+              f"Athena's Counsel falls back to their trial questions (optional per-chapter field)")
     done = {sid: len(ch) for sid, ch in manifests.items()}
     summary = " · ".join(f"{sid} {done[sid]}/{counts[sid]}" for sid in sorted(counts))
     print(f"\n{total_files} files · {total_err} errors · {total_warn} warnings · {summary}")
