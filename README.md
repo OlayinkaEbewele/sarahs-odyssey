@@ -234,25 +234,27 @@ The source was 256 kbps MP3; re-encoding to AAC cut the transfer by ~62% with no
 loss for an ambient bed. The loop is 91.7s and seams on repeat — unavoidable without a
 crossfade layer.
 
-## Ithaca — the mock exam
+## Ithaca — the exam papers
 
-Chapter trials teach; the exam tests. Click Ithaca on the map to sit a paper.
+Click Ithaca on the map. There are **five papers, one per sea**, in the real CIPM shape:
+**50 questions, 2 marks each, out of 100.** `PASS_MARK` (70%) is a pass.
 
-- **Sea Trial** is available from the first cleared chapter. It draws
-  `MOCK_QUESTIONS` (40) questions across *every chapter you've cleared*, stratified so each
-  sea contributes in proportion to how much of it you've charted. The paper widens as the
-  voyage does.
-- **Landfall** is the same exam once all 83 chapters are cleared.
-- `MOCK_MINUTES` (60) on the clock. No feedback until the end. Answers can be changed and
-  questions revisited until you submit; submitting with blanks asks you to confirm.
+- A paper draws from **every charted chapter of its sea — cleared or not** — so it can be
+  sat as soon as the sea has content. Every chapter gets at least one question; the rest
+  are shared out in proportion to chapter size. It's reshuffled every sitting (questions
+  and options).
+- `MOCK_MINUTES` (60) on the clock. This is **not yet confirmed** against the real paper.
+- No feedback until the end. Answers can be changed and questions revisited until you
+  submit; submitting with blanks asks you to confirm.
 - **A reload resumes the paper** with the time you had left — the deadline is wall-clock,
   saved in state. Time running out submits automatically.
-- Results: score, a per-sea breakdown, and the same "what you missed" review as a trial.
-  `MOCK_XP_PER_CORRECT` (1) XP per right answer. Every paper is kept, and Ship's Log shows
-  the last six as a trend.
+- Results: marks out of 100, a **per-chapter breakdown** (so you can see which chapters let
+  you down), and the same "what you missed" review as a trial. `MOCK_XP_PER_CORRECT` (1) XP
+  per right answer. Every paper is kept; Ship's Log shows the last six with their sea.
 
-The 40 / 60 defaults are a guess at the real paper's shape. All three constants live in
-`content.js` — change them the moment the real format is known.
+A paper whose sea has no chapters yet shows "not yet charted". The lobby reads
+`content/<sea>/index.json` for chapter and question counts, so keep the manifests current
+(`python3 scripts/validate-content.py`).
 
 ## Spaced repetition
 
@@ -271,7 +273,7 @@ Log and on the Crew roster.
 Twelve relics, earned by state rather than by event, so a navigator who cleared a sea before
 a relic existed still gets it: one per sea named for its myth (Lotus Bloom, Bag of Winds,
 Charon's Obol, Scylla's Tooth, Helios's Brand), streaks of 7 and 30 days, 50 cards reviewed,
-a perfect trial, a passing mock, and Ithaca itself. New relics are dated, announced with a
+a perfect trial, a passing paper, and Ithaca itself. New relics are dated, announced with a
 toast, and hover shows how to earn each one.
 
 **The Log** in Ship's Log is a dated timeline — chapters cleared, seas finished, relics found,
@@ -299,8 +301,8 @@ table in `content.js`.
 
 - **Crew sprites are placeholders** — a deterministic colour tile with the navigator's
   initial. Swap `crewCard()` in `app.js` to render real character art when it exists.
-- **The mock exam format (40 questions / 60 minutes) is a placeholder** until the real
-  CIPM paper's shape is confirmed.
+- **The exam clock (60 minutes) is a placeholder** until the real paper's duration is
+  confirmed. Question count and marks are correct.
 - **Reduced-motion is implemented but not runtime-verified** — the media block is in place
   and parses, but I had no way to emulate the setting in the preview browser.
 - **Flashcards are derived from quiz questions** (prompt = question, answer = correct

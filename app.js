@@ -1094,7 +1094,7 @@
     /* What you missed — the moment right after a trial is when a student is most
        ready to learn from it, so the review lives here rather than behind a click. */
     const missed = missedQuestions(ch, p);
-    const review = missed.length ? '<div class="missed">' +
+    const review = missed.length ? '<div class="review">' +
       '<div class="label" style="color:var(--clay)">WHAT YOU MISSED · ' + missed.length + ' OF ' + sc.total + '</div>' +
       '<ol class="missedlist">' + missed.map(m =>
         '<li><div class="mq"><span class="mn">Q' + m.n + '</span>' + esc(m.q) + '</div>' +
@@ -1315,7 +1315,7 @@
       events.push({ on: S.relics[name], kind: 'relic', text: 'Relic found — ' + (b ? b.icon + ' ' : '') + name });
     });
     (S.mocks || []).forEach(m => events.push({ on: m.on, kind: 'mock',
-      text: (m.mode === 'landfall' ? 'Landfall' : 'Sea trial') + ' — ' + m.right + ' of ' + m.total + ' (' + m.pct + '%)' }));
+      text: paperLabel(m) + ' — ' + (m.marks !== undefined ? m.marks : m.right * MOCK_MARKS_PER_QUESTION) + '/' + (m.maxMarks || m.total * MOCK_MARKS_PER_QUESTION) + ' (' + m.pct + '%)' }));
     if (S.startedOn) events.push({ on: S.startedOn, kind: 'start', text: 'Set sail from the harbour' });
     events.sort((a, b) => (b.on > a.on ? 1 : b.on < a.on ? -1 : 0));
     const fmt = niceDate;
@@ -1327,12 +1327,16 @@
 
     /* Mock exam history — the trend line that matters in the last month. */
     const mocks = (S.mocks || []).slice(-6);
-    const mockPanel = '<div class="panel panel--sea"><div class="label label--gold">SEA TRIALS</div>' +
-      (mocks.length ? '<div class="mocklist">' + mocks.map(m =>
-        '<div class="mockrow"><span class="pixnum pixnum--parch">' + fmt(m.on) + '</span>' +
-        '<div class="bar" style="flex:1;height:12px;gap:2px;padding:2px">' + bars(Math.round(m.pct / 10), 10, m.pct >= PASS_MARK ? 'on' : 'mockfail', '') + '</div>' +
-        '<span class="pixnum ' + (m.pct >= PASS_MARK ? 'pixnum--gold' : 'pixnum--clay') + '">' + m.pct + '%</span></div>').join('') + '</div>'
-      : '<div class="txt txt--parch">No mock exams yet. Sail to Ithaca on the map to sit one.</div>') +
+    const mockPanel = '<div class="panel panel--sea"><div class="label label--gold">PAST PAPERS</div>' +
+      (mocks.length ? '<div class="mocklist">' + mocks.map(m => {
+        const sub = subjectOf(m.sid);
+        const marks = m.marks !== undefined ? m.marks : m.right * MOCK_MARKS_PER_QUESTION;
+        return '<div class="mockrow"><span class="pixnum pixnum--parch">' + fmt(m.on) + '</span>' +
+          '<span class="pixnum pixnum--parch" style="width:22px;text-align:center">' + esc(sub ? sub.roman : '?') + '</span>' +
+          '<div class="bar" style="flex:1;height:12px;gap:2px;padding:2px">' + bars(Math.round(m.pct / 10), 10, m.pct >= PASS_MARK ? 'on' : 'mockfail', '') + '</div>' +
+          '<span class="pixnum ' + (m.pct >= PASS_MARK ? 'pixnum--gold' : 'pixnum--clay') + '">' + marks + '</span></div>';
+      }).join('') + '</div>'
+      : '<div class="txt txt--parch">No papers sat yet. Sail to Ithaca on the map to sit one.</div>') +
       '<button class="btn pxs pop" data-go="#/ithaca" style="margin-top:14px">' + (mocks.length ? 'SIT ANOTHER' : 'SAIL TO ITHACA') + '</button></div>';
 
     const syncLabel = syncState === 'ok' ? 'SYNCED' : syncState === 'error' ? 'LOCAL ONLY' : 'OFF';
@@ -1421,57 +1425,87 @@
       '<div class="crewgrid">' + crewRoster.map(crewCard).join('') + '</div></div>';
   }
 
-  /* ---------------- Ithaca: the mock exam ----------------
-     Sea Trials draw from every chapter you've cleared, so the paper grows with the
-     voyage; Landfall is the same exam once all 83 are charted. Timed, no feedback
-     until the end, answers changeable until you submit. The paper lives in saved
-     state with a wall-clock deadline, so a reload resumes with the time you had left. */
+  /* ---------------- Ithaca: the exam papers ----------------
+     One paper per sea, in the real CIPM shape: 50 questions, 2 marks each, out of 100.
+     A paper draws from every charted chapter of its sea — cleared or not — so you can
+     sit it as soon as the sea has content, and it's reshuffled every time. Timed, no
+     feedback until the end, answers changeable until you submit. The paper lives in
+     saved state with a wall-clock deadline, so a reload resumes with the time left. */
 
   let mockTimer = null;
+  const manifests = {};   // sid -> [{n, title, questions}] from content/<sid>/index.json
 
-  function mockPool() {
-    const pool = [];
-    Object.keys(S.cleared).forEach(k => {
-      const ch = chapterCache.get(k);
-      if (!ch) return;
-      ch.quiz.forEach((q, qi) => pool.push({ sid: ch.subject, n: ch.chapter, qi: qi }));
-    });
+  async function loadManifestData(sid) {
+    if (manifests[sid]) return manifests[sid];
+    try {
+      const res = await fetch('content/' + sid + '/index.json');
+      const m = res.ok ? await res.json() : null;
+      manifests[sid] = (m && Array.isArray(m.chapters)) ? m.chapters : [];
+    } catch (e) { manifests[sid] = []; }
+    return manifests[sid];
+  }
+
+  /* What the lobby knows about a sea without loading its chapters. */
+  function paperInfo(sid) {
+    const sub = subjectOf(sid);
+    const list = manifests[sid] || [];
+    let charted = list.length, questions = list.reduce((a, c) => a + (c.questions || 0), 0);
+    if (!charted) {   // no manifest yet — fall back to titles seen on region visits
+      for (let n = 1; n <= sub.chapters; n++) if (S.titles[key(sid, n)]) charted++;
+    }
+    return { charted: charted, total: sub.chapters, questions: questions };
+  }
+
+  /* Load every charted chapter of a sea so the paper can draw from all of it. */
+  async function warmSea(sid) {
+    const sub = subjectOf(sid);
+    const wanted = [];
+    for (let n = 1; n <= sub.chapters; n++) if (!chapterCache.has(key(sid, n))) wanted.push(n);
+    if (wanted.length) await mapLimit(wanted, 4, n => loadChapter(sid, n));
+  }
+
+  function seaPool(sid) {
+    const sub = subjectOf(sid), pool = [];
+    for (let n = 1; n <= sub.chapters; n++) {
+      const ch = chapterCache.get(key(sid, n));
+      if (!ch) continue;
+      ch.quiz.forEach((q, qi) => pool.push({ sid: sid, n: n, qi: qi }));
+    }
     return pool;
   }
 
-  /* Stratified draw: each sea contributes in proportion to its share of the pool. */
+  /* Stratified draw: each chapter contributes in proportion to its share of the pool. */
   function drawPaper(pool, want) {
     if (pool.length <= want) return shuffled(pool.length).map(i => pool[i]);
-    const bySid = {};
-    pool.forEach(q => { (bySid[q.sid] = bySid[q.sid] || []).push(q); });
-    const sids = Object.keys(bySid);
+    const byCh = {};
+    pool.forEach(q => { (byCh[q.n] = byCh[q.n] || []).push(q); });
+    const keys = Object.keys(byCh);
     const quota = {};
     let assigned = 0;
-    sids.forEach(sid => { quota[sid] = Math.floor(want * bySid[sid].length / pool.length); assigned += quota[sid]; });
-    /* hand out the rounding remainder to the largest pools */
-    sids.sort((a, b) => bySid[b].length - bySid[a].length);
-    for (let i = 0; assigned < want; i = (i + 1) % sids.length) { quota[sids[i]]++; assigned++; }
+    /* Every chapter is examinable, so each gets at least one question when the paper
+       is long enough; the rest is shared out in proportion to chapter size. */
+    const floor = want >= keys.length ? 1 : 0;
+    keys.forEach(k => { quota[k] = floor; assigned += floor; });
+    const spare = want - assigned;
+    keys.forEach(k => { const extra = Math.floor(spare * byCh[k].length / pool.length); quota[k] += extra; assigned += extra; });
+    keys.sort((a, b) => byCh[b].length - byCh[a].length);
+    for (let i = 0; assigned < want; i = (i + 1) % keys.length) {
+      if (quota[keys[i]] < byCh[keys[i]].length) { quota[keys[i]]++; assigned++; }
+    }
     const paper = [];
-    sids.forEach(sid => {
-      const idx = shuffled(bySid[sid].length).slice(0, quota[sid]);
-      idx.forEach(i => paper.push(bySid[sid][i]));
-    });
+    keys.forEach(k => shuffled(byCh[k].length).slice(0, quota[k]).forEach(i => paper.push(byCh[k][i])));
     return shuffled(paper.length).map(i => paper[i]);
   }
 
-  function startMock(mode) {
-    const paper = drawPaper(mockPool(), MOCK_QUESTIONS).map(q => {
-      const ch = chapterCache.get(key(q.sid, q.n));
-      return { sid: q.sid, n: q.n, qi: q.qi, order: shuffled(ch.quiz[q.qi].opts.length) };
-    });
-    S.mock = {
-      mode: mode,
-      started: today(),
-      deadline: Date.now() + MOCK_MINUTES * 60000,
-      qs: paper,
-      k: 0,
-      answers: paper.map(() => null)
-    };
+  async function startMock(sid) {
+    await warmSea(sid);
+    const pool = seaPool(sid);
+    if (!pool.length) { toast('THAT SEA HAS NO CHARTED CHAPTERS YET'); return; }
+    const paper = drawPaper(pool, MOCK_QUESTIONS).map(q => ({
+      sid: q.sid, n: q.n, qi: q.qi,
+      order: shuffled(chapterCache.get(key(q.sid, q.n)).quiz[q.qi].opts.length)
+    }));
+    S.mock = { sid: sid, started: today(), deadline: Date.now() + MOCK_MINUTES * 60000, qs: paper, k: 0, answers: paper.map(() => null) };
     saveLocal();
     go('#/ithaca/exam');
   }
@@ -1487,23 +1521,23 @@
     if (!m) return;
     clearInterval(mockTimer); mockTimer = null;
     let right = 0;
-    const bySubject = {};
+    const byChapter = {};
     const missed = [];
     m.qs.forEach((q, i) => {
       const qq = mockQuestion(i);
       if (!qq) return;
-      const b = bySubject[q.sid] = bySubject[q.sid] || { right: 0, total: 0 };
+      const b = byChapter[q.n] = byChapter[q.n] || { right: 0, total: 0 };
       b.total++;
-      const a = m.answers[i];
-      if (a === qq.correct) { right++; b.right++; }
-      else missed.push({ sid: q.sid, n: q.n, qi: q.qi, picked: a });
+      if (m.answers[i] === qq.correct) { right++; b.right++; }
+      else missed.push({ sid: q.sid, n: q.n, qi: q.qi, picked: m.answers[i] });
     });
     const total = m.qs.length;
     const rec = {
-      on: today(), mode: m.mode, total: total, right: right,
+      on: today(), sid: m.sid, total: total, right: right,
+      marks: right * MOCK_MARKS_PER_QUESTION, maxMarks: total * MOCK_MARKS_PER_QUESTION,
       pct: Math.round(right / total * 100),
       minutes: Math.max(1, Math.round((MOCK_MINUTES * 60000 - Math.max(0, m.deadline - Date.now())) / 60000)),
-      bySubject: bySubject, missed: missed, reason: reason || 'submitted'
+      byChapter: byChapter, missed: missed, reason: reason || 'submitted'
     };
     if (!S.mocks) S.mocks = [];
     S.mocks.push(rec);
@@ -1521,11 +1555,11 @@
 
   const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
   const niceDate = d => { const [y, m, dd] = String(d).split('-'); return dd + ' ' + MONTHS[Number(m) - 1]; };
-
   const mmss = ms => {
     const t = Math.max(0, Math.ceil(ms / 1000));
     return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0');
   };
+  const paperLabel = r => { const s = subjectOf(r.sid); return s ? 'Paper ' + s.roman : 'Paper'; };
 
   function tickMock() {
     const m = S.mock;
@@ -1537,54 +1571,42 @@
     if (left <= 0) submitMock('time');
   }
 
+  function bestFor(sid) { return (S.mocks || []).filter(r => r.sid === sid).reduce((b, r) => Math.max(b, r.marks || 0), 0); }
+
   function renderIthaca() {
-    const cleared = totalCleared();
-    const all = cleared >= totalChapters();
-    const pool = mockPool();
-    const history = (S.mocks || []).slice().reverse();
-    const best = history.reduce((b, r) => Math.max(b, r.pct), 0);
     const inProgress = S.mock && S.mock.deadline > Date.now();
+    const resume = inProgress ? '<div class="panel panel--clay"><div class="label">A PAPER IS OPEN</div>' +
+      '<div class="txt">' + esc(paperLabel(S.mock)) + ' — <b>' + mmss(S.mock.deadline - Date.now()) + '</b> left, ' +
+      S.mock.answers.filter(a => a !== null).length + ' of ' + S.mock.qs.length + ' answered.</div>' +
+      '<button class="btn pxs pop" data-go="#/ithaca/exam" style="margin-top:14px">RESUME ▶</button></div>' : '';
 
-    let action;
-    if (!cleared) {
-      action = '<div class="empty" style="padding:24px 0 0"><h2>The harbour is quiet</h2>' +
-        '<p>Clear at least one chapter and Ithaca will set you a paper drawn from it.</p>' +
-        '<button class="btn pxs pop btn--inline" data-go="#/map" style="margin:0 auto">BACK TO THE MAP</button></div>';
-    } else if (inProgress) {
-      action = '<div class="panel panel--clay"><div class="label" style="color:var(--cream)">A PAPER IS OPEN</div>' +
-        '<div class="txt" style="color:var(--cream)">You have <b>' + mmss(S.mock.deadline - Date.now()) + '</b> left and ' +
-        S.mock.answers.filter(a => a !== null).length + ' of ' + S.mock.qs.length + ' answered.</div>' +
-        '<button class="btn pxs pop" data-go="#/ithaca/exam" style="margin-top:14px">RESUME ▶</button></div>';
-    } else {
-      const n = Math.min(MOCK_QUESTIONS, pool.length);
-      action = '<div class="panel panel--parch">' +
-        '<div class="label">' + (all ? 'LANDFALL' : 'SEA TRIAL') + '</div>' +
-        '<div class="serif" style="font-size:20px;color:var(--ink)">' + n + ' questions · ' + MOCK_MINUTES + ' minutes</div>' +
-        '<p class="txt txt--ink" style="margin:8px 0 14px">Drawn from the ' + cleared + ' chapter' + (cleared === 1 ? '' : 's') +
-        ' you have cleared — ' + pool.length + ' questions in the pool, spread across every sea you have sailed. ' +
-        'No feedback until the end; you can change an answer until you submit. ' + PASS_MARK + '% is a pass.' +
-        (all ? '' : ' Clear more chapters and the paper widens with you.') + '</p>' +
-        '<button class="btn pxs pop" data-mockstart="' + (all ? 'landfall' : 'trial') + '">' +
-        (all ? 'MAKE LANDFALL ▶' : 'BEGIN THE TRIAL ▶') + '</button></div>';
-    }
+    const papers = SUBJECTS.map(sub => {
+      const info = paperInfo(sub.id);
+      const ready = info.charted > 0 && !inProgress;
+      const best = bestFor(sub.id);
+      const sat = (S.mocks || []).filter(r => r.sid === sub.id).length;
+      return '<div class="panel panel--parch papercard' + (info.charted ? '' : ' papercard--dim') + '">' +
+        '<div class="rowbetween"><div class="label" style="margin:0">PAPER ' + esc(sub.roman) + '</div>' +
+        (best ? '<span class="pixnum ' + (best >= PASS_MARK * MOCK_MARKS_PER_QUESTION * MOCK_QUESTIONS / 100 ? 'pixnum--gold' : 'pixnum--clay') + '" style="color:var(--bronze)">BEST ' + best + '/' + (MOCK_QUESTIONS * MOCK_MARKS_PER_QUESTION) + '</span>' : '') + '</div>' +
+        '<div class="serif" style="font-size:19px;color:var(--ink);margin-top:8px">' + esc(sub.name) + '</div>' +
+        '<div class="txt txt--sm txt--ink" style="margin-top:4px">' + esc(sub.title) + ' · ' + info.charted + ' of ' + info.total + ' chapters charted' +
+        (info.questions ? ' · ' + info.questions + ' questions in the pool' : '') + (sat ? ' · sat ' + sat + '×' : '') + '</div>' +
+        '<button class="btn pxs pop" data-mockstart="' + sub.id + '" style="margin-top:14px"' + (ready ? '' : ' disabled') + '>' +
+        (info.charted ? 'SIT THE PAPER ▶' : 'NOT YET CHARTED') + '</button></div>';
+    }).join('');
 
-    const fmt = niceDate;
-    const histPanel = '<div class="panel panel--sea"><div class="label label--gold">PAST PAPERS' + (best ? ' · BEST ' + best + '%' : '') + '</div>' +
-      (history.length ? '<div class="mocklist">' + history.slice(0, 8).map((m, i) =>
-        '<div class="mockrow"><span class="pixnum pixnum--parch">' + fmt(m.on) + '</span>' +
-        '<div class="bar" style="flex:1;height:12px;gap:2px;padding:2px">' + bars(Math.round(m.pct / 10), 10, m.pct >= PASS_MARK ? 'on' : 'mockfail', '') + '</div>' +
-        '<span class="pixnum ' + (m.pct >= PASS_MARK ? 'pixnum--gold' : 'pixnum--clay') + '">' + m.pct + '%</span></div>').join('') + '</div>'
-      : '<div class="txt txt--parch">No papers sat yet.</div>') + '</div>';
-
-    const about = '<div class="panel panel--deep"><div class="label label--gold">WHY ITHACA</div>' +
-      '<div class="txt txt--parch">Chapter trials teach; the exam tests. A paper mixes every sea, gives nothing away as you go, ' +
-      'and runs against the clock — the closer to the real thing, the fewer surprises on the day. Your scores are kept in the Ship’s Log so you can see the line climb.</div></div>';
+    const about = '<div class="panel panel--deep"><div class="label label--gold">THE PAPERS</div>' +
+      '<div class="txt txt--parch">Five papers, one per sea, in the real shape: <b>' + MOCK_QUESTIONS + ' questions, ' +
+      MOCK_MARKS_PER_QUESTION + ' marks each, out of ' + (MOCK_QUESTIONS * MOCK_MARKS_PER_QUESTION) + '</b>, ' + MOCK_MINUTES + ' minutes. ' +
+      'Each draws from every charted chapter of its sea, cleared or not, and is reshuffled every sitting. ' +
+      'Nothing is given away as you go; you can change any answer until you submit. ' + PASS_MARK + '% is a pass. ' +
+      'Every paper is kept in the Ship’s Log so you can watch the line climb.</div></div>';
 
     return '<div class="subhead subhead--deep">' +
       '<button class="back" data-go="#/map" aria-label="Back to map">◀</button>' +
       '<div><div class="eyebrow">✦ ITHACA</div><h1>The exam itself</h1></div></div>' +
-      '<div class="shell"><div class="cols"><div class="main vstack vstack--md">' + action + about + '</div>' +
-      '<div class="side">' + histPanel + '</div></div></div>';
+      '<div class="shell"><div class="cols"><div class="main vstack vstack--md">' + resume + papers + '</div>' +
+      '<div class="side">' + about + '</div></div></div>';
   }
 
   function renderMockExam() {
@@ -1593,11 +1615,9 @@
     if (m.deadline <= Date.now()) { setTimeout(() => submitMock('time'), 0); return renderIthaca(); }
     const i = Math.max(0, Math.min(m.k, m.qs.length - 1));
     const q = mockQuestion(i);
-    if (!q) {
-      return '<div class="shell"><div class="empty"><h2>Reading the charts…</h2><p>Loading the chapters this paper draws on.</p></div></div>';
-    }
+    if (!q) return '<div class="shell"><div class="empty"><h2>Reading the charts…</h2><p>Loading the chapters this paper draws on.</p></div></div>';
     const spec = m.qs[i];
-    const sub = subjectOf(spec.sid);
+    const sub = subjectOf(m.sid);
     const picked = m.answers[i];
     const answered = m.answers.filter(a => a !== null).length;
     const last = i === m.qs.length - 1;
@@ -1608,21 +1628,18 @@
 
     return '<div class="subhead subhead--deep examhead">' +
       '<div class="rowbetween">' +
-      '<span class="mono" style="font-size:var(--px-sm);color:var(--gold)">✦ ' + (m.mode === 'landfall' ? 'LANDFALL' : 'SEA TRIAL') + '</span>' +
+      '<span class="mono" style="font-size:var(--px-sm);color:var(--gold)">✦ ' + esc(paperLabel(m).toUpperCase()) + '</span>' +
       '<span class="mockclock" id="mockClock">' + mmss(m.deadline - Date.now()) + '</span></div>' +
-      '<div class="bar" style="margin-top:12px">' + bars(answered, m.qs.length, 'on', '') + '</div>' +
-      '</div>' +
+      '<div class="bar" style="margin-top:12px">' + bars(answered, m.qs.length, 'on', '') + '</div></div>' +
       '<div class="shell"><div class="paper exam">' +
-      '<div class="trialhead"><span class="q">Q' + (i + 1) + ' OF ' + m.qs.length + ' · ' + (answered) + ' ANSWERED</span>' +
-      '<span class="pass" style="color:var(--bronze)">' + esc(sub ? sub.roman + ' · CH ' + spec.n : '') + '</span></div>' +
+      '<div class="trialhead"><span class="q">Q' + (i + 1) + ' OF ' + m.qs.length + ' · ' + answered + ' ANSWERED</span>' +
+      '<span class="pass" style="color:var(--bronze)">' + MOCK_MARKS_PER_QUESTION + ' MARKS</span></div>' +
       '<div class="question">' + esc(q.q) + '</div>' +
       '<div class="options">' + options + '</div>' +
       '<div class="examnav">' +
       '<button class="btn pxs pop btn--inline btn--deep" data-mocknav="-1"' + (i === 0 ? ' disabled' : '') + '>◀ PREV</button>' +
-      (last
-        ? '<button class="btn pxs pop btn--inline" data-mocksubmit="1">SUBMIT THE PAPER ▶</button>'
-        : '<button class="btn pxs pop btn--inline" data-mocknav="1">NEXT ▶</button>') +
-      '</div>' +
+      (last ? '<button class="btn pxs pop btn--inline" data-mocksubmit="1">SUBMIT THE PAPER ▶</button>'
+            : '<button class="btn pxs pop btn--inline" data-mocknav="1">NEXT ▶</button>') + '</div>' +
       (last ? '' : '<button class="linkbtn" data-mocksubmit="1">Finish early and submit ' + answered + ' of ' + m.qs.length + '</button>') +
       '</div></div>';
   }
@@ -1631,30 +1648,33 @@
     const hist = S.mocks || [];
     const r = hist[hist.length - 1];
     if (!r) return renderIthaca();
+    const sub = subjectOf(r.sid);
     const passed = r.pct >= PASS_MARK;
     const tier = !passed ? 'fail' : r.pct >= 85 ? 'gold' : 'bronze';
     const celebrate = celebrateFor === 'mock';
-    const prevBest = hist.slice(0, -1).reduce((b, x) => Math.max(b, x.pct), 0);
-    const newBest = hist.length > 1 && r.pct > prevBest;
+    const prevBest = hist.slice(0, -1).filter(x => x.sid === r.sid).reduce((b, x) => Math.max(b, x.marks || 0), 0);
+    const newBest = prevBest > 0 && r.marks > prevBest;
+    const marks = r.marks !== undefined ? r.marks : r.right * MOCK_MARKS_PER_QUESTION;
+    const maxMarks = r.maxMarks || r.total * MOCK_MARKS_PER_QUESTION;
 
-    const breakdown = '<div class="panel panel--parch" style="text-align:left;max-width:720px;margin:0 auto 18px">' +
-      '<div class="label label--ink">BY SEA</div><div class="vstack vstack--md">' +
-      SUBJECTS.filter(s => r.bySubject[s.id]).map(s => {
-        const b = r.bySubject[s.id], pct = Math.round(b.right / b.total * 100);
-        return '<div><div class="seasrow"><span class="nm">' + esc(s.name) + '</span><span class="pc">' + b.right + '/' + b.total + '</span></div>' +
-          '<div class="bar" style="height:13px;gap:2px;padding:2px">' + bars(Math.round(pct / 10), 10, pct >= PASS_MARK ? 'on' : 'mockfail', 'off') + '</div></div>';
-      }).join('') + '</div></div>';
+    /* Which chapters let you down — the useful part of a per-subject paper. */
+    const chapters = Object.keys(r.byChapter || {}).map(Number).sort((a, b) => a - b);
+    const breakdown = chapters.length ? '<div class="panel panel--parch" style="text-align:left;max-width:720px;margin:0 auto 18px">' +
+      '<div class="label label--ink">BY CHAPTER</div><div class="vstack vstack--sm">' +
+      chapters.map(n => {
+        const b = r.byChapter[n], pct = Math.round(b.right / b.total * 100);
+        return '<div><div class="seasrow"><span class="nm" style="font-size:var(--t-sm)">Ch ' + n + (S.titles[key(r.sid, n)] ? ' — ' + esc(S.titles[key(r.sid, n)]) : '') + '</span>' +
+          '<span class="pc">' + b.right + '/' + b.total + '</span></div>' +
+          '<div class="bar" style="height:11px;gap:2px;padding:2px">' + bars(Math.round(pct / 10), 10, pct >= PASS_MARK ? 'on' : 'mockfail', 'off') + '</div></div>';
+      }).join('') + '</div></div>' : '';
 
-    const missed = r.missed.map(x => {
+    const missed = (r.missed || []).map(x => {
       const ch = chapterCache.get(key(x.sid, x.n));
       const q = ch && ch.quiz[x.qi];
       if (!q) return null;
-      const sub = subjectOf(x.sid);
-      return { n: (sub ? sub.roman : x.sid) + '·' + x.n, q: q.q,
-        picked: x.picked === null || x.picked === undefined ? '— (unanswered)' : q.opts[x.picked],
-        truth: q.opts[q.correct], why: q.why || null };
+      return { n: 'CH ' + x.n, q: q.q, picked: x.picked === null || x.picked === undefined ? '— (unanswered)' : q.opts[x.picked], truth: q.opts[q.correct], why: q.why || null };
     }).filter(Boolean);
-    const review = missed.length ? '<div class="missed">' +
+    const review = missed.length ? '<div class="review">' +
       '<div class="label" style="color:var(--clay)">WHAT YOU MISSED · ' + missed.length + ' OF ' + r.total + '</div>' +
       '<ol class="missedlist">' + missed.map(mm =>
         '<li><div class="mq"><span class="mn">' + esc(mm.n) + '</span>' + esc(mm.q) + '</div>' +
@@ -1664,13 +1684,13 @@
 
     return '<div class="subhead subhead--deep">' +
       '<button class="back" data-go="#/ithaca" aria-label="Back to Ithaca">◀</button>' +
-      '<div><div class="eyebrow">✦ ITHACA</div><h1>' + (r.mode === 'landfall' ? 'Landfall' : 'Sea trial') + ' — ' + niceDate(r.on) + '</h1></div></div>' +
+      '<div><div class="eyebrow">✦ ' + esc(paperLabel(r).toUpperCase()) + '</div><h1>' + esc(sub ? sub.name : 'Paper') + ' — ' + niceDate(r.on) + '</h1></div></div>' +
       '<div class="shell"><div class="paper"><div class="victory' + (celebrate ? ' celebrate' : '') + '">' +
       '<div class="eyebrow">' + (newBest ? 'A NEW BEST' : passed ? 'A PASSING PAPER' : 'THE PAPER HOLDS') + '</div>' +
       '<div class="medalwrap">' + (celebrate && passed ? '<div class="confetti" aria-hidden="true">' + confettiHTML() + '</div>' : '') +
-      '<div class="medal px tier-' + tier + (String(r.pct).length > 2 ? ' medal--wide' : '') + '">' + r.pct + '%</div></div>' +
+      '<div class="medal px tier-' + tier + ' medal--marks">' + marks + '<span class="medalof">/' + maxMarks + '</span></div></div>' +
       '<h2>' + (passed ? 'You would have passed' : 'Not yet — but now you know where') + '</h2>' +
-      '<div class="sub">' + r.right + ' of ' + r.total + ' answered true in ' + r.minutes + ' minute' + (r.minutes === 1 ? '' : 's') +
+      '<div class="sub">' + r.right + ' of ' + r.total + ' answered true (' + r.pct + '%) in ' + r.minutes + ' minute' + (r.minutes === 1 ? '' : 's') +
       (r.reason === 'time' ? ' — time ran out.' : '.') + (r.right ? ' +' + (r.right * MOCK_XP_PER_CORRECT) + ' XP.' : '') + '</div>' +
       breakdown + review +
       '<div class="btnrow"><button class="btn pxs pop btn--inline btn--deep" data-go="#/map">BACK TO THE MAP</button>' +
@@ -1702,7 +1722,13 @@
     if (route.name === 'counsel') return 'counsel/' + (cardSession ? 'r' : 'l');
     if (route.name === 'crew') return 'crew/' + (crewRoster ? 'r' : 'l');
     if (route.name === 'mockexam') return 'mockexam/' + (S.mock ? S.mock.k : 'none');
-    if (route.name === 'ithaca' || route.name === 'mockresult') return route.name + '/' + (mockPool().length ? 'r' : 'l');
+    if (route.name === 'ithaca') return 'ithaca/' + SUBJECTS.filter(x => manifests[x.id]).length;
+    if (route.name === 'mockresult') {
+      const h = S.mocks || [], rec = h[h.length - 1];
+      let cached = 0;
+      if (rec) { const sub = subjectOf(rec.sid); for (let n = 1; sub && n <= sub.chapters; n++) if (chapterCache.has(key(rec.sid, n))) cached++; }
+      return 'mockresult/' + h.length + '/' + cached;
+    }
     if (route.name === 'map') {
       const sub = currentSubject();
       return 'map/' + (S.titles[key(sub.id, firstOpenChapter(sub.id))] ? 'r' : 'l');
@@ -1761,8 +1787,11 @@
         startSession();
       } else if (r.name === 'crew') {
         await loadCrew();
-      } else if (r.name === 'ithaca' || r.name === 'mockexam' || r.name === 'mockresult') {
-        await warmDeck();
+      } else if (r.name === 'ithaca') {
+        await Promise.all(SUBJECTS.map(sub => loadManifestData(sub.id)));
+      } else if (r.name === 'mockexam' || r.name === 'mockresult') {
+        const rec = r.name === 'mockexam' ? S.mock : (S.mocks || [])[(S.mocks || []).length - 1];
+        if (rec && rec.sid) await warmSea(rec.sid);
       }
     } catch (e) { /* loader already degrades to the placeholder */ }
     pending = false;
@@ -1797,7 +1826,7 @@
     if (t.closest('[data-crewretry]')) { crewRoster = null; render(); hydrate(); return; }
 
     const ms = t.closest('[data-mockstart]');
-    if (ms) { if (!mockPool().length) { toast('THE CHARTS ARE STILL LOADING'); return; } sfx('tick'); startMock(ms.dataset.mockstart); return; }
+    if (ms && !ms.disabled) { sfx('tick'); ms.disabled = true; ms.textContent = 'READING THE CHARTS…'; startMock(ms.dataset.mockstart).then(() => { if (route.name === 'ithaca') render(); }); return; }
     const mp = t.closest('[data-mockpick]');
     if (mp && S.mock) { S.mock.answers[S.mock.k] = Number(mp.dataset.mockpick); sfx('tick'); saveLocal(); render(); return; }
     const mn = t.closest('[data-mocknav]');

@@ -42,9 +42,11 @@ const RANKS = [
   'FIRST MATE', 'CAPTAIN', 'ADMIRAL', 'HERO OF ITHACA'
 ];
 
-/* Mock exams at Ithaca. Change these once the real paper's format is known. */
-const MOCK_QUESTIONS = 40;   // drawn across every chapter you have cleared
-const MOCK_MINUTES = 60;
+/* Exam papers at Ithaca — one per sea, matching the real CIPM format:
+   50 questions, 2 marks each, out of 100. Drawn from every charted chapter of that sea. */
+const MOCK_QUESTIONS = 50;
+const MOCK_MARKS_PER_QUESTION = 2;
+const MOCK_MINUTES = 60;            // not yet confirmed against the real paper
 const MOCK_XP_PER_CORRECT = 1;
 
 /* XP required to reach each level. */
