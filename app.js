@@ -57,7 +57,9 @@
       cardsReviewed: 0,
       perfectTrial: false,
       relics: {},         // relic name -> ISO date found
-      mocks: []           // finished mock exams, oldest first
+      mocks: [],          // finished mock exams, oldest first
+      openWaters: false,  // false: seas open in order. true: every sea open at once.
+      lastSea: null       // where the ship sits in open waters — the sea last studied
     };
   }
 
@@ -74,6 +76,7 @@
           if (!S.startedOn) S.startedOn = S.studied && S.studied.length ? S.studied.slice().sort()[0] : today();
           if (!S.relics) S.relics = {};
           if (!S.mocks) S.mocks = [];
+          if (S.openWaters === undefined) S.openWaters = false;
         }
       }
       EMAIL = localStorage.getItem(EMAIL_STORE) || null;
@@ -235,14 +238,27 @@
     Math.round(subjectClearedCount(id) / subjectOf(id).chapters * 100);
   const subjectDone = id => subjectClearedCount(id) === subjectOf(id).chapters;
 
-  /* Sequential across subjects too: a sea opens once the one before it is finished. */
+  /* Where the ship is. On the charted course that's the first unfinished sea; in open
+     waters it's wherever you last studied (falling back to the first unfinished sea). */
+  function currentSubject() {
+    const unfinished = SUBJECTS.filter(s => !subjectDone(s.id));
+    if (!unfinished.length) return SUBJECTS[0];
+    if (S.openWaters && S.lastSea) {
+      const last = unfinished.find(s => s.id === S.lastSea);
+      if (last) return last;
+    }
+    return unfinished[0];
+  }
+
+  /* Charted course (default): a sea opens once the one before it is finished.
+     Open waters: every sea is open at once; only the ship's sea reads as 'current'. */
   function subjectState(subjectId) {
-    const i = SUBJECTS.findIndex(s => s.id === subjectId);
     if (subjectDone(subjectId)) return 'done';
+    if (S.openWaters) return subjectId === currentSubject().id ? 'current' : 'open';
+    const i = SUBJECTS.findIndex(s => s.id === subjectId);
     for (let j = 0; j < i; j++) if (!subjectDone(SUBJECTS[j].id)) return 'locked';
     return 'current';
   }
-  const currentSubject = () => SUBJECTS.find(s => subjectState(s.id) === 'current') || SUBJECTS[0];
 
   const totalCleared = () => Object.keys(S.cleared).length;
   const totalChapters = () => SUBJECTS.reduce((a, s) => a + s.chapters, 0);
@@ -580,6 +596,7 @@
       if (!S.sched) S.sched = {};
       if (!S.relics) S.relics = {};
       if (!S.mocks) S.mocks = [];
+      if (S.openWaters === undefined) S.openWaters = false;
       if (!S.startedOn) S.startedOn = S.studied.length ? S.studied.slice().sort()[0] : today();
       syncState = 'ok';
     } else if (!failed) {
@@ -617,6 +634,7 @@
       if (!S.sched) S.sched = {};
       if (!S.relics) S.relics = {};
       if (!S.mocks) S.mocks = [];
+      if (S.openWaters === undefined) S.openWaters = false;
       if (!S.startedOn) S.startedOn = S.studied.length ? S.studied.slice().sort()[0] : today();
       saveLocal();
       return true;
@@ -646,12 +664,12 @@
     list.push({ s: ITHACA, st: allDone ? 'current' : 'goal' });
     return list.map(m => ({
       s: m.s, st: m.st,
-      bg: m.st === 'done' ? 'var(--sea)' : m.st === 'current' ? 'var(--gold)'
+      bg: m.st === 'done' ? 'var(--sea)' : m.st === 'current' ? 'var(--gold)' : m.st === 'open' ? 'var(--bronze)'
         : m.st === 'goal' ? 'var(--deep)' : 'rgba(28,57,64,.85)',
       fg: m.st === 'current' ? 'var(--ink)' : m.st === 'goal' ? 'var(--gold)' : 'var(--parch)',
       bd: m.st === 'goal' ? 'var(--gold)' : 'var(--ink)',
-      glyph: m.st === 'done' ? '✓' : m.st === 'current' ? m.s.roman : m.st === 'goal' ? '✦' : '✖',
-      labelBg: m.st === 'current' ? 'var(--gold)' : 'rgba(28,57,64,.9)',
+      glyph: m.st === 'done' ? '✓' : (m.st === 'current' || m.st === 'open') ? m.s.roman : m.st === 'goal' ? '✦' : '✖',
+      labelBg: m.st === 'current' ? 'var(--gold)' : m.st === 'open' ? 'var(--bronze)' : 'rgba(28,57,64,.9)',
       labelFg: m.st === 'current' ? 'var(--ink)' : 'var(--parch)'
     }));
   }
@@ -743,9 +761,23 @@
       '<span class="st">' + status + '</span></button>';
   }
 
+  function sealedSea(sub) {
+    const i = SUBJECTS.findIndex(x => x.id === sub.id);
+    const before = i > 0 ? SUBJECTS[i - 1] : null;
+    return '<div class="subhead subhead--sea">' +
+      '<button class="back" data-go="#/map" aria-label="Back to map">◀</button>' +
+      '<div><div class="eyebrow">SEA ' + esc(sub.roman) + ' · ' + esc(sub.port) + '</div><h1>' + esc(sub.name) + '</h1></div></div>' +
+      '<div class="shell"><div class="empty"><h2>This sea is still sealed</h2>' +
+      '<p>On the charted course the seas open in order' + (before ? ' — finish ' + esc(before.title) + ' first' : '') +
+      '. Or switch to open waters in the Ship’s Log to sail anywhere.</p>' +
+      '<div class="btnrow"><button class="btn pxs pop btn--inline btn--deep" data-go="#/map">BACK TO THE MAP</button>' +
+      '<button class="btn pxs pop btn--inline" data-go="#/stats">SHIP’S LOG</button></div></div></div>';
+  }
+
   function renderRegion(subjectId) {
     const sub = subjectOf(subjectId);
     if (!sub) return renderMap();
+    if (subjectState(subjectId) === 'locked') return sealedSea(sub);
 
     const clearedN = subjectClearedCount(subjectId);
     const scores = [];
@@ -893,6 +925,7 @@
   function renderChapter(subjectId, n) {
     const sub = subjectOf(subjectId);
     if (!sub || n < 1 || n > sub.chapters) return renderMap();
+    if (subjectState(subjectId) === 'locked') return sealedSea(sub);
 
     if (chapterStatus(subjectId, n) === 'locked') {
       return chapterFrame(sub, n, null,
@@ -1339,6 +1372,17 @@
       : '<div class="txt txt--parch">No papers sat yet. Sail to Ithaca on the map to sit one.</div>') +
       '<button class="btn pxs pop" data-go="#/ithaca" style="margin-top:14px">' + (mocks.length ? 'SIT ANOTHER' : 'SAIL TO ITHACA') + '</button></div>';
 
+    const open = !!S.openWaters;
+    const coursePanel = '<div class="panel panel--parch"><div class="label label--ink">THE COURSE</div>' +
+      '<div class="seg" role="group" aria-label="Sea unlocking">' +
+      '<button class="segbtn' + (open ? '' : ' on') + '" data-course="charted" aria-pressed="' + (!open) + '">CHARTED COURSE</button>' +
+      '<button class="segbtn' + (open ? ' on' : '') + '" data-course="open" aria-pressed="' + open + '">OPEN WATERS</button></div>' +
+      '<div class="txt txt--ink" style="margin-top:12px">' + (open
+        ? 'Every sea is open at once. Study the subjects in any order; the ship sits wherever you last studied. Chapters within a sea still unlock in sequence.'
+        : 'The seas open in order — each when the one before it is finished. This is the voyage as designed.') + '</div>' +
+      (open ? '' : '<div class="txt txt--sm txt--ink" style="margin-top:8px">Switching to open waters keeps all progress; switching back seals any later sea you had started until you reach it.</div>') +
+      '</div>';
+
     const syncLabel = syncState === 'ok' ? 'SYNCED' : syncState === 'error' ? 'LOCAL ONLY' : 'OFF';
     const syncColor = syncState === 'ok' ? 'var(--gold)' : syncState === 'error' ? 'var(--clay)' : 'var(--parch)';
     const syncPanel = '<div class="panel panel--deep"><div class="label label--gold">SYNC ACROSS DEVICES</div>' +
@@ -1354,7 +1398,7 @@
       '<div class="cols cols--wide"><div class="main vstack vstack--md">' + seasPanel + mockPanel + '</div>' +
       '<div class="side">' + relicsPanel + '</div></div>' +
       '<div class="cols cols--wide"><div class="main">' + logPanel + '</div>' +
-      '<div class="side">' + syncPanel + '</div></div></div></div>';
+      '<div class="side">' + coursePanel + syncPanel + '</div></div></div></div>';
   }
 
   /* ---------------- screen: crew ---------------- */
@@ -1803,9 +1847,11 @@
     pending = true;
     try {
       if (r.name === 'chapter') {
+        if (subjectOf(r.sea) && subjectState(r.sea) === 'locked') return;
+        if (subjectOf(r.sea) && S.lastSea !== r.sea) { S.lastSea = r.sea; saveLocal(); }
         if (chapterStatus(r.sea, r.n) !== 'locked') await loadChapter(r.sea, r.n);
       } else if (r.name === 'region') {
-        await warmSubject(r.sea);
+        if (subjectState(r.sea) !== 'locked') await warmSubject(r.sea);
       } else if (r.name === 'map') {
         const sub = currentSubject();
         await Promise.all([loadChapter(sub.id, firstOpenChapter(sub.id)), warmDeck()]);
@@ -1849,6 +1895,19 @@
     if (tabEl) { go(tabEl.dataset.tab === 'map' ? '#/map' : '#/' + tabEl.dataset.tab); return; }
 
     if (t.closest('[data-signout]')) { signOut(); return; }
+
+    const courseEl = t.closest('[data-course]');
+    if (courseEl) {
+      const want = courseEl.dataset.course === 'open';
+      if (want !== !!S.openWaters) {
+        S.openWaters = want;
+        save();
+        sfx('tick');
+        toast(want ? 'OPEN WATERS — EVERY SEA IS YOURS' : 'CHARTED COURSE — THE SEAS OPEN IN ORDER');
+        render();
+      }
+      return;
+    }
 
     if (t.closest('[data-crewretry]')) { crewRoster = null; render(); hydrate(); return; }
 

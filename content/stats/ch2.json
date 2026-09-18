@@ -1,0 +1,278 @@
+{
+  "subject": "stats",
+  "subjectName": "Business Statistics & Social Research Methods",
+  "chapter": 2,
+  "title": "Statistical Data",
+  "objectives": [
+    "Distinguish primary from secondary data, and internal from external sources.",
+    "Describe the methods of collecting primary data, with their advantages and disadvantages.",
+    "State the components and qualities of a good questionnaire.",
+    "Explain probability and non-probability sampling techniques."
+  ],
+  "study": "<p>Statistical data must meet five quality criteria: <b>Relevant</b> to the problem being investigated, <b>Accurate</b> and free from collection errors, <b>Adequate</b> in quantity, <b>Timely</b> enough to still apply, and <b>Homogeneous</b> — collected under uniform conditions. By nature, data is <b>Qualitative (Categorical)</b> — describing attributes like gender or job title — or <b>Quantitative (Numerical)</b> — expressing quantities, itself split into <b>Discrete</b> data (specific countable values, e.g. number of employees) and <b>Continuous</b> data (any value in a range, e.g. weight).</p><div class=\"callout\"><b>Key term</b>Primary data — first-hand, original, unprocessed information collected directly by an investigator for a specific purpose (e.g. a national census). Secondary data — second-hand information already collected and processed by someone else (e.g. figures from a firm's published records). Primary data is generally more reliable, since it hasn't been filtered or altered by anyone else first.</div><p>Sources are also described by origin: <b>internal sources</b> (an organisation's own reports and records, e.g. its profit-and-loss account) versus <b>external sources</b> (data obtained from outside the organisation), and by purpose: <b>statistical sources</b> (collected for an official purpose, e.g. a census) versus <b>non-statistical sources</b> (private or administrative purposes).</p><p>Seven methods exist for collecting primary data, each with distinct trade-offs. The <b>Direct Personal Interview</b> gives accurate, first-hand information and flexibility, but is expensive, slow and open to interviewer bias. The <b>Indirect Oral Interview</b> questions third parties in touch with the informants — wider coverage, but risks fake or non-comparable responses. Using <b>Correspondents</b> (trained local agents) is economical and fast but suffers a lack of conformity and unreliable data. The <b>Telephone Interview</b> is fast and covers wide geography, but excludes anyone without a phone and loses all visual feedback. The <b>Mailed Questionnaire</b> is cheap, wide-reaching and free of interviewer bias, with anonymity encouraging honesty — but response rates are low (often 10–30%) and it unsuits illiterate respondents. The <b>Observation Method</b> records actual behaviour rather than what people say, either structured/systematic, unstructured, or participant (the researcher joins the group being studied) — but the observer's presence can itself influence behaviour. The <b>Experimental Method</b> holds other variables constant while manipulating one, to observe its effect on a response variable.</p><div class=\"callout tip\"><b>Exam tip</b>Learn each data-collection method's single defining advantage and disadvantage as a pair — CIPM questions often present a scenario and ask which method it describes or which weakness applies to it.</div><p>A good questionnaire has three parts: an <b>Introduction</b> explaining the research purpose, a <b>Personal Data</b> section, and the <b>Actual Questions</b> targeting the research problem — and should be clear, unambiguous, logically sequenced, and free of leading or embarrassing questions.</p><p><b>Sampling</b> is selecting a required number of items from a <b>population</b> (the entire set a researcher wants to study). <b>Probability sampling</b> gives every unit a known, non-zero chance of selection: <b>Simple Random</b> (equal chance for all), <b>Stratified</b> (population split into strata, then randomly sampled within each), <b>Systematic</b> (first unit random, then fixed intervals), <b>Cluster</b> (whole clusters randomly selected), and <b>Multistage</b> (sampling in successive stages). <b>Non-probability sampling</b> is not chance-based: <b>Quota</b> (fills an arbitrary quota per segment), <b>Haphazard</b> (interviewer convenience), <b>Judgement</b> (researcher's own judgement of representativeness), and <b>Convenience</b> (whichever units are easiest to reach).</p>",
+  "recap": "<ul><li>Data quality: Relevant, Accurate, Adequate, Timely, Homogeneous.</li><li>Qualitative (categorical) vs Quantitative (discrete or continuous) data.</li><li>Primary (first-hand, more reliable) vs Secondary (already processed) data; internal vs external sources.</li><li>7 primary data methods: Direct Personal Interview, Indirect Oral Interview, Correspondents, Telephone Interview, Mailed Questionnaire, Observation, Experimental.</li><li>Questionnaire has 3 parts: Introduction, Personal Data, Actual Questions.</li><li>Probability sampling: Simple Random, Stratified, Systematic, Cluster, Multistage.</li><li>Non-probability sampling: Quota, Haphazard, Judgement, Convenience.</li></ul>",
+  "quiz": [
+    {
+      "q": "Data expressed in categories such as Yes/No, True/False or Success/Failure is called …… data.",
+      "opts": [
+        "continuous",
+        "quantitative",
+        "primary",
+        "qualitative"
+      ],
+      "correct": 3,
+      "why": "Qualitative (categorical) data describes attributes or categories rather than quantities."
+    },
+    {
+      "q": "First-hand, unprocessed information collected directly by an investigator for a specific purpose is called …… data.",
+      "opts": [
+        "secondary",
+        "primary",
+        "external",
+        "categorical"
+      ],
+      "correct": 1,
+      "why": "Primary data is original and collected directly for the current research purpose, unlike secondary data which was collected earlier by someone else."
+    },
+    {
+      "q": "Data extracted from the published records of an existing institution is an example of:",
+      "opts": [
+        "Primary data",
+        "Experimental data",
+        "Observational data",
+        "Secondary data"
+      ],
+      "correct": 3,
+      "why": "Data taken from records already compiled by someone else, for another purpose, is secondary data."
+    },
+    {
+      "q": "Data drawn from an organisation's own reports and records, such as its profit-and-loss account, is data from a(n) …… source.",
+      "opts": [
+        "statistical",
+        "internal",
+        "non-statistical",
+        "external"
+      ],
+      "correct": 1,
+      "why": "Internal sources are the organisation's own records; external sources come from outside the organisation."
+    },
+    {
+      "q": "Data obtained from outside the organisation, such as tourism figures sourced from another company, is data from a(n) …… source.",
+      "opts": [
+        "primary",
+        "non-statistical",
+        "external",
+        "internal"
+      ],
+      "correct": 2,
+      "why": "External sources originate outside the organisation using the data, as opposed to its own internal records."
+    },
+    {
+      "q": "Which data-collection method involves the investigator visiting the respondent in person?",
+      "opts": [
+        "Telephone interview",
+        "Observation method",
+        "Direct personal interview method",
+        "Mailed questionnaire method"
+      ],
+      "correct": 2,
+      "why": "The direct personal interview method specifically involves the investigator meeting the respondent face to face."
+    },
+    {
+      "q": "In the indirect oral interview method, the investigator obtains information by:",
+      "opts": [
+        "Sending a questionnaire by post",
+        "Interviewing informed third parties",
+        "Interviewing the respondent directly",
+        "Observing behaviour without interaction"
+      ],
+      "correct": 1,
+      "why": "Indirect oral interviews question third parties who are in touch with the actual informants, rather than the informants themselves."
+    },
+    {
+      "q": "A key disadvantage of collecting data through correspondents is:",
+      "opts": [
+        "Wide area coverage",
+        "Speed of collection",
+        "Low cost",
+        "Lack of conformity and unreliable data"
+      ],
+      "correct": 3,
+      "why": "Local correspondents collecting data on an investigator's behalf often produce data lacking uniformity and reliability."
+    },
+    {
+      "q": "Which data-collection method lacks visual feedback from the respondent?",
+      "opts": [
+        "Observation method",
+        "Experimental method",
+        "Telephone interview",
+        "Direct personal interview"
+      ],
+      "correct": 2,
+      "why": "A telephone interview is audio-only, so the interviewer cannot see the respondent's expressions or body language."
+    },
+    {
+      "q": "A major advantage of the mailed questionnaire method is that:",
+      "opts": [
+        "Anonymity is preserved and bias-free",
+        "It guarantees a high response rate",
+        "It requires no postage or distribution cost",
+        "It suits illiterate respondents well"
+      ],
+      "correct": 0,
+      "why": "With no interviewer present, mailed questionnaires preserve anonymity and remove interviewer bias, though response rates are typically low."
+    },
+    {
+      "q": "The observation method is best described as a method concerned with:",
+      "opts": [
+        "A telephone-based conversation",
+        "Actual perception of behaviour rather than what respondents say",
+        "Posting a questionnaire to respondents",
+        "Extracting data from published records"
+      ],
+      "correct": 1,
+      "why": "Observation records what people actually do, rather than relying on self-reported answers."
+    },
+    {
+      "q": "In the experimental method, the researcher:",
+      "opts": [
+        "Holds other variables constant, manipulating one",
+        "Relies solely on published records",
+        "Observes passively without any manipulation",
+        "Uses a mailed questionnaire exclusively"
+      ],
+      "correct": 0,
+      "why": "The experimental method isolates the effect of one variable by holding the others constant while it is deliberately changed."
+    },
+    {
+      "q": "A good questionnaire is typically divided into which three parts?",
+      "opts": [
+        "Cover letter, footer, and signature",
+        "Introduction, personal data, and actual questions",
+        "Abstract, methodology, and conclusion",
+        "Title page, appendix, and bibliography"
+      ],
+      "correct": 1,
+      "why": "A well-designed questionnaire opens with an introduction, gathers personal data, then presents the actual research questions."
+    },
+    {
+      "q": "All the following are qualities of a good questionnaire, EXCEPT:",
+      "opts": [
+        "Use of leading questions",
+        "Clear and unambiguous questions",
+        "Avoidance of embarrassing questions",
+        "Logical sequencing of questions"
+      ],
+      "correct": 0,
+      "why": "Leading questions bias the respondent toward a particular answer and should be avoided, not used, in a well-designed questionnaire."
+    },
+    {
+      "q": "The process of selecting a required number of items or persons from a population is called:",
+      "opts": [
+        "Sampling",
+        "Tabulation",
+        "Estimation",
+        "Classification"
+      ],
+      "correct": 0,
+      "why": "Sampling is specifically the act of selecting a subset of a population for study."
+    },
+    {
+      "q": "The totality of items or measurements a researcher is interested in studying is called the:",
+      "opts": [
+        "Stratum",
+        "Sample",
+        "Cluster",
+        "Population/Universe"
+      ],
+      "correct": 3,
+      "why": "The population (or universe) is the entire set the researcher wants to study; a sample is only a subset of it."
+    },
+    {
+      "q": "Sampling in which every unit of the population has a known, non-zero chance of selection is called …… sampling.",
+      "opts": [
+        "convenience",
+        "judgement",
+        "quota",
+        "probability"
+      ],
+      "correct": 3,
+      "why": "Probability sampling is defined by every unit having a known, non-zero chance of being selected."
+    },
+    {
+      "q": "Dividing a population into strata and drawing a simple random sample from each is called:",
+      "opts": [
+        "Systematic Sampling",
+        "Cluster Sampling",
+        "Stratified Sampling",
+        "Multistage Sampling"
+      ],
+      "correct": 2,
+      "why": "Stratified sampling divides the population into meaningful groups (strata) and samples randomly within each one."
+    },
+    {
+      "q": "Selecting the first unit at random and then choosing subsequent units at fixed, regular intervals is called:",
+      "opts": [
+        "Stratified Sampling",
+        "Cluster Sampling",
+        "Systematic Sampling",
+        "Quota Sampling"
+      ],
+      "correct": 2,
+      "why": "Systematic sampling fixes a regular interval after a random starting point, unlike stratified or cluster sampling."
+    },
+    {
+      "q": "A sampling method where the population is divided into clusters and entire clusters are randomly selected is called:",
+      "opts": [
+        "Cluster Sampling",
+        "Stratified Sampling",
+        "Systematic Sampling",
+        "Multistage Sampling"
+      ],
+      "correct": 0,
+      "why": "Cluster sampling randomly selects whole clusters (such as geographic zones) rather than individuals within strata."
+    }
+  ],
+  "cards": [
+    {
+      "front": "The 5 data quality criteria",
+      "back": "Relevant, Accurate, Adequate, Timely, Homogeneous."
+    },
+    {
+      "front": "Primary data",
+      "back": "First-hand, original, unprocessed information collected directly for the current purpose — generally more reliable."
+    },
+    {
+      "front": "Secondary data",
+      "back": "Second-hand information already collected and processed by someone else, for another purpose."
+    },
+    {
+      "front": "Discrete vs Continuous data",
+      "back": "Discrete: specific countable values (e.g. number of employees). Continuous: any value within a range (e.g. weight)."
+    },
+    {
+      "front": "Mailed Questionnaire — key trade-off",
+      "back": "Cheap, anonymous, free of interviewer bias — but low response rates (10-30%) and unsuitable for illiterate respondents."
+    },
+    {
+      "front": "Experimental Method",
+      "back": "Holds other variables constant while manipulating one, to observe its effect on a response variable."
+    },
+    {
+      "front": "3 parts of a good questionnaire",
+      "back": "Introduction, Personal Data, Actual Questions."
+    },
+    {
+      "front": "Probability sampling types",
+      "back": "Simple Random, Stratified, Systematic, Cluster, Multistage."
+    },
+    {
+      "front": "Non-probability sampling types",
+      "back": "Quota, Haphazard, Judgement, Convenience."
+    },
+    {
+      "front": "Stratified sampling",
+      "back": "Population divided into strata; a simple random sample is drawn from each stratum."
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "subject": "stats",
+  "subjectName": "Business Statistics & Social Research Methods",
+  "chapter": 3,
+  "title": "Presentation of Statistical Data",
+  "objectives": [
+    "Classify data geographically, personally, qualitatively and quantitatively.",
+    "Construct a grouped frequency distribution, including class limits, boundaries, marks and cumulative frequencies.",
+    "Present data in tabular form and choose the appropriate diagram for a given dataset.",
+    "Construct and interpret histograms, frequency polygons, bar charts, pie charts and ogives."
+  ],
+  "study": "<p>Raw data is a mass of unorganised figures that offers little insight until it is classified, tabulated and presented. Data can be classified on four bases: <b>Geographical (Spatial)</b> classification, organised by country, region, state or city; <b>Personal</b> classification, based on personal attributes such as age, gender or occupation; <b>Qualitative (Descriptive)</b> classification, based on non-numerical attributes such as department or blood group — these have no inherent order (nominal data), though some carry a logical order (ordinal data, e.g. job grades Junior/Middle/Senior); and <b>Quantitative (Numerical)</b> classification, based on numerical values, using class intervals for continuous data.</p><div class=\"callout\"><b>Key term</b>Frequency distribution — a tabular arrangement of data into classes with the corresponding number of observations (frequency) in each class.</div><p>To construct a grouped frequency distribution: find the <b>Range</b> (Maximum − Minimum), decide the number of classes (usually 5–20, guided by <b>Sturges' Rule</b>: k = 1 + 3.322 × log₁₀(n)), calculate <b>Class Width</b> (Range ÷ Number of Classes), set mutually exclusive and exhaustive class boundaries, then tally frequencies. Key vocabulary: the <b>Class Limits</b> are the stated lower/upper values of a class (e.g. 20–29); the <b>Class Boundaries</b> are the true continuous limits, found by extending each limit by half a unit (e.g. 19.5–29.5); the <b>Class Mark</b> is the midpoint, the average of the lower and upper limits (e.g. 34.5 for 30–39); <b>Frequency</b> is the count in a class; <b>Relative Frequency</b> is frequency ÷ n; and <b>Cumulative Frequency</b> is the running total up to a given class. Where class widths are unequal, plot <b>Frequency Density</b> (frequency ÷ class width) instead of raw frequency.</p><div class=\"callout tip\"><b>Exam tip</b>Class limits and class boundaries are commonly confused. Boundaries (not limits) go on the horizontal axis of a histogram, and boundaries are what's used to compute the median from grouped data.</div><p>Data can be presented in tables — simple (one characteristic) or complex/two-way (cross-classifying two characteristics, e.g. staff by department and gender) — or graphically. Eight diagram types matter most: the <b>Histogram</b> (adjacent bars over class boundaries, for continuous grouped data), the <b>Frequency Polygon</b> (frequencies plotted against class marks and joined with straight lines, closed at both ends), the <b>Ogive</b> (cumulative frequency plotted against upper class boundaries, forming an S-shaped curve — a 'less than' ogive rises left to right, a 'more than' ogive falls left to right), the <b>Bar Chart</b> (simple, for comparing discrete categories), the <b>Multiple Bar Chart</b> (grouped bars comparing two or more datasets side by side), the <b>Component Bar Chart</b> (stacked bars showing sub-category composition), the <b>Pie Chart</b> (a circle divided into sectors, each sector's angle calculated as (frequency ÷ total frequency) × 360°), and the <b>Line Graph</b> (points joined by lines, for trends over time).</p><p>The ogive specifically is used to estimate the median, quartiles, deciles and percentiles graphically, and to find how many observations fall above or below a given value.</p>",
+  "recap": "<ul><li>4 classification types: Geographical, Personal, Qualitative (nominal/ordinal), Quantitative.</li><li>Frequency distribution construction: Range &rarr; number of classes (Sturges' Rule) &rarr; class width &rarr; boundaries &rarr; tally.</li><li>Class limits (stated) vs class boundaries (true limits, &plusmn;0.5); class mark = midpoint; frequency density = frequency &divide; class width.</li><li>Tables: simple (one characteristic) vs complex/two-way (cross-classified).</li><li>8 diagram types: Histogram, Frequency Polygon, Ogive, Bar Chart, Multiple Bar Chart, Component Bar Chart, Pie Chart, Line Graph.</li><li>Pie chart angle = (frequency &divide; total) &times; 360&deg;.</li><li>Ogive estimates median, quartiles, deciles, percentiles; 'less than' rises, 'more than' falls.</li></ul>",
+  "quiz": [
+    {
+      "q": "Data organised by country, region, state or city is called …… classification.",
+      "opts": [
+        "personal",
+        "qualitative",
+        "geographical",
+        "quantitative"
+      ],
+      "correct": 2,
+      "why": "Geographical (spatial) classification organises data by physical location."
+    },
+    {
+      "q": "Data classified based on personal attributes such as age, gender or occupation is called …… classification.",
+      "opts": [
+        "quantitative",
+        "qualitative",
+        "geographical",
+        "personal"
+      ],
+      "correct": 3,
+      "why": "Personal classification groups data by attributes of the individuals themselves."
+    },
+    {
+      "q": "Data classified by non-numerical attributes such as department or blood group, with no inherent order, is called …… classification.",
+      "opts": [
+        "qualitative",
+        "geographical",
+        "personal",
+        "quantitative"
+      ],
+      "correct": 0,
+      "why": "Qualitative (descriptive) classification groups data by non-numerical, nominal attributes."
+    },
+    {
+      "q": "Job grades such as Junior, Middle and Senior, which carry a logical order, are an example of …… data.",
+      "opts": [
+        "discrete",
+        "ordinal",
+        "nominal",
+        "continuous"
+      ],
+      "correct": 1,
+      "why": "Ordinal data has categories with a meaningful order, unlike nominal data which does not."
+    },
+    {
+      "q": "A frequency distribution is best described as:",
+      "opts": [
+        "A method of collecting primary data",
+        "A random arrangement of raw data",
+        "A specialised type of pie chart",
+        "A table of classes paired with their frequencies"
+      ],
+      "correct": 3,
+      "why": "A frequency distribution organises raw data into classes, each paired with its count (frequency)."
+    },
+    {
+      "q": "Sturges' Rule, used to decide the number of classes in a frequency distribution, is calculated as:",
+      "opts": [
+        "k = Σf(m − x̄)² / n",
+        "k = Range ÷ Class Width",
+        "k = n / Σ(1/x)",
+        "k = 1 + 3.322 × log₁₀(n)"
+      ],
+      "correct": 3,
+      "why": "Sturges' Rule uses the sample size n and a log base 10 calculation to suggest an appropriate number of classes."
+    },
+    {
+      "q": "Class width in a frequency distribution is calculated as:",
+      "opts": [
+        "The number of classes in the distribution",
+        "Upper class limit plus lower class limit",
+        "Frequency divided by total frequency",
+        "Upper minus lower class boundary"
+      ],
+      "correct": 3,
+      "why": "Class width is the span of a class, found by subtracting the lower boundary from the upper boundary."
+    },
+    {
+      "q": "The class boundaries of the class interval 20–29 are:",
+      "opts": [
+        "19 and 30",
+        "20 and 29",
+        "19.5 and 29.5",
+        "20.5 and 28.5"
+      ],
+      "correct": 2,
+      "why": "Class boundaries extend the stated limits by half a unit on each side, turning 20-29 into 19.5-29.5."
+    },
+    {
+      "q": "The class mark (mid-point) of the class interval 30–39 is:",
+      "opts": [
+        "34.5",
+        "35.0",
+        "30.0",
+        "39.0"
+      ],
+      "correct": 0,
+      "why": "The class mark is the average of the lower and upper limits: (30+39)/2 = 34.5."
+    },
+    {
+      "q": "The running total of frequencies up to and including a given class is called:",
+      "opts": [
+        "Class frequency",
+        "Relative frequency",
+        "Cumulative frequency",
+        "Percentage frequency"
+      ],
+      "correct": 2,
+      "why": "Cumulative frequency is specifically the running total, not the count within a single class."
+    },
+    {
+      "q": "Frequency divided by class width, used when class widths are unequal, is called frequency ……",
+      "opts": [
+        "mark",
+        "polygon",
+        "density",
+        "boundary"
+      ],
+      "correct": 2,
+      "why": "Frequency density adjusts for unequal class widths, and is plotted on histograms in place of raw frequency in that case."
+    },
+    {
+      "q": "Which diagram type is most appropriate for continuous, grouped data with adjoining bars and no gaps?",
+      "opts": [
+        "Pie chart",
+        "Line graph",
+        "Bar chart",
+        "Histogram"
+      ],
+      "correct": 3,
+      "why": "A histogram's bars touch because the underlying data is continuous, unlike an ordinary bar chart for discrete categories."
+    },
+    {
+      "q": "A frequency polygon is constructed by plotting frequency against:",
+      "opts": [
+        "Cumulative frequency",
+        "Class marks (mid-points)",
+        "Class limits",
+        "Class boundaries"
+      ],
+      "correct": 1,
+      "why": "A frequency polygon joins points plotted at each class's midpoint (class mark), not its limits or boundaries."
+    },
+    {
+      "q": "The angle of a sector in a pie chart is calculated as:",
+      "opts": [
+        "Frequency minus total frequency",
+        "(Frequency ÷ Total) × 360°",
+        "Frequency × class width",
+        "(Frequency ÷ total frequency) × 100"
+      ],
+      "correct": 1,
+      "why": "A pie chart's sectors are proportions of a full circle (360°), not a percentage (which would use ×100)."
+    },
+    {
+      "q": "A cumulative frequency curve, plotted against upper class boundaries, is called a(n):",
+      "opts": [
+        "Ogive",
+        "Component Bar Chart",
+        "Histogram",
+        "Frequency Polygon"
+      ],
+      "correct": 0,
+      "why": "The ogive is specifically the cumulative frequency curve, distinct from the histogram or frequency polygon."
+    },
+    {
+      "q": "Which chart type shows the composition of totals using stacked bars subdivided into sub-categories?",
+      "opts": [
+        "Component Bar Chart",
+        "Simple Bar Chart",
+        "Frequency Polygon",
+        "Pie Chart"
+      ],
+      "correct": 0,
+      "why": "A component (stacked) bar chart divides each bar to show how sub-categories make up the total."
+    },
+    {
+      "q": "Which chart type compares two or more datasets side by side using grouped bars per category?",
+      "opts": [
+        "Histogram",
+        "Line Graph",
+        "Multiple Bar Chart",
+        "Ogive"
+      ],
+      "correct": 2,
+      "why": "A multiple bar chart groups separate bars for each dataset next to one another within each category."
+    },
+    {
+      "q": "All the following are estimated from an ogive, EXCEPT:",
+      "opts": [
+        "The quartiles",
+        "Class width",
+        "The median",
+        "The deciles"
+      ],
+      "correct": 1,
+      "why": "The ogive estimates positional measures like the median, quartiles and deciles; class width is a fixed input decided before the distribution is built, not read off the ogive."
+    },
+    {
+      "q": "A 'less than' ogive, as distinguished from a 'more than' ogive, is one that:",
+      "opts": [
+        "Forms a closed loop",
+        "Rises from left to right",
+        "Remains flat throughout",
+        "Falls from left to right"
+      ],
+      "correct": 1,
+      "why": "A 'less than' ogive accumulates frequency as values increase, so it rises; a 'more than' ogive falls as values increase."
+    },
+    {
+      "q": "Tables that show the cross-classification of two characteristics, such as staff by department and gender, are called …… tables.",
+      "opts": [
+        "complex (two-way)",
+        "simple (one-way)",
+        "geographical",
+        "ordinal-scale"
+      ],
+      "correct": 0,
+      "why": "A simple table shows one characteristic; a complex or two-way table cross-classifies two or more."
+    }
+  ],
+  "cards": [
+    {
+      "front": "Frequency distribution",
+      "back": "A tabular arrangement of data into classes with the corresponding frequency in each class."
+    },
+    {
+      "front": "Class limits vs Class boundaries",
+      "back": "Limits are the stated values (e.g. 20-29); boundaries are the true continuous limits, found by extending limits by half a unit (19.5-29.5)."
+    },
+    {
+      "front": "Class mark",
+      "back": "The midpoint of a class: average of the lower and upper limits."
+    },
+    {
+      "front": "Sturges' Rule",
+      "back": "k = 1 + 3.322 x log10(n) — used to decide the number of classes in a frequency distribution."
+    },
+    {
+      "front": "Frequency density",
+      "back": "Frequency divided by class width; used on histograms when class widths are unequal."
+    },
+    {
+      "front": "Histogram",
+      "back": "Adjacent bars over class boundaries, for continuous grouped data — bars touch, unlike a bar chart."
+    },
+    {
+      "front": "Frequency polygon",
+      "back": "Frequencies plotted against class marks (midpoints) and joined with straight lines."
+    },
+    {
+      "front": "Ogive",
+      "back": "Cumulative frequency plotted against upper class boundaries; S-shaped; estimates median, quartiles, deciles."
+    },
+    {
+      "front": "Pie chart angle formula",
+      "back": "(Frequency / Total frequency) x 360 degrees."
+    },
+    {
+      "front": "Component (stacked) bar chart",
+      "back": "Bars subdivided to show how sub-categories make up each total."
+    }
+  ]
+}

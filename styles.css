@@ -534,6 +534,18 @@ button.nudge:hover{background:rgba(47,93,104,.1)}
 .panel--clay .label{color:var(--cream)}
 .panel--clay .txt{color:var(--cream)}
 
+/* ---------- segmented control ---------- */
+
+.seg{display:flex;border:var(--edge);border-radius:var(--r-md);overflow:hidden;background:var(--deep)}
+.segbtn{
+  flex:1;padding:12px 8px;background:transparent;color:var(--parch-72);
+  font-size:var(--px-xs);line-height:1.5;
+  transition:background var(--dur-fast),color var(--dur-fast);
+}
+.segbtn + .segbtn{border-left:var(--edge)}
+.segbtn:hover{color:var(--parch)}
+.segbtn.on{background:var(--gold);color:var(--ink)}
+
 /* ---------- crew ---------- */
 
 .crewgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}

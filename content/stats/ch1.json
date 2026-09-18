@@ -1,0 +1,279 @@
+{
+  "subject": "stats",
+  "subjectName": "Business Statistics & Social Research Methods",
+  "chapter": 1,
+  "title": "The Nature of Business Statistics",
+  "objectives": [
+    "Define statistics and explain its scope and branches.",
+    "Distinguish descriptive statistics from inferential statistics.",
+    "State the six characteristics of business statistics.",
+    "Identify the limitations of statistics.",
+    "Describe the uses of statistics across the employee lifecycle in HR."
+  ],
+  "study": "<p>Statistics has two meanings: a collection of numerical facts or data, and the methods used to deal with such data. Business Statistics is the application of statistical tools and techniques to business problems, helping managers, HR professionals, economists and policy-makers reach rational, evidence-based decisions rather than relying on intuition alone.</p><div class=\"callout\"><b>Key term</b>Descriptive statistics describes, summarises and organises data — measures of central tendency (mean, median, mode), measures of dispersion (range, variance, standard deviation), and graphical representation. Inferential statistics draws conclusions about a population from sample data — hypothesis testing, confidence intervals, regression, correlation and ANOVA.</div><p>Six characteristics define the nature of business statistics. Statistics <b>Deal with Aggregates</b> — a single figure is not statistics; methods apply to groups of data (the average salary of 500 employees, not one person's salary). Statistics are <b>Numerically Expressed</b> — qualitative attributes like 'excellent' or 'poor' must be converted into numbers before analysis. Statistics are <b>Affected by Multiple Causes</b> — no single factor explains a phenomenon; employee turnover, for instance, is shaped by wages, working conditions, career prospects and personal factors together. Statistics are <b>Estimated</b> — full population data is rarely available, so figures are typically derived from samples. Statistics are <b>Collected with a Purpose</b> — data collection is always goal-directed, tied to a defined objective. And statistics must be <b>Comparable</b> — collected and presented so it can be assessed across time periods, departments or regions.</p><div class=\"callout tip\"><b>Exam tip</b>The six characteristics and the four limitations are separate lists and get mixed up under exam pressure. Characteristics describe what statistics IS; limitations describe what it CANNOT do. Keep them apart.</div><p>Statistics has real limitations: it deals only with <b>quantitative</b> data, so qualitative factors like morale or culture resist direct measurement; its conclusions are true <b>only on average</b>, not for every individual case; it can be <b>misused</b> through misleading graphs or biased sampling; and it <b>requires expertise</b> — applied incorrectly, statistical methods produce erroneous conclusions.</p><p>In HR specifically, statistics supports the full employee lifecycle. In <b>Manpower Planning</b>, trend analysis and regression models forecast future workforce needs from past headcount and attrition data. In <b>Recruitment and Selection</b>, validity statistics evaluate selection tools: <b>Concurrent Validity</b> correlates test scores with an employee's current performance, while <b>Predictive Validity</b> correlates test scores with their future job success. In <b>Training and Development</b>, pretest/post-test comparisons using t-tests evaluate training effectiveness. In <b>Performance Appraisal</b>, inter-rater reliability coefficients such as <b>Cohen's Kappa</b> and <b>Pearson r</b> assess rater bias and consistency. Statistics is also applied in Industry and quality control (monitoring product conformity to a defined standard) and in Economics (price analysis, time-series analysis, demand analysis).</p>",
+  "recap": "<ul><li>Statistics = numerical data + the methods for handling it; Business Statistics applies these to business problems.</li><li>Descriptive statistics summarises data at hand; Inferential statistics draws conclusions about a population from a sample.</li><li>Six characteristics: Aggregates, Numerically Expressed, Multiple Causes, Estimated, Purpose-driven, Comparable.</li><li>Four limitations: quantitative-data-only, true only on average, prone to misuse, requires expertise.</li><li>HR uses: Manpower Planning (trend/regression forecasting), Recruitment (Concurrent vs Predictive Validity), Training (t-test pre/post comparisons), Performance Appraisal (Cohen's Kappa, Pearson r).</li></ul>",
+  "quiz": [
+    {
+      "q": "Statistics that describes and summarises an entire set of data using tables, charts and summary measures is called …… statistics.",
+      "opts": [
+        "descriptive",
+        "comparative",
+        "inferential",
+        "census"
+      ],
+      "correct": 0,
+      "why": "Descriptive statistics summarises the data at hand; inferential statistics goes further, drawing conclusions about a wider population from a sample."
+    },
+    {
+      "q": "Statistics that draws conclusions about a population based on a sample is called …… statistics.",
+      "opts": [
+        "descriptive",
+        "comparative",
+        "inferential",
+        "census"
+      ],
+      "correct": 2,
+      "why": "Inferential statistics uses sample data and probability theory to make claims about a population; descriptive statistics only summarises the sample or data set itself."
+    },
+    {
+      "q": "Which of the following is NOT one of the two broad branches of statistics?",
+      "opts": [
+        "Comparative statistics",
+        "Analytical statistics",
+        "Descriptive statistics",
+        "Inferential statistics"
+      ],
+      "correct": 0,
+      "why": "Statistics is divided into descriptive and inferential (also called analytical) branches only; 'comparative statistics' is not a recognised branch."
+    },
+    {
+      "q": "Inferential statistics is also known as …… statistics.",
+      "opts": [
+        "sample",
+        "population",
+        "analytical",
+        "business"
+      ],
+      "correct": 2,
+      "why": "Inferential statistics is also referred to as analytical statistics, since it analyses sample data to infer conclusions about the population."
+    },
+    {
+      "q": "The characteristic of statistics meaning a single figure is not statistics, since methods apply to groups of data, is known as statistics dealing with:",
+      "opts": [
+        "Numerical Expression",
+        "Comparability",
+        "Aggregates",
+        "Estimation"
+      ],
+      "correct": 2,
+      "why": "Statistics deals with aggregates — groups of data such as the average salary of 500 employees — not an individual figure."
+    },
+    {
+      "q": "The characteristic requiring qualitative attributes such as 'excellent' or 'poor' to be converted into numbers before analysis is statistics being:",
+      "opts": [
+        "Estimated",
+        "Comparable",
+        "Purpose-driven",
+        "Numerically Expressed"
+      ],
+      "correct": 3,
+      "why": "Statistics must be numerically expressed; qualitative attributes are only usable once converted into a quantitative scale."
+    },
+    {
+      "q": "The characteristic recognising that a phenomenon such as employee turnover is shaped by wages, conditions and personal factors together is statistics being:",
+      "opts": [
+        "Estimated",
+        "Comparable",
+        "Purpose-driven",
+        "Affected by Multiple Causes"
+      ],
+      "correct": 3,
+      "why": "Statistics are affected by multiple causes — no single factor explains a statistical phenomenon in isolation."
+    },
+    {
+      "q": "The characteristic reflecting that full population data is rarely available, so figures are derived from samples, is statistics being:",
+      "opts": [
+        "Purpose-driven",
+        "Numerically Expressed",
+        "Comparable",
+        "Estimated"
+      ],
+      "correct": 3,
+      "why": "Because complete population data is rarely available, statistics are typically estimated from samples rather than measured in full."
+    },
+    {
+      "q": "The characteristic requiring data collection to always be tied to a defined objective is statistics being:",
+      "opts": [
+        "Affected by Multiple Causes",
+        "Comparable",
+        "Estimated",
+        "Collected with a Purpose"
+      ],
+      "correct": 3,
+      "why": "Data collection is always goal-directed; statistics are collected with a purpose, not gathered aimlessly."
+    },
+    {
+      "q": "The characteristic requiring data to be presented so it can be assessed across time periods, departments or regions is statistics being:",
+      "opts": [
+        "Comparable",
+        "Estimated",
+        "Purpose-driven",
+        "Aggregates"
+      ],
+      "correct": 0,
+      "why": "Statistics must be comparable — collected and presented in a way that allows meaningful comparison across contexts."
+    },
+    {
+      "q": "All the following are limitations of statistics, EXCEPT:",
+      "opts": [
+        "Its conclusions hold true on average, not for individual cases",
+        "It deals with quantitative data, not qualitative factors",
+        "It eliminates the need for skilled interpretation",
+        "It can be misused through biased sampling"
+      ],
+      "correct": 2,
+      "why": "Statistics does not eliminate the need for expertise — the opposite is true: it requires skilled interpretation, and incorrect application leads to erroneous conclusions."
+    },
+    {
+      "q": "Trend analysis and regression models used to forecast future workforce requirements from headcount and attrition data support which HR application?",
+      "opts": [
+        "Manpower Planning",
+        "Wage and Salary Administration",
+        "Performance Appraisal",
+        "Training and Development"
+      ],
+      "correct": 0,
+      "why": "Manpower Planning uses trend and regression analysis on past headcount and attrition data to project future staffing needs."
+    },
+    {
+      "q": "Correlating aptitude test scores with an employee's current job performance is an example of:",
+      "opts": [
+        "Predictive Validity",
+        "Concurrent Validity",
+        "Construct Validity",
+        "Content Validity"
+      ],
+      "correct": 1,
+      "why": "Concurrent validity correlates a test score with a currently-available performance measure, taken at roughly the same time."
+    },
+    {
+      "q": "Correlating aptitude test scores with an employee's future job success is an example of:",
+      "opts": [
+        "Construct Validity",
+        "Predictive Validity",
+        "Concurrent Validity",
+        "Content Validity"
+      ],
+      "correct": 1,
+      "why": "Predictive validity correlates a test score with an outcome that is only observed later, such as future job success."
+    },
+    {
+      "q": "Cohen's Kappa and Pearson r are used in Performance Appraisal to assess:",
+      "opts": [
+        "Capital budgeting decisions",
+        "Inter-rater reliability and rater bias",
+        "Labour turnover rate",
+        "Wage differentials"
+      ],
+      "correct": 1,
+      "why": "These coefficients measure how consistently different raters score the same performance, flagging potential rater bias."
+    },
+    {
+      "q": "Pretest/post-test comparisons using t-tests are a statistical method most associated with evaluating:",
+      "opts": [
+        "Training effectiveness",
+        "Wage differential analysis",
+        "Labour stability index",
+        "Recruitment advertising cost"
+      ],
+      "correct": 0,
+      "why": "Comparing scores before and after an intervention with a t-test is the standard way of evaluating whether training produced a measurable effect."
+    },
+    {
+      "q": "Which branch of statistics includes hypothesis testing, confidence intervals, regression and ANOVA?",
+      "opts": [
+        "Descriptive statistics",
+        "Inferential statistics",
+        "Comparative statistics",
+        "Census statistics"
+      ],
+      "correct": 1,
+      "why": "These are all inferential techniques, used to draw conclusions about a population beyond the sample data itself."
+    },
+    {
+      "q": "Which branch of statistics includes measures of central tendency and measures of dispersion?",
+      "opts": [
+        "Predictive statistics",
+        "Inferential statistics",
+        "Comparative statistics",
+        "Descriptive statistics"
+      ],
+      "correct": 3,
+      "why": "Central tendency and dispersion measures summarise the data set itself, which is the role of descriptive statistics."
+    },
+    {
+      "q": "Statistical process control used to monitor product quality and evaluate new products before launch is an application of statistics in:",
+      "opts": [
+        "Public administration",
+        "Economics",
+        "Industry and quality control",
+        "Meteorology"
+      ],
+      "correct": 2,
+      "why": "Industry and quality control applies statistics to check whether manufactured products conform to a defined standard."
+    },
+    {
+      "q": "Statistics applied to price analysis, time-series analysis and demand analysis underpins which field?",
+      "opts": [
+        "Agriculture",
+        "Economics",
+        "Medicine",
+        "Sport"
+      ],
+      "correct": 1,
+      "why": "Price, time-series and demand analysis are core statistical applications within economics."
+    }
+  ],
+  "cards": [
+    {
+      "front": "Statistics (two meanings)",
+      "back": "A collection of numerical facts/data, and separately, the methods used to deal with such data."
+    },
+    {
+      "front": "Business Statistics",
+      "back": "The application of statistical tools and techniques to business problems, to support evidence-based decisions."
+    },
+    {
+      "front": "Descriptive statistics",
+      "back": "Describes, summarises and organises data using central tendency, dispersion and graphical methods."
+    },
+    {
+      "front": "Inferential statistics",
+      "back": "Draws conclusions about a population from sample data, using hypothesis testing, confidence intervals, regression, correlation and ANOVA."
+    },
+    {
+      "front": "Statistics Deal with Aggregates",
+      "back": "Statistical methods apply to groups of data, not a single figure."
+    },
+    {
+      "front": "Statistics are Affected by Multiple Causes",
+      "back": "No single factor explains a statistical phenomenon — e.g. employee turnover is shaped by wages, conditions and personal factors together."
+    },
+    {
+      "front": "Concurrent Validity",
+      "back": "Correlating a test score with an employee's current performance."
+    },
+    {
+      "front": "Predictive Validity",
+      "back": "Correlating a test score with an employee's future job success."
+    },
+    {
+      "front": "Cohen's Kappa & Pearson r",
+      "back": "Statistical measures used to assess inter-rater reliability and rater bias in performance appraisal."
+    },
+    {
+      "front": "Manpower Planning",
+      "back": "Using trend and regression analysis on headcount/attrition data to forecast future workforce requirements."
+    }
+  ]
+}

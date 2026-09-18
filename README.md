@@ -310,8 +310,17 @@ the same **♪** toggle as the music, so muting one mutes both.
 
 ## Mechanics
 
-Strictly sequential. A chapter unlocks when the one before it is cleared; a sea unlocks
-when the one before it is finished. A trial needs **70%** to clear a chapter, which awards
+A chapter unlocks when the one before it is cleared. How **seas** unlock is a choice, made
+in Ship's Log under **The Course** and synced with the rest of your progress:
+
+- **Charted course** (default) — the seas open in order, each when the one before it is
+  finished. The voyage as designed.
+- **Open waters** — every sea is open at once; study the subjects in any order. The ship
+  sits at whichever sea you last studied. Chapters within a sea still unlock in sequence.
+
+Switching to open waters keeps all progress. Switching back seals any later sea you had
+started until you reach it on the course — progress there is kept, just gated. A sealed
+sea renders as sealed whether you click it, type its URL, or arrive by the back button. A trial needs **70%** to clear a chapter, which awards
 **40 XP** and adds that chapter's questions to Athena's Counsel. Cards are rated
 again/hard/easy on 0/2/6-day intervals and give 5 XP each. Levels come from the `LEVELS`
 table in `content.js`.
