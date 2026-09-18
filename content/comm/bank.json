@@ -1,0 +1,497 @@
+{
+  "subject": "comm",
+  "subjectName": "Communication Process, Management & Development",
+  "source": "CIPM Intermediate I Practice Question Bank",
+  "questions": [
+    {
+      "q": "Listening, as distinguished from hearing, is best described as:",
+      "opts": [
+        "A passive physical process requiring no attention",
+        "An active mental process requiring attention, involving the ears, eyes and brain",
+        "Identical in every respect to hearing",
+        "A skill that cannot be improved with practice"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The key distinction between hearing and listening is that:",
+      "opts": [
+        "Hearing ascribes sense and meaning to a message, while listening does not",
+        "Hearing is merely reception of speech sounds, while listening ascribes sense, meaning and context to the message",
+        "There is no meaningful distinction between the two",
+        "Hearing only occurs in formal settings"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "An individual hearing a conversation in their presence without being directly involved or needing to respond, as at a social gathering, is engaged in:",
+      "opts": [
+        "Active listening",
+        "Empathetic listening",
+        "Critical listening",
+        "Casual listening"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Active (focused) listening is best described as:",
+      "opts": [
+        "Listening with a purpose",
+        "Listening without any specific aim",
+        "Listening only to formal speeches",
+        "A synonym for casual listening"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Pseudo-listening' refers to:",
+      "opts": [
+        "A highly effective listening technique",
+        "The listener appearing to listen while having actually 'switched off' concentration",
+        "A formal listening assessment method",
+        "Listening exclusively to written text"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which is identified as a barrier to effective listening?",
+      "opts": [
+        "Emotional problems such as anger, fear, hatred and prejudice",
+        "Maintaining eye contact with the speaker",
+        "Taking brief notes during a talk",
+        "Sitting where you can see the speaker clearly"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A good listener is one who:",
+      "opts": [
+        "Interrupts frequently to demonstrate engagement",
+        "Is patient, pays careful attention to detail, and is not in haste to interrupt the speaker",
+        "Focuses only on formulating their own response",
+        "Avoids eye contact to concentrate better"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Reading comprehension is best defined as:",
+      "opts": [
+        "The physical act of moving one's eyes across a page",
+        "The ability to read and interpret a written text",
+        "A skill unrelated to vocabulary development",
+        "Exclusively the memorisation of a text word-for-word"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Comprehension is best understood as:",
+      "opts": [
+        "The input of reading, while reading itself is the output",
+        "The output of reading, while reading itself is the input",
+        "Identical in meaning to vocabulary",
+        "Unrelated to the reading process"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Drawing inferences, as a task in reading comprehension, involves:",
+      "opts": [
+        "Copying the text verbatim",
+        "Reasoning to determine facts not overtly/directly stated in the text",
+        "Ignoring the context of a passage entirely",
+        "Reading only the introduction of a passage"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The denotative meaning of a word refers to:",
+      "opts": [
+        "Its ordinary or literal (dictionary) meaning",
+        "Its emotional or implied association only",
+        "A meaning that changes with every context",
+        "A meaning found only in poetry"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Skimming' as a reading technique involves:",
+      "opts": [
+        "Reading every word slowly and carefully",
+        "Reading the passage quickly to grasp the general idea",
+        "Re-reading a passage multiple times for detail",
+        "Reading aloud to oneself"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Scanning' as a reading technique involves:",
+      "opts": [
+        "Reading for pure entertainment only",
+        "Careful reading through a text for specific details, then extracting needed information",
+        "Skipping the text entirely",
+        "Reading only the first and last paragraphs"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Regression', as a bad reading habit, refers to:",
+      "opts": [
+        "Reading at an increasingly faster pace",
+        "Re-reading portions of a text already read, wasting time and indicating lack of concentration",
+        "Reading silently with no lip movement",
+        "Skimming a text for its general idea"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Vocalisation', as a bad reading habit, refers to:",
+      "opts": [
+        "Reading silently with no sound",
+        "Pronouncing words audibly while reading",
+        "Reading unusually fast",
+        "Reading only technical material"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Sub-vocalisation', as a bad reading habit, refers to:",
+      "opts": [
+        "Reading aloud so others can hear",
+        "Unconsciously moving the lips and pronouncing words without audible sound",
+        "Skipping difficult words entirely",
+        "Reading a text twice for comprehension"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A narrow eye span, as a bad reading habit, results in:",
+      "opts": [
+        "Faster reading with better comprehension",
+        "Restricting the reader's focus to one word at a time, slowing reading pace",
+        "No measurable effect on reading speed",
+        "Improved retention of the material"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Writing, in the context of this chapter, is best described as:",
+      "opts": [
+        "A purely mechanical skill with no creative element",
+        "An art — the ability to use writing symbols to express ideas, feelings or thoughts in a meaningful, retrievable form",
+        "A skill that cannot be taught or improved",
+        "Identical in every way to speaking"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The process of writing consists of how many stages?",
+      "opts": [
+        "Four: prewriting, writing, revising and proofreading",
+        "Only one: writing",
+        "Two: reading and writing",
+        "Six: unrelated to prewriting or revising"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "'Outlining', in the prewriting stage, refers to:",
+      "opts": [
+        "The final proofreading step",
+        "Organising ideas into a structured plan before drafting",
+        "Publishing the finished document",
+        "A synonym for revising"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A paragraph is best defined as:",
+      "opts": [
+        "A single word standing alone",
+        "A unit of discourse built around one central idea",
+        "A list with no coherent theme",
+        "Always exactly five sentences long"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The topic sentence of a paragraph is best described as:",
+      "opts": [
+        "The sentence stating in general terms the central idea of the paragraph",
+        "Always the final sentence of a paragraph",
+        "A sentence that introduces an unrelated idea",
+        "Optional and rarely used in formal writing"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Note-taking, as a communication skill, allows a writer to:",
+      "opts": [
+        "Aid memory and provide material for later consultation",
+        "Avoid the need to listen at all",
+        "Replace formal minutes entirely",
+        "Guarantee zero errors in writing"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following commonly reinforces a speaker's message during a speech?",
+      "opts": [
+        "Nodding, proverbs, and body gestures",
+        "Complete stillness with no movement at all",
+        "Reading directly from a script with no eye contact",
+        "Speaking in monotone throughout"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A speaker can best maintain rapport with an audience by:",
+      "opts": [
+        "Pacing up and down continuously",
+        "Maintaining eye contact with the audience",
+        "Asking questions repeatedly without pause",
+        "Winking occasionally at audience members"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Intonation in speech could expose a speaker's:",
+      "opts": [
+        "Feelings",
+        "Past employment history",
+        "Facial expression alone",
+        "Handwriting style"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "To make a speech interesting, speakers are generally advised to avoid:",
+      "opts": [
+        "Jokes",
+        "Proverbs",
+        "Jargon",
+        "Illustrations"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "'Equipment' is grammatically classified as:",
+      "opts": [
+        "A count (countable) noun that should be pluralised as 'equipments'",
+        "A non-count (uncountable) noun that should not be pluralised",
+        "A proper noun requiring capitalisation",
+        "A verb rather than a noun"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'News' is grammatically classified as:",
+      "opts": [
+        "An uncountable noun that should not be preceded by the indefinite article 'a'",
+        "A countable noun requiring 'a' before it",
+        "A verb describing the act of reporting",
+        "A plural noun requiring a plural verb"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A 'homonym' is best defined as a word with:",
+      "opts": [
+        "Multiple spellings but one fixed meaning",
+        "The same pronunciation and spelling as another word, but a different meaning",
+        "No relationship to any other word in the language",
+        "Only one possible pronunciation across all dialects"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Polysemy' refers to:",
+      "opts": [
+        "A word with only one possible meaning",
+        "The multiplicity of meanings a single word may carry, disambiguated by context",
+        "A grammatical error common in Nigerian English",
+        "The use of two words with identical spelling only"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "'Furniture' is grammatically classified, per the chapter, as:",
+      "opts": [
+        "A countable noun always requiring a plural form",
+        "An uncountable (non-count) noun",
+        "A proper noun",
+        "A verb"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In reported/indirect speech, tense generally shifts:",
+      "opts": [
+        "Forward (e.g. 'was' becomes 'is')",
+        "Backward (e.g. 'is' becomes 'was')",
+        "Not at all, regardless of context",
+        "Only in questions, never in statements"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A semicolon, among punctuation marks, is most appropriately used to:",
+      "opts": [
+        "End a sentence definitively, like a full stop",
+        "Link closely related independent clauses",
+        "Replace a comma in every context",
+        "Indicate a direct quotation only"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A simple sentence, grammatically, is one that:",
+      "opts": [
+        "Contains two or more independent clauses joined by 'and'",
+        "Contains one independent clause (one subject-verb unit)",
+        "Always contains a dependent clause",
+        "Cannot stand alone as a complete thought"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A complex sentence, grammatically, is one that contains:",
+      "opts": [
+        "Only a single independent clause",
+        "One independent clause plus one or more dependent (subordinate) clauses",
+        "Two independent clauses with no subordination",
+        "No verb at all"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In subject-verb concord, a compound subject joined by 'and' (e.g. 'John and Mary') generally takes a:",
+      "opts": [
+        "Singular verb",
+        "Plural verb",
+        "No verb at all",
+        "Verb that depends solely on which noun appears first"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A business letter, as distinguished from a personal letter, is one that:",
+      "opts": [
+        "Emanates from a business organisation or individual and deals with a business issue, in a strictly formal tone",
+        "Is always handwritten rather than typed",
+        "Never requires a signature",
+        "Is addressed only to government agencies"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A complaint letter is written to:",
+      "opts": [
+        "Formally raise dissatisfaction about an issue, such as delayed delivery, while preserving the business relationship",
+        "Permanently end a business relationship with no further contact",
+        "Request a job interview",
+        "Announce a company's annual profits"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A memo, unlike a formal business letter, typically:",
+      "opts": [
+        "Includes a full salutation and complimentary close",
+        "Lacks a salutation and complimentary close, and is brief and strictly official",
+        "Is always sent to external clients only",
+        "Requires a notarised signature"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The standard heading elements of a memo typically include:",
+      "opts": [
+        "From, To, Date and Subject Matter",
+        "Only a subject line, with no sender or date",
+        "A complimentary close and signature block only",
+        "A postage stamp and envelope address"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A circular, as a form of business correspondence, is generally used by:",
+      "opts": [
+        "A single junior employee addressing their direct supervisor only",
+        "Top management, to convey policies, directives and new developments to the entire workforce",
+        "External customers to lodge complaints",
+        "Government agencies exclusively"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A statutory meeting is one that is held because it is:",
+      "opts": [
+        "Purely optional and informal",
+        "Required according to the rules and regulations of an organisation",
+        "Called only in a crisis with no advance notice",
+        "Attended exclusively by external auditors"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Minutes of a meeting are best described as:",
+      "opts": [
+        "A verbatim word-for-word transcript of everything said",
+        "The official, concise written record of matters discussed and decisions reached",
+        "An informal personal opinion of the meeting's chairperson",
+        "A document written before the meeting takes place"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The grapevine, as an informal communication channel, is best described as:",
+      "opts": [
+        "An official, fully traceable means of communication approved by management",
+        "An unofficial, usually baseless and anonymous means of disseminating information (hearsay/gossip)",
+        "A synonym for a formal memo",
+        "A channel used exclusively by senior management"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A key weakness of grapevine communication is that it:",
+      "opts": [
+        "Is always completely accurate and verifiable",
+        "Is usually fallacious, and even where partially true, is often doctored, distorted or embellished",
+        "Follows the organisation's official hierarchy strictly",
+        "Moves more slowly than formal communication channels"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Management's best response to workplace rumours, per the chapter, is to:",
+      "opts": [
+        "Respond publicly to every single rumour regardless of significance",
+        "Not respond to every trivial rumour, since over-reacting can undermine management's standing",
+        "Ignore all rumours permanently with no exceptions",
+        "Fire any employee suspected of starting a rumour"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Cross-cultural communication barriers commonly arise from differences in:",
+      "opts": [
+        "Language, values, and non-verbal cues such as gestures",
+        "Only the time zone of the parties involved",
+        "Only the currency used by each party",
+        "Font choice in written correspondence"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Conflict in an organisational setting is best understood as:",
+      "opts": [
+        "Always destructive, with no possible benefit to the organisation",
+        "A disagreement that, if managed constructively, can also produce positive organisational change",
+        "A phenomenon that occurs only between employees of equal rank",
+        "Something that can be entirely eliminated through good management"
+      ],
+      "correct": 1
+    }
+  ]
+}

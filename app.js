@@ -1441,9 +1441,32 @@
       const res = await fetch('content/' + sid + '/index.json');
       const m = res.ok ? await res.json() : null;
       manifests[sid] = (m && Array.isArray(m.chapters)) ? m.chapters : [];
+      bankManifest[sid] = (m && m.bank) ? Number(m.bank) : 0;
     } catch (e) { manifests[sid] = []; }
     return manifests[sid];
   }
+
+  /* A sea may carry a question bank — content/<sid>/bank.json — exam questions that
+     aren't tied to a chapter. It's cached as a pseudo-chapter at number 0 so papers,
+     scoring and the review treat it exactly like any other source of questions. */
+  const BANK = 0;
+  async function loadBank(sid) {
+    const k = key(sid, BANK);
+    if (chapterCache.has(k)) return chapterCache.get(k);
+    let data = null;
+    try {
+      const res = await fetch('content/' + sid + '/bank.json');
+      if (res.ok) {
+        const b = await res.json();
+        if (b && Array.isArray(b.questions) && b.questions.length) {
+          data = { subject: sid, chapter: BANK, title: 'Question bank', quiz: b.questions, source: b.source || '' };
+        }
+      }
+    } catch (e) { data = null; }
+    chapterCache.set(k, data);
+    return data;
+  }
+  const bankManifest = {};   // sid -> question count, from index.json
 
   /* What the lobby knows about a sea without loading its chapters. */
   function paperInfo(sid) {
@@ -1453,20 +1476,21 @@
     if (!charted) {   // no manifest yet — fall back to titles seen on region visits
       for (let n = 1; n <= sub.chapters; n++) if (S.titles[key(sid, n)]) charted++;
     }
-    return { charted: charted, total: sub.chapters, questions: questions };
+    const bank = bankManifest[sid] || 0;
+    return { charted: charted, total: sub.chapters, questions: questions + bank, bank: bank, available: charted > 0 || bank > 0 };
   }
 
-  /* Load every charted chapter of a sea so the paper can draw from all of it. */
+  /* Load every charted chapter of a sea, plus its bank, so the paper can draw from all of it. */
   async function warmSea(sid) {
     const sub = subjectOf(sid);
     const wanted = [];
     for (let n = 1; n <= sub.chapters; n++) if (!chapterCache.has(key(sid, n))) wanted.push(n);
-    if (wanted.length) await mapLimit(wanted, 4, n => loadChapter(sid, n));
+    await Promise.all([mapLimit(wanted, 4, n => loadChapter(sid, n)), loadBank(sid)]);
   }
 
   function seaPool(sid) {
     const sub = subjectOf(sid), pool = [];
-    for (let n = 1; n <= sub.chapters; n++) {
+    for (let n = BANK; n <= sub.chapters; n++) {
       const ch = chapterCache.get(key(sid, n));
       if (!ch) continue;
       ch.quiz.forEach((q, qi) => pool.push({ sid: sid, n: n, qi: qi }));
@@ -1582,17 +1606,19 @@
 
     const papers = SUBJECTS.map(sub => {
       const info = paperInfo(sub.id);
-      const ready = info.charted > 0 && !inProgress;
+      const ready = info.available && !inProgress;
       const best = bestFor(sub.id);
       const sat = (S.mocks || []).filter(r => r.sid === sub.id).length;
-      return '<div class="panel panel--parch papercard' + (info.charted ? '' : ' papercard--dim') + '">' +
+      return '<div class="panel panel--parch papercard' + (info.available ? '' : ' papercard--dim') + '">' +
         '<div class="rowbetween"><div class="label" style="margin:0">PAPER ' + esc(sub.roman) + '</div>' +
         (best ? '<span class="pixnum ' + (best >= PASS_MARK * MOCK_MARKS_PER_QUESTION * MOCK_QUESTIONS / 100 ? 'pixnum--gold' : 'pixnum--clay') + '" style="color:var(--bronze)">BEST ' + best + '/' + (MOCK_QUESTIONS * MOCK_MARKS_PER_QUESTION) + '</span>' : '') + '</div>' +
         '<div class="serif" style="font-size:19px;color:var(--ink);margin-top:8px">' + esc(sub.name) + '</div>' +
         '<div class="txt txt--sm txt--ink" style="margin-top:4px">' + esc(sub.title) + ' · ' + info.charted + ' of ' + info.total + ' chapters charted' +
-        (info.questions ? ' · ' + info.questions + ' questions in the pool' : '') + (sat ? ' · sat ' + sat + '×' : '') + '</div>' +
+        (info.bank ? ' · ' + info.bank + '-question bank' : '') +
+        (info.questions ? ' · ' + Math.min(MOCK_QUESTIONS, info.questions) + ' on the paper from ' + info.questions + ' in the pool' : '') +
+        (sat ? ' · sat ' + sat + '×' : '') + '</div>' +
         '<button class="btn pxs pop" data-mockstart="' + sub.id + '" style="margin-top:14px"' + (ready ? '' : ' disabled') + '>' +
-        (info.charted ? 'SIT THE PAPER ▶' : 'NOT YET CHARTED') + '</button></div>';
+        (info.available ? 'SIT THE PAPER ▶' : 'NOT YET CHARTED') + '</button></div>';
     }).join('');
 
     const about = '<div class="panel panel--deep"><div class="label label--gold">THE PAPERS</div>' +
@@ -1633,7 +1659,7 @@
       '<div class="bar" style="margin-top:12px">' + bars(answered, m.qs.length, 'on', '') + '</div></div>' +
       '<div class="shell"><div class="paper exam">' +
       '<div class="trialhead"><span class="q">Q' + (i + 1) + ' OF ' + m.qs.length + ' · ' + answered + ' ANSWERED</span>' +
-      '<span class="pass" style="color:var(--bronze)">' + MOCK_MARKS_PER_QUESTION + ' MARKS</span></div>' +
+      '<span class="pass" style="color:var(--bronze)">' + MOCK_MARKS_PER_QUESTION + ' MARKS · ' + (spec.n === BANK ? 'BANK' : 'CH ' + spec.n) + '</span></div>' +
       '<div class="question">' + esc(q.q) + '</div>' +
       '<div class="options">' + options + '</div>' +
       '<div class="examnav">' +
@@ -1663,7 +1689,8 @@
       '<div class="label label--ink">BY CHAPTER</div><div class="vstack vstack--sm">' +
       chapters.map(n => {
         const b = r.byChapter[n], pct = Math.round(b.right / b.total * 100);
-        return '<div><div class="seasrow"><span class="nm" style="font-size:var(--t-sm)">Ch ' + n + (S.titles[key(r.sid, n)] ? ' — ' + esc(S.titles[key(r.sid, n)]) : '') + '</span>' +
+        const label = n === BANK ? 'Question bank' : 'Ch ' + n + (S.titles[key(r.sid, n)] ? ' — ' + esc(S.titles[key(r.sid, n)]) : '');
+        return '<div><div class="seasrow"><span class="nm" style="font-size:var(--t-sm)">' + label + '</span>' +
           '<span class="pc">' + b.right + '/' + b.total + '</span></div>' +
           '<div class="bar" style="height:11px;gap:2px;padding:2px">' + bars(Math.round(pct / 10), 10, pct >= PASS_MARK ? 'on' : 'mockfail', 'off') + '</div></div>';
       }).join('') + '</div></div>' : '';
@@ -1672,7 +1699,7 @@
       const ch = chapterCache.get(key(x.sid, x.n));
       const q = ch && ch.quiz[x.qi];
       if (!q) return null;
-      return { n: 'CH ' + x.n, q: q.q, picked: x.picked === null || x.picked === undefined ? '— (unanswered)' : q.opts[x.picked], truth: q.opts[q.correct], why: q.why || null };
+      return { n: x.n === BANK ? 'BANK' : 'CH ' + x.n, q: q.q, picked: x.picked === null || x.picked === undefined ? '— (unanswered)' : q.opts[x.picked], truth: q.opts[q.correct], why: q.why || null };
     }).filter(Boolean);
     const review = missed.length ? '<div class="review">' +
       '<div class="label" style="color:var(--clay)">WHAT YOU MISSED · ' + missed.length + ' OF ' + r.total + '</div>' +

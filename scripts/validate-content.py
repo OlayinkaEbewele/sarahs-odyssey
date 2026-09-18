@@ -93,10 +93,40 @@ def check_chapter(path, sid, n, counts):
     return d, errors, warnings
 
 
+def check_bank(path, sid):
+    errors = []
+    try:
+        d = json.load(open(path, encoding="utf-8"))
+    except Exception as e:
+        return 0, [f"invalid JSON — {e}"]
+    if d.get("subject") != sid:
+        errors.append(f"subject is '{d.get('subject')}' but file lives in content/{sid}/")
+    qs = d.get("questions")
+    if not isinstance(qs, list) or not qs:
+        return 0, errors + ["questions must be a non-empty list"]
+    for i, q in enumerate(qs):
+        tag = f"questions[{i}]"
+        if not isinstance(q, dict):
+            errors.append(f"{tag} is not an object"); continue
+        if not isinstance(q.get("q"), str) or not q["q"].strip():
+            errors.append(f"{tag}.q is empty")
+        opts = q.get("opts")
+        if not isinstance(opts, list) or len(opts) < 2 or not all(isinstance(o, str) and o.strip() for o in opts):
+            errors.append(f"{tag}.opts must be a list of at least 2 non-empty strings")
+        c = q.get("correct")
+        if not isinstance(c, int) or isinstance(c, bool) or not (isinstance(opts, list) and 0 <= c < len(opts)):
+            errors.append(f"{tag}.correct must be an integer index into opts")
+        if "why" in q and (not isinstance(q["why"], str) or not q["why"].strip()):
+            errors.append(f"{tag}.why must be a non-empty string when present")
+    return len(qs), errors
+
+
 def main():
     counts = subject_counts()
     total_err = total_warn = total_files = 0
     manifests = {}
+    banks = {}
+    chapter_files = 0
     no_why = []
     no_cards = []
 
@@ -109,6 +139,7 @@ def main():
             n = int(re.search(r"ch(\d+)\.json$", path).group(1))
             d, errors, warnings = check_chapter(path, sid, n, counts)
             total_files += 1
+            chapter_files += 1
             rel = os.path.relpath(path, ROOT)
             for e in errors:
                 print(f"ERROR   {rel}: {e}"); total_err += 1
@@ -122,10 +153,20 @@ def main():
                     no_cards.append(f"{sid}/ch{n}")
         manifests[sid] = chapters
 
+        bank_path = os.path.join(folder, "bank.json")
+        bank_count = 0
+        if os.path.exists(bank_path):
+            bank_count, berrs = check_bank(bank_path, sid)
+            total_files += 1
+            for e in berrs:
+                print(f"ERROR   content/{sid}/bank.json: {e}"); total_err += 1
+            if berrs: bank_count = 0
+        banks[sid] = bank_count
+
         # stray files that aren't chNN.json
         for path in glob.glob(os.path.join(folder, "*")):
             base = os.path.basename(path)
-            if base in ("index.json", ".DS_Store") or re.fullmatch(r"ch\d+\.json", base):
+            if base in ("index.json", "bank.json", ".DS_Store") or re.fullmatch(r"ch\d+\.json", base):
                 continue
             print(f"warning content/{sid}/{base}: unexpected file, ignored by the app"); total_warn += 1
 
@@ -134,7 +175,7 @@ def main():
             folder = os.path.join(CONTENT, sid)
             os.makedirs(folder, exist_ok=True)
             out = os.path.join(folder, "index.json")
-            data = {"subject": sid, "chapters": chapters}
+            data = {"subject": sid, "chapters": chapters, "bank": banks.get(sid, 0)}
             existing = None
             if os.path.exists(out):
                 try: existing = json.load(open(out, encoding="utf-8"))
@@ -145,13 +186,13 @@ def main():
                 print(f"wrote   content/{sid}/index.json ({len(chapters)} chapters)")
 
     if no_why:
-        print(f"note    {len(no_why)} of {total_files} chapters have no 'why' explanations — "
+        print(f"note    {len(no_why)} of {chapter_files} chapters have no 'why' explanations — "
               f"the verdict box corrects but cannot explain (optional per-question field)")
     if no_cards:
-        print(f"note    {len(no_cards)} of {total_files} chapters have no authored 'cards' — "
+        print(f"note    {len(no_cards)} of {chapter_files} chapters have no authored 'cards' — "
               f"Athena's Counsel falls back to their trial questions (optional per-chapter field)")
     done = {sid: len(ch) for sid, ch in manifests.items()}
-    summary = " · ".join(f"{sid} {done[sid]}/{counts[sid]}" for sid in sorted(counts))
+    summary = " · ".join(f"{sid} {done[sid]}/{counts[sid]}" + (f"+{banks[sid]}b" if banks.get(sid) else "") for sid in sorted(counts))
     print(f"\n{total_files} files · {total_err} errors · {total_warn} warnings · {summary}")
     sys.exit(1 if total_err else 0)
 

@@ -1,0 +1,507 @@
+{
+  "subject": "stats",
+  "subjectName": "Business Statistics & Social Research Methods",
+  "source": "CIPM Intermediate I Practice Question Bank",
+  "questions": [
+    {
+      "q": "In a Normal distribution curve, the shape is:",
+      "opts": [
+        "Skewed to the right",
+        "Skewed to the left",
+        "Symmetric and bell-shaped",
+        "Rectangular"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "In a Normal distribution, approximately what percentage of observations fall within 1 standard deviation of the mean?",
+      "opts": [
+        "50%",
+        "68%",
+        "95%",
+        "99.7%"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In a Normal distribution, approximately what percentage of observations fall within 2 standard deviations of the mean?",
+      "opts": [
+        "68%",
+        "95%",
+        "99.7%",
+        "100%"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Z-score (standardisation) formula is:",
+      "opts": [
+        "Z = (X − μ) / σ",
+        "Z = (X + μ) × σ",
+        "Z = μ / X",
+        "Z = σ / X"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Standard Normal distribution has a mean and standard deviation of:",
+      "opts": [
+        "Mean = 1, SD = 0",
+        "Mean = 0, SD = 1",
+        "Mean = 100, SD = 10",
+        "Mean = SD = 0"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In a Normal distribution, the relationship between mean, median and mode is:",
+      "opts": [
+        "Mean > Median > Mode",
+        "Mean < Median < Mode",
+        "Mean = Median = Mode",
+        "There is no fixed relationship"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The total area under any probability distribution curve always equals:",
+      "opts": [
+        "0",
+        "0.5",
+        "1",
+        "Infinity"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Estimating the probability of a given number of defective items in a production batch is a typical application of the:",
+      "opts": [
+        "Normal distribution",
+        "Binomial distribution",
+        "Median formula",
+        "Range"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The median is equivalent to which positional measure?",
+      "opts": [
+        "Q1",
+        "Q2 (the second quartile)",
+        "D9",
+        "P25"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A key merit of the median over the mean is that the median:",
+      "opts": [
+        "Uses every value in the data set",
+        "Is unaffected by extreme outlier values",
+        "Cannot be found from an ogive",
+        "Requires logarithms to compute"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A key demerit of the arithmetic mean is that it:",
+      "opts": [
+        "Is unaffected by extreme values",
+        "Is unduly affected by extreme values (outliers)",
+        "Cannot be computed for grouped data",
+        "Is only applicable to categorical data"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "For a distribution of categorical values such as 'red', 'blue' and 'green', the most appropriate measure of central tendency is the:",
+      "opts": [
+        "Mean",
+        "Median",
+        "Mode",
+        "Geometric mean"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A distribution with more than two modes is described as:",
+      "opts": [
+        "Unimodal",
+        "Bimodal",
+        "Multimodal",
+        "Symmetric"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The divisor (n−1) used in the sample variance formula is known as:",
+      "opts": [
+        "The range correction",
+        "Bessel's correction",
+        "The Pearson adjustment",
+        "The kurtosis factor"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Coefficient of Variation (CV) is used to:",
+      "opts": [
+        "Compare relative variability between datasets with different units or scales",
+        "Measure the exact midpoint of a dataset",
+        "Replace the need for a standard deviation entirely",
+        "Compute the mode of grouped data"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A distribution with a long tail to the right, where Mean > Median > Mode, is described as having:",
+      "opts": [
+        "Zero skew",
+        "Negative (left) skew",
+        "Positive (right) skew",
+        "Platykurtic shape"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A Leptokurtic distribution, relative to a Normal distribution, is:",
+      "opts": [
+        "Flatter, with lighter tails",
+        "More peaked, with heavier tails",
+        "Identical in shape",
+        "Impossible to compare"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Labour Turnover Rate is calculated as:",
+      "opts": [
+        "(Number of leavers / Average number of employees) × 100",
+        "(Number of new hires / Total staff) × 10",
+        "Number of leavers only",
+        "Average number of employees ÷ number of departments"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Labour Stability Index specifically measures:",
+      "opts": [
+        "The rate of new hires only",
+        "Retention of employees with one year or more of service",
+        "The total number of employees in a company",
+        "The average salary of staff"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A key weakness of a zero labour turnover rate is that it may indicate:",
+      "opts": [
+        "Excellent retention with no downsides at all",
+        "A lack of fresh talent, new ideas, and correction of poor hiring decisions",
+        "High recruitment costs only",
+        "Nothing of concern to HR"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which is a DIRECT cost of labour turnover?",
+      "opts": [
+        "Loss of institutional knowledge",
+        "Recruitment advertising and selection costs",
+        "Reduced morale among remaining staff",
+        "Lost productivity during settling-in"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "An index number expresses:",
+      "opts": [
+        "The absolute value of a variable in a given year",
+        "The relative change in a variable compared to a base period",
+        "Only the mean of a data set",
+        "The mode of categorical data"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In index number construction, the base period is conventionally set to:",
+      "opts": [
+        "0",
+        "1",
+        "100",
+        "1000"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The simple price relative index is calculated as:",
+      "opts": [
+        "(P₁/P₀) × 100",
+        "(P₀/P₁) × 100",
+        "P₁ − P₀",
+        "P₁ + P₀"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Laspeyres Price Index uses which quantities as weights?",
+      "opts": [
+        "Current-period quantities",
+        "Base-period quantities",
+        "The average of both periods",
+        "No quantities at all"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Paasche Price Index uses which quantities as weights?",
+      "opts": [
+        "Base-period quantities",
+        "Current-period quantities",
+        "Neither period's quantities",
+        "Future projected quantities"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Fisher's Ideal Index is calculated as:",
+      "opts": [
+        "The arithmetic mean of Laspeyres and Paasche",
+        "The geometric mean of Laspeyres and Paasche",
+        "Laspeyres minus Paasche",
+        "Laspeyres divided by 2"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A known limitation of the Laspeyres index is that it tends to:",
+      "opts": [
+        "Understate inflation",
+        "Overstate inflation, since it ignores substitution away from goods whose prices rose",
+        "Always equal the Paasche index exactly",
+        "Be mathematically impossible to calculate"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Real Wage Index is calculated as:",
+      "opts": [
+        "(Nominal Wage Index / Price Index) × 100",
+        "Nominal Wage Index × Price Index",
+        "Price Index − Nominal Wage Index",
+        "Nominal Wage Index alone"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In the regression equation Y = a + bX, 'b' represents:",
+      "opts": [
+        "The Y-intercept",
+        "The slope, showing the average change in Y for a one-unit change in X",
+        "The number of observations",
+        "The standard deviation of Y"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The method used to find the regression line that minimises the sum of squared prediction errors is called:",
+      "opts": [
+        "The least squares method",
+        "The mean deviation method",
+        "The Poisson method",
+        "The quartile method"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The coefficient of determination, r², represents:",
+      "opts": [
+        "The proportion of variation in Y explained by X",
+        "The slope of the regression line",
+        "The number of paired observations",
+        "The standard deviation of X"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A correlation coefficient of r = 0.85 would typically be described as:",
+      "opts": [
+        "A weak correlation",
+        "No correlation",
+        "A strong correlation",
+        "A negative correlation"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which best captures the relationship between correlation and causation?",
+      "opts": [
+        "A strong correlation always proves causation",
+        "Correlation does not, by itself, prove that one variable causes the other",
+        "Causation always implies zero correlation",
+        "Correlation and causation are the same thing"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "When ranks are tied in Spearman's rank correlation method, each tied observation is assigned:",
+      "opts": [
+        "Rank 1 automatically",
+        "The average of the ranks they would otherwise have occupied",
+        "A rank of zero",
+        "The highest possible rank"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Extrapolating a regression line far beyond the range of the original data is:",
+      "opts": [
+        "Always fully reliable",
+        "Generally risky and should be treated with caution",
+        "The recommended standard approach",
+        "Mathematically impossible to do"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A relationship where one variable increases as the other decreases is called:",
+      "opts": [
+        "Positive correlation",
+        "Negative correlation",
+        "Perfect correlation",
+        "No correlation"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A correlation coefficient close to zero suggests:",
+      "opts": [
+        "A very strong linear relationship",
+        "Little or no linear relationship between the variables",
+        "Perfect negative correlation",
+        "That regression cannot be performed at all"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A regression equation is primarily used for:",
+      "opts": [
+        "Measuring the exact cause of a relationship",
+        "Predicting the value of a dependent variable from a known independent variable",
+        "Classifying qualitative data only",
+        "Constructing a pie chart"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Statistical significance refers to:",
+      "opts": [
+        "The colour of the chart used",
+        "The likelihood that an observed result is not due to chance alone",
+        "The size of the sample only",
+        "The number of questionnaires distributed"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Practical (managerial) significance refers to:",
+      "opts": [
+        "Whether the size of an effect is large enough to matter for real business decisions",
+        "Whether a result is statistically significant only",
+        "The number of questionnaires distributed",
+        "The reliability of the sampling frame"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In a formal research report, the chapter that presents tables, charts and statistical test results is typically:",
+      "opts": [
+        "Chapter One: Introduction",
+        "Chapter Two: Literature Review",
+        "Chapter Four: Data Presentation, Analysis and Interpretation",
+        "Chapter Three: Methodology only"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The chapter of a research report describing the research design, population, sample and data-analysis method is called:",
+      "opts": [
+        "Introduction",
+        "Literature Review",
+        "Research Methodology",
+        "Summary and Conclusion"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Content analysis, as a qualitative technique, involves:",
+      "opts": [
+        "Testing a null hypothesis using the F-statistic",
+        "Systematically categorising and counting the occurrence of specific words, phrases or concepts in text",
+        "Computing the standard deviation of numerical data",
+        "Constructing a confidence interval"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Bivariate analysis in quantitative research typically refers to techniques such as:",
+      "opts": [
+        "Correlation and regression",
+        "Thematic coding only",
+        "Editing and coding only",
+        "Literature review only"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Narrative analysis, as a qualitative technique, focuses on:",
+      "opts": [
+        "Numerical averages and standard deviations",
+        "Examining the stories and accounts given by respondents to understand meaning and context",
+        "Testing hypotheses with the Chi-square statistic",
+        "Constructing regression equations"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The correct order of data preparation before quantitative analysis is:",
+      "opts": [
+        "Tabulation, then editing, then coding",
+        "Editing, coding, classification, tabulation, then data entry/cleaning",
+        "Data entry, then editing, with no coding at all",
+        "There is no meaningful order to these steps"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The appendix of a formal research report typically contains:",
+      "opts": [
+        "The abstract only",
+        "Supporting materials such as the questionnaire used in the study",
+        "The table of contents",
+        "The dedication page"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Proper referencing of sources in a research report is important because it:",
+      "opts": [
+        "Has no real importance",
+        "Gives credit to original authors and allows verification of claims",
+        "Is only required in qualitative studies",
+        "Should be avoided to shorten the report"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A researcher who finds a statistically significant but practically tiny difference between two very large groups should:",
+      "opts": [
+        "Automatically recommend a costly organisational change based on significance alone",
+        "Also assess whether the effect size is large enough to matter practically before recommending action",
+        "Ignore the statistical result entirely",
+        "Refuse to report the finding"
+      ],
+      "correct": 1
+    }
+  ]
+}

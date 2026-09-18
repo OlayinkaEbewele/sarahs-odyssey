@@ -21,6 +21,7 @@ under `file://`, and `localStorage` is too.
 | `content.js` | **Config only** — subjects, chapter counts, XP/pass constants, relics, level table |
 | `app.js` | State, sync, content loader, routing, rendering, trial and card engines |
 | `content/<id>/ch<N>.json` | Chapter content, loaded at runtime |
+| `content/<id>/bank.json` | Exam question bank for a sea (optional) |
 | `worker.js`, `wrangler.toml` | Cloudflare Worker + KV backend (deployed) |
 | `assets/ambient.m4a`, `.mp3` | Ambient score, loaded only when music is on |
 
@@ -77,7 +78,7 @@ card reads "Uncharted". Everything else in the voyage keeps working.
 python3 scripts/validate-content.py
 ```
 
-Checks every `content/*/ch*.json` against the schema — required keys, `subject` and
+Checks every `content/*/ch*.json` (and any `bank.json`) against the schema — required keys, `subject` and
 `chapter` matching the file's location, option lists, `correct` in range, `why` a string
 when present — and exits non-zero on any error. It also writes `content/<sea>/index.json`,
 a small manifest of chapter titles that the region page loads instead of fetching every
@@ -252,9 +253,24 @@ Click Ithaca on the map. There are **five papers, one per sea**, in the real CIP
   you down), and the same "what you missed" review as a trial. `MOCK_XP_PER_CORRECT` (1) XP
   per right answer. Every paper is kept; Ship's Log shows the last six with their sea.
 
-A paper whose sea has no chapters yet shows "not yet charted". The lobby reads
-`content/<sea>/index.json` for chapter and question counts, so keep the manifests current
-(`python3 scripts/validate-content.py`).
+### Question banks
+
+A sea can also carry `content/<sea>/bank.json` — exam questions not tied to any chapter:
+
+```json
+{ "subject": "fin", "subjectName": "…", "source": "…",
+  "questions": [{ "q": "…", "opts": ["…"], "correct": 1, "why": "optional" }] }
+```
+
+A bank makes the sea's paper sittable before any chapter is written, and once chapters
+exist the paper draws from both. Bank questions are labelled "Question bank" in the
+per-chapter breakdown and "BANK" in the review. They never appear in region pages or
+Athena's Counsel — they're exam material, not study material.
+
+A paper whose sea has neither chapters nor a bank shows "not yet charted". The lobby reads
+`content/<sea>/index.json` for chapter, question and bank counts, so keep the manifests
+current (`python3 scripts/validate-content.py`). If a pool is smaller than 50 the paper is
+simply every question in it, still shuffled.
 
 ## Spaced repetition
 

@@ -1,0 +1,407 @@
+{
+  "subject": "fin",
+  "subjectName": "Finance for HR Managers",
+  "source": "CIPM Intermediate I Practice Question Bank",
+  "questions": [
+    {
+      "q": "The overall objective of any business organisation pursuing capital budgeting is:",
+      "opts": [
+        "Maximisation of expenditure",
+        "Creation and maximisation of wealth/profit",
+        "Huge investment for its own sake",
+        "Avoidance of all investment"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The process of evaluating and selecting long-term investment projects that yield future cash flows is called:",
+      "opts": [
+        "Working capital management",
+        "Ratio analysis",
+        "Capital budgeting",
+        "Statement of cash flow"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The Profitability Index is calculated as:",
+      "opts": [
+        "The ratio of present value of cash inflows to cash outflows",
+        "The ratio of initial investment to annual cash inflows",
+        "The ratio of total cash inflow to outflow (undiscounted)",
+        "The ratio of net asset income to total assets"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which is a traditional (non-discounted) capital budgeting method?",
+      "opts": [
+        "Net Present Value",
+        "Internal Rate of Return",
+        "Profitability Index",
+        "Accounting Rate of Return"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The Payback Period for a project costing ₦30,000 with annual cash inflows of ₦10,000 is:",
+      "opts": [
+        "5 years",
+        "3 months",
+        "3 years",
+        "3 weeks"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A situation where a company places a limit on the total size of capital investment it can undertake during a period is called:",
+      "opts": [
+        "Cost of capital",
+        "Capital rationing",
+        "Capital budgeting",
+        "Capital movement"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Net Present Value is best described as:",
+      "opts": [
+        "The difference between the total present value of future cash inflows and outflows",
+        "The ratio of profit to sales",
+        "The time taken to recover an initial investment",
+        "The average accounting profit as a percentage of investment"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Internal Rate of Return (IRR) is defined as the rate at which:",
+      "opts": [
+        "Discounted cash flows equal zero (i.e. NPV equals zero)",
+        "Cash inflows exceed cash outflows by the largest margin",
+        "The payback period is minimised",
+        "Accounting profit equals cash profit"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which capital budgeting technique ignores the time value of money?",
+      "opts": [
+        "Net Present Value",
+        "Payback Period",
+        "Internal Rate of Return",
+        "Profitability Index"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In capital rationing, projects are generally selected based on:",
+      "opts": [
+        "Alphabetical order of project names",
+        "The combination of proposals yielding the greatest overall profitability",
+        "Random selection",
+        "The order proposals were submitted"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Certainty Equivalent Method addresses risk in capital budgeting by:",
+      "opts": [
+        "Ignoring risk entirely",
+        "Multiplying expected cash inflows by a certainty coefficient",
+        "Increasing the payback period requirement only",
+        "Reducing the number of years considered"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Sensitivity Technique evaluates cash inflows under which three scenarios?",
+      "opts": [
+        "Optimistic, Most Likely, and Pessimistic",
+        "Domestic, Foreign, and Mixed",
+        "Cash, Credit, and Barter",
+        "Fixed, Variable, and Semi-variable"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The Coefficient of Variation Method, in capital budgeting risk analysis, is calculated as:",
+      "opts": [
+        "Standard Deviation divided by Mean",
+        "Mean divided by Standard Deviation",
+        "NPV minus IRR",
+        "Payback Period times Discount Rate"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Liquidity Ratios (such as the Current Ratio) primarily assess a firm's ability to:",
+      "opts": [
+        "Meet long-term solvency obligations",
+        "Meet short-term obligations",
+        "Generate net profit margin",
+        "Measure inventory turnover efficiency"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which is classified as a Solvency/Leverage ratio?",
+      "opts": [
+        "Current Ratio",
+        "Debt-Equity Ratio",
+        "Inventory Turnover",
+        "Gross Profit Margin"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which is classified as an Activity/Turnover ratio?",
+      "opts": [
+        "Quick Ratio",
+        "Debt-Equity Ratio",
+        "Debtors Turnover",
+        "Return on Capital Employed"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "A key limitation of financial ratio analysis is that ratios are:",
+      "opts": [
+        "Always forward-looking and predictive",
+        "Based on historical costs and can be affected by window dressing",
+        "Immune to differences in accounting policy",
+        "Standardised identically across every firm"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Excessive Working Capital can lead to:",
+      "opts": [
+        "Improved liquidity with no downside",
+        "Unnecessary accumulation of raw materials and reduced profits",
+        "Immediate insolvency in all cases",
+        "Elimination of all bad debts"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Inadequate Working Capital can result in:",
+      "opts": [
+        "Excess accumulation of unused cash",
+        "Difficulty implementing operating plans and underutilising fixed assets",
+        "Automatically higher return on investment",
+        "No effect on business operations"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which is an internal source of working capital finance?",
+      "opts": [
+        "Debentures",
+        "Retained Earnings",
+        "Bank Loans",
+        "Public Deposits"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which is an external source of working capital finance?",
+      "opts": [
+        "Retained Earnings",
+        "Depreciation Funds",
+        "Loans from Banks and Financial Institutions",
+        "Reserves and Surplus"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Semi-Variable Working Capital is best described as capital that:",
+      "opts": [
+        "Never changes regardless of sales or time",
+        "Remains fixed up to a point, then increases with sales or time",
+        "Is entirely eliminated once a certain sales level is reached",
+        "Applies only to service industries"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Moderate Working Capital Policy maintains working capital:",
+      "opts": [
+        "At the highest possible level regardless of sales",
+        "At a level proportional to sales",
+        "At zero at all times",
+        "Only during economic booms"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Under the Nigerian PAYE system, the Consolidated Relief Allowance (CRA) is calculated as:",
+      "opts": [
+        "20% of gross income plus ₦200,000, or 1% of gross income, whichever is higher",
+        "A flat ₦50,000 regardless of income",
+        "10% of net pay only",
+        "50% of gross income unconditionally"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Under the Nigerian PAYE tax bands, the first ₦300,000 of taxable income is taxed at:",
+      "opts": [
+        "24%",
+        "7%",
+        "19%",
+        "11%"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The highest marginal PAYE tax rate, applying to taxable income above ₦3.2 million, is:",
+      "opts": [
+        "7%",
+        "15%",
+        "21%",
+        "24%"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Under Nigerian payroll deductions, the standard statutory pension contribution rate (employee portion) referenced in the chapter is:",
+      "opts": [
+        "2.5% of basic salary",
+        "8% of Basic, Housing and Transport allowances",
+        "15% of gross pay",
+        "20% of net pay"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Under Nigerian payroll deductions, the National Housing Fund (NHF) contribution is calculated as:",
+      "opts": [
+        "8% of gross pay",
+        "2.5% of Basic salary",
+        "5% of net pay",
+        "10% of Basic and Housing"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In Nigeria, the Federal Inland Revenue Service (FIRS) is primarily responsible for administering:",
+      "opts": [
+        "Personal Income Tax for individual state residents only",
+        "Companies Income Tax (CIT), VAT and Petroleum Profits Tax",
+        "Local government market levies only",
+        "State Withholding Tax exclusively"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In Nigeria, Personal Income Tax (PIT) for individuals is primarily administered at the:",
+      "opts": [
+        "Federal level, by FIRS",
+        "State level, by the State Internal Revenue Service (SIRS)",
+        "Local Government level exclusively",
+        "International level, by the IMF"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Net Pay, in a payroll computation, is calculated as:",
+      "opts": [
+        "Gross Pay minus Total Deductions",
+        "Gross Pay plus Total Deductions",
+        "Basic Salary only",
+        "Taxable Income minus PAYE only"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which is listed as a feature of a good tax system?",
+      "opts": [
+        "Complexity and unpredictability",
+        "Equity/Fairness, Certainty and Convenience",
+        "Arbitrary rate changes with no notice",
+        "Applying only to large corporations"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Joint Tax Board (JTB) in Nigeria primarily functions to:",
+      "opts": [
+        "Collect Companies Income Tax directly",
+        "Harmonise tax administration across the different states",
+        "Set global oil prices",
+        "Manage the Nigerian Stock Exchange"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A firm described as 'Over-capitalised' is one that has:",
+      "opts": [
+        "Too little long-term capital to meet its needs",
+        "Too much idle cash/capital relative to its needs",
+        "No capital at all",
+        "Exclusively short-term capital"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Financing Decision in financial management primarily concerns:",
+      "opts": [
+        "Which assets the firm should acquire",
+        "Whether to fund the firm using debt or equity",
+        "How much profit to pay as dividends",
+        "Which employees to hire"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "The Dividend Decision in financial management primarily concerns:",
+      "opts": [
+        "Which assets the firm should acquire",
+        "Whether to use debt or equity financing",
+        "How much profit should be paid to shareholders versus retained",
+        "The firm's advertising budget"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which is a factor affecting a company's choice of finance, per the chapter?",
+      "opts": [
+        "Cost of Capital, Control, Risk and Flexibility",
+        "Only the founder's personal preference",
+        "Only the weather",
+        "Only the company's logo design"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A budget that adjusts figures based on actual level of activity/output achieved is known as a:",
+      "opts": [
+        "Fixed budget",
+        "Flexible budget",
+        "Zero-based budget",
+        "Master budget"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Standard Costing and Variance Analysis is primarily used to:",
+      "opts": [
+        "Compare actual costs against predetermined standard costs to identify variances",
+        "Eliminate the need for any budgeting",
+        "Replace financial statement analysis entirely",
+        "Calculate only labour turnover"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Cost-Volume-Profit (Break-Even) Analysis is used to determine:",
+      "opts": [
+        "The point at which total revenue equals total cost, with no profit or loss",
+        "The exact market share of a firm",
+        "The firm's credit rating",
+        "The dividend payout ratio only"
+      ],
+      "correct": 0
+    }
+  ]
+}
