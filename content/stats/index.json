@@ -1,5 +1,36 @@
 {
   "subject": "stats",
-  "chapters": [],
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Nature of Business Statistics",
+      "questions": 20
+    },
+    {
+      "n": 2,
+      "title": "Statistical Data",
+      "questions": 20
+    },
+    {
+      "n": 3,
+      "title": "Presentation of Statistical Data",
+      "questions": 20
+    },
+    {
+      "n": 4,
+      "title": "Measures of Central Tendency",
+      "questions": 20
+    },
+    {
+      "n": 5,
+      "title": "Measures of Variability (Dispersion)",
+      "questions": 20
+    },
+    {
+      "n": 6,
+      "title": "Elements of Probability",
+      "questions": 20
+    }
+  ],
   "bank": 50
 }

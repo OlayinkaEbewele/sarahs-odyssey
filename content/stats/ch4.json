@@ -1,0 +1,278 @@
+{
+  "subject": "stats",
+  "subjectName": "Business Statistics & Social Research Methods",
+  "chapter": 4,
+  "title": "Measures of Central Tendency",
+  "objectives": [
+    "Calculate the arithmetic mean, median and mode for ungrouped and grouped data.",
+    "Calculate the geometric mean and harmonic mean and identify their appropriate uses.",
+    "Calculate quartiles, deciles and percentiles for grouped data.",
+    "Select the most appropriate measure of central tendency for a given data set."
+  ],
+  "study": "<p>A measure of central tendency is a single value summarising the 'centre' of a data set. Four properties are desirable in a good measure: it should be rigidly defined (no room for personal interpretation), based on all observations, capable of further mathematical treatment, and resistant to extreme values.</p><div class=\"callout\"><b>Key term</b>Arithmetic Mean — the sum of all values divided by the number of values. Ungrouped: x̄ = Σx / n. Grouped: x̄ = Σfx / Σf, using class marks. For grouped data with equal class widths, the Assumed Mean (coding) method simplifies the calculation: x̄ = A + (Σfd / Σf) × c, where the deviation d = (x − A)/c.</div><p>The mean uses every value and is suitable for further statistical treatment, but it is unduly affected by extreme values (outliers) — a real weakness. The <b>median</b> is the value dividing an ordered data set into two equal halves: for ungrouped data with an odd n, it sits at position (n+1)/2. For grouped data: M = L + [(n/2 − F)/f] × h, where L is the median class's lower boundary, F is the cumulative frequency of the class before the median class, f is the median class's own frequency, and h is the class width. The median's key merit over the mean is that it is unaffected by extreme outlier values.</p><p>The <b>mode</b> is the most frequently occurring value — the only measure suited to purely categorical data (like colours). For grouped data: Mo = L + [Δ₁/(Δ₁+Δ₂)] × h, where Δ₁ is the modal class's frequency minus the frequency of the class before it, and Δ₂ is the modal class's frequency minus the frequency of the class after it. A distribution with one mode is unimodal, two is bimodal, and more than two is multimodal.</p><div class=\"callout tip\"><b>Exam tip</b>Never confuse the modal class (the class with the highest frequency) with the median class (the class containing the (n/2)th observation, found from the cumulative frequency column) — they are frequently different classes, and CIPM examiners deliberately construct data sets where this is the case.</div><p>Two specialised means exist. The <b>Geometric Mean</b> is the nth root of the product of n values, appropriate for averaging rates of growth and ratios. The <b>Harmonic Mean</b> is the reciprocal of the average of the reciprocals of the values, appropriate for averaging rates such as speed. For any positive, non-constant data set: Arithmetic Mean ≥ Geometric Mean ≥ Harmonic Mean.</p><p><b>Quartiles</b> divide an ordered data set into four equal parts (Q1, Q2=Median, Q3); <b>Deciles</b> into ten equal parts (D1...D9); <b>Percentiles</b> into a hundred equal parts (P1...P99) — all calculated using formulas structurally identical to the grouped median formula. Finally, a quick way to estimate a missing measure is the empirical relationship: <b>Mode = 3(Median) − 2(Mean)</b>. The sum of deviations of all values from the arithmetic mean, Σ(x − x̄), always equals zero — a defining algebraic property of the mean.</p>",
+  "recap": "<ul><li>4 desirable properties of a good measure: rigidly defined, based on all observations, capable of further treatment, resistant to extremes.</li><li>Mean: Σx/n (ungrouped), Σfx/Σf (grouped); affected by outliers.</li><li>Median: (n+1)/2 position (ungrouped); L + [(n/2−F)/f]×h (grouped); unaffected by outliers.</li><li>Mode: most frequent value; Mo = L + [&Delta;1/(&Delta;1+&Delta;2)]&times;h (grouped); the only measure for categorical data.</li><li>Geometric Mean: nth root of product, for growth rates. Harmonic Mean: reciprocal of average of reciprocals, for rates like speed.</li><li>AM &ge; GM &ge; HM for positive, non-constant data.</li><li>Quartiles (4 parts), Deciles (10 parts), Percentiles (100 parts) — same formula structure as the median.</li><li>Empirical relationship: Mode = 3(Median) &minus; 2(Mean).</li><li>Modal class = highest frequency; Median class = contains the (n/2)th observation — often different classes.</li></ul>",
+  "quiz": [
+    {
+      "q": "For ungrouped data, the arithmetic mean is calculated as:",
+      "opts": [
+        "The most frequently occurring value",
+        "Σx / n",
+        "The middle value when arranged in order",
+        "Σfx / Σf"
+      ],
+      "correct": 1,
+      "why": "The ungrouped mean sums the raw values and divides by their count; Σfx/Σf is the grouped-data version using frequencies."
+    },
+    {
+      "q": "For grouped data, the arithmetic mean is calculated as:",
+      "opts": [
+        "The nth root of the product of the values",
+        "Σx / n",
+        "Σfx / Σf",
+        "L + [(n/2 − F)/f] × h"
+      ],
+      "correct": 2,
+      "why": "Grouped data uses class frequencies and marks: Σfx/Σf, since individual raw values are no longer available."
+    },
+    {
+      "q": "In the assumed mean (coding) method, the deviation d is calculated as:",
+      "opts": [
+        "d = (x − A)/c",
+        "d = A/x",
+        "d = x × c",
+        "d = x + A"
+      ],
+      "correct": 0,
+      "why": "The coding method measures each class mark's deviation from the assumed mean A, scaled down by the class width c."
+    },
+    {
+      "q": "The median of an ordered data set with an odd number of items, n, is located at position:",
+      "opts": [
+        "(n−1)/2",
+        "(n+1)/2",
+        "n/4",
+        "n/2"
+      ],
+      "correct": 1,
+      "why": "With an odd count, the single middle value sits at position (n+1)/2 when the data is arranged in order."
+    },
+    {
+      "q": "In the grouped median formula M = L + [(n/2 − F)/f] × h, 'F' represents:",
+      "opts": [
+        "The class width",
+        "The total frequency",
+        "The frequency of the median class itself",
+        "Cumulative frequency before median class"
+      ],
+      "correct": 3,
+      "why": "F is the cumulative frequency up to (but not including) the median class; f is the median class's own frequency."
+    },
+    {
+      "q": "In the grouped mode formula Mo = L + [Δ₁/(Δ₁+Δ₂)] × h, 'Δ₁' represents:",
+      "opts": [
+        "Frequency of modal class minus frequency of the class after it",
+        "The class width of the modal class",
+        "Modal class frequency minus the class before it",
+        "The total frequency of the distribution"
+      ],
+      "correct": 2,
+      "why": "Δ1 compares the modal class to the class immediately preceding it; Δ2 compares it to the class immediately following it."
+    },
+    {
+      "q": "A key merit of the median over the mean is that the median:",
+      "opts": [
+        "Uses every value in the data set",
+        "Requires logarithms to compute",
+        "Cannot be found from an ogive",
+        "Is unaffected by extreme outlier values"
+      ],
+      "correct": 3,
+      "why": "Because the median depends only on position, not magnitude, extreme values in the data don't distort it the way they distort the mean."
+    },
+    {
+      "q": "A key demerit of the arithmetic mean is that it:",
+      "opts": [
+        "Applies solely to categorical data",
+        "Is unduly affected by outliers",
+        "Cannot be computed for grouped data",
+        "Is unaffected by extreme values"
+      ],
+      "correct": 1,
+      "why": "Because the mean uses every value's magnitude, a single extreme outlier can pull it substantially away from the data's true centre."
+    },
+    {
+      "q": "When a distribution has values in categories such as 'red', 'blue' and 'green', the most appropriate measure of central tendency is the:",
+      "opts": [
+        "Geometric mean",
+        "Mode",
+        "Median",
+        "Mean"
+      ],
+      "correct": 1,
+      "why": "Categorical (nominal) data cannot be meaningfully averaged or ordered, so only the mode — the most frequent category — applies."
+    },
+    {
+      "q": "A distribution with more than two modes is described as:",
+      "opts": [
+        "Bimodal",
+        "Unimodal",
+        "Multimodal",
+        "Perfectly symmetric"
+      ],
+      "correct": 2,
+      "why": "One mode is unimodal, two is bimodal, and more than two is described as multimodal."
+    },
+    {
+      "q": "The nth root of the product of n values, appropriate for averaging rates of growth, is called the …… mean.",
+      "opts": [
+        "geometric",
+        "harmonic",
+        "weighted",
+        "arithmetic"
+      ],
+      "correct": 0,
+      "why": "The geometric mean is specifically defined as the nth root of a product, making it suited to growth rates and ratios."
+    },
+    {
+      "q": "The reciprocal of the average of the reciprocals of the values, appropriate for averaging rates such as speed, is called the …… mean.",
+      "opts": [
+        "harmonic",
+        "arithmetic",
+        "quadratic",
+        "geometric"
+      ],
+      "correct": 0,
+      "why": "The harmonic mean handles rate-type data (like speed) correctly, where the arithmetic mean would overstate the true average."
+    },
+    {
+      "q": "For any positive, non-constant data set, the correct ordering of the three means is:",
+      "opts": [
+        "The three means cannot be meaningfully compared",
+        "Arithmetic Mean ≥ Geometric Mean ≥ Harmonic Mean",
+        "Geometric Mean ≥ Arithmetic Mean ≥ Harmonic Mean",
+        "Harmonic Mean ≥ Geometric Mean ≥ Arithmetic Mean"
+      ],
+      "correct": 1,
+      "why": "This inequality (AM ≥ GM ≥ HM) holds for any positive, non-constant data set, with equality only when all values are identical."
+    },
+    {
+      "q": "A value that divides an ordered data set into four equal parts is called a:",
+      "opts": [
+        "Decile",
+        "Class mark",
+        "Percentile",
+        "Quartile"
+      ],
+      "correct": 3,
+      "why": "Quartiles split ordered data into four parts; deciles into ten, and percentiles into a hundred."
+    },
+    {
+      "q": "The median is equivalent to which positional measure?",
+      "opts": [
+        "Q2 (second quartile)",
+        "D9 (ninth decile)",
+        "P25 (25th percentile)",
+        "Q1 (first quartile)"
+      ],
+      "correct": 0,
+      "why": "The median sits at the 50% mark, which is exactly where the second quartile (Q2) falls."
+    },
+    {
+      "q": "Properties desirable in a good measure of central tendency include all of the following, EXCEPT that it should be:",
+      "opts": [
+        "Resistant to extreme values",
+        "Based on all observations",
+        "Rigidly defined",
+        "Open to personal interpretation"
+      ],
+      "correct": 3,
+      "why": "A good measure should leave no room for personal interpretation — being rigidly defined is the opposite of being determined subjectively."
+    },
+    {
+      "q": "The empirical relationship linking mode, median and mean is expressed as:",
+      "opts": [
+        "Mode = Mean + Median",
+        "Mode = (Mean + Median)/2",
+        "Mode = 3(Median) − 2(Mean)",
+        "Mode = 2(Median) − 3(Mean)"
+      ],
+      "correct": 2,
+      "why": "This empirical relationship lets you estimate any one of the three measures if the other two are known, for moderately skewed distributions."
+    },
+    {
+      "q": "The modal class, as distinguished from the median class, is defined as:",
+      "opts": [
+        "The class with the highest frequency",
+        "The class with the lowest frequency",
+        "The first class in the distribution",
+        "The class containing the (n/2)th observation"
+      ],
+      "correct": 0,
+      "why": "The modal class is identified purely by frequency count, while the median class is located using cumulative frequency."
+    },
+    {
+      "q": "The median class, as distinguished from the modal class, is defined as:",
+      "opts": [
+        "The class with the single highest frequency count",
+        "The last class in the distribution",
+        "The class containing the (n/2)th observation via cumulative frequency",
+        "The class with the lowest frequency"
+      ],
+      "correct": 2,
+      "why": "The median class is found by tracking cumulative frequency until it passes n/2, unlike the modal class which just has the largest single frequency."
+    },
+    {
+      "q": "The sum of deviations of all values from the arithmetic mean, Σ(x − x̄), always equals:",
+      "opts": [
+        "The variance",
+        "One",
+        "The standard deviation",
+        "Zero"
+      ],
+      "correct": 3,
+      "why": "This is a defining algebraic property of the arithmetic mean: positive and negative deviations from it always cancel out exactly."
+    }
+  ],
+  "cards": [
+    {
+      "front": "4 properties of a good central tendency measure",
+      "back": "Rigidly defined, based on all observations, capable of further mathematical treatment, resistant to extreme values."
+    },
+    {
+      "front": "Arithmetic mean (grouped)",
+      "back": "x-bar = Sum(fx) / Sum(f), using class marks and their frequencies."
+    },
+    {
+      "front": "Median (grouped) formula",
+      "back": "M = L + [(n/2 - F)/f] x h, where L=lower boundary of median class, F=cumulative frequency before it, f=its frequency, h=class width."
+    },
+    {
+      "front": "Mode (grouped) formula",
+      "back": "Mo = L + [Delta1/(Delta1+Delta2)] x h, comparing the modal class's frequency to its neighbours."
+    },
+    {
+      "front": "Geometric Mean — best use",
+      "back": "Averaging rates of growth and ratios; the nth root of the product of n values."
+    },
+    {
+      "front": "Harmonic Mean — best use",
+      "back": "Averaging rates such as speed; the reciprocal of the average of the reciprocals."
+    },
+    {
+      "front": "AM vs GM vs HM",
+      "back": "Arithmetic Mean >= Geometric Mean >= Harmonic Mean, for any positive, non-constant data set."
+    },
+    {
+      "front": "Empirical relationship",
+      "back": "Mode = 3(Median) - 2(Mean), for moderately skewed distributions."
+    },
+    {
+      "front": "Modal class vs Median class",
+      "back": "Modal class = highest frequency. Median class = contains the (n/2)th observation via cumulative frequency. Often different classes."
+    },
+    {
+      "front": "Mode — best use",
+      "back": "The only measure of central tendency suited to purely categorical (nominal) data."
+    }
+  ]
+}

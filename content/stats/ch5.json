@@ -1,0 +1,278 @@
+{
+  "subject": "stats",
+  "subjectName": "Business Statistics & Social Research Methods",
+  "chapter": 5,
+  "title": "Measures of Variability (Dispersion)",
+  "objectives": [
+    "Explain the meaning and importance of measures of dispersion.",
+    "Calculate the range, mean deviation, variance and standard deviation.",
+    "Calculate and interpret the coefficient of variation.",
+    "Explain skewness and kurtosis and compute Pearson's coefficient of skewness."
+  ],
+  "study": "<p>Two data sets can share an identical mean yet differ completely in spread. Measures of variability (dispersion) describe how scattered or clustered observations are around the centre — a small value means values are clustered tightly; a large value means they're widely scattered. This matters practically: in quality control a low standard deviation signals consistent product quality; in finance standard deviation measures investment risk; in HR, high variability in performance ratings can flag inconsistent appraisal practice.</p><div class=\"callout\"><b>Key term</b>Range — the simplest measure: Highest value − Lowest value. Simple to compute, but uses only two values and is highly sensitive to outliers.</div><p>The <b>Mean Deviation</b> averages the absolute deviations of each value from the mean, using absolute values specifically to stop positive and negative deviations from cancelling out (MD = Σ|x−x̄|/n). It's more informative than the range but algebraically inconvenient, limiting its use in further analysis. The <b>Variance</b> instead squares the deviations, which both removes the sign problem and makes the measure mathematically tractable — the sample formula uses a divisor of (n−1), not n, specifically to produce an unbiased estimator of the population variance. The <b>Standard Deviation</b> is the positive square root of the variance, expressed in the same units as the original data. It is the most widely used and most stable measure of dispersion, since it uses every observation and is suitable for further algebraic and inferential treatment (hypothesis testing, confidence intervals) — which is exactly why it is preferred over the mean deviation.</p><div class=\"callout tip\"><b>Exam tip</b>When comparing variability between two data sets with different units or very different means (e.g. salaries in Naira vs bonuses in Dollars), never compare raw standard deviations directly — use the Coefficient of Variation instead. This substitution is a classic CIPM exam trap.</div><p>The <b>Coefficient of Variation</b> expresses the standard deviation as a percentage of the mean: CV = (s/x̄) × 100%. A lower CV means a data set is more consistent relative to its own mean.</p><p><b>Skewness</b> measures a distribution's asymmetry around its mean. A symmetric distribution has Mean = Median = Mode and zero skewness. A <b>positively (right-)skewed</b> distribution has a longer tail on the right, with Mean > Median > Mode. A <b>negatively (left-)skewed</b> distribution has a longer tail on the left, with Mean < Median < Mode. Pearson's Coefficient of Skewness is Sk = 3(Mean − Median) / Standard Deviation — dimensionless, so it allows comparison of skewness across different data sets.</p><p><b>Kurtosis</b> measures a distribution's peakedness relative to the normal distribution. A <b>Mesokurtic</b> distribution has the same peakedness as normal. A <b>Leptokurtic</b> distribution is more peaked, with fatter tails. A <b>Platykurtic</b> distribution is flatter, with thinner tails.</p>",
+  "recap": "<ul><li>Range = Highest − Lowest; simple but uses only 2 values, sensitive to outliers.</li><li>Mean Deviation: average of absolute deviations from the mean; algebraically inconvenient.</li><li>Variance: average of squared deviations; sample divisor (n&minus;1) gives an unbiased estimator.</li><li>Standard Deviation: &radic;variance; most stable, uses every value, preferred measure overall.</li><li>Coefficient of Variation = (s/x&#772;) &times; 100% &mdash; use to compare variability across different units/means.</li><li>Skewness: symmetric (Mean=Median=Mode) &middot; positive/right-skew (Mean&gt;Median&gt;Mode) &middot; negative/left-skew (Mean&lt;Median&lt;Mode). Pearson's Sk = 3(Mean&minus;Median)/SD.</li><li>Kurtosis: Mesokurtic (normal) &middot; Leptokurtic (more peaked, fatter tails) &middot; Platykurtic (flatter, thinner tails).</li></ul>",
+  "quiz": [
+    {
+      "q": "The range of a data set is calculated as:",
+      "opts": [
+        "The middle value",
+        "Highest value + lowest value",
+        "Highest value − lowest value",
+        "Sum of all values divided by n"
+      ],
+      "correct": 2,
+      "why": "The range is simply the difference between the highest and lowest observed values."
+    },
+    {
+      "q": "A major weakness of the range as a measure of dispersion is that it:",
+      "opts": [
+        "Cannot be calculated for any data set",
+        "Is based on two extreme values alone",
+        "Equals zero for every distribution",
+        "Uses every value in the data set"
+      ],
+      "correct": 1,
+      "why": "The range ignores every value except the maximum and minimum, making it highly sensitive to outliers."
+    },
+    {
+      "q": "The mean deviation is calculated using:",
+      "opts": [
+        "The two extreme values alone",
+        "Cubed deviations from the mean",
+        "Squared deviations from the mean",
+        "Absolute deviations from the mean"
+      ],
+      "correct": 3,
+      "why": "Mean deviation uses absolute values specifically to stop positive and negative deviations from cancelling each other out."
+    },
+    {
+      "q": "The variance of a data set is defined as:",
+      "opts": [
+        "The difference between the highest and lowest values",
+        "The average of the squared deviations from the mean",
+        "The average of the absolute deviations from the mean",
+        "The square root of the standard deviation"
+      ],
+      "correct": 1,
+      "why": "Variance squares each deviation before averaging, which removes the sign problem the mean deviation still has."
+    },
+    {
+      "q": "The standard deviation is:",
+      "opts": [
+        "Equal to the range",
+        "The positive square root of the variance",
+        "The square of the variance",
+        "The same as the mean deviation"
+      ],
+      "correct": 1,
+      "why": "Standard deviation reverses the squaring in variance by taking its positive square root, returning it to the original units."
+    },
+    {
+      "q": "Which measure of dispersion is considered the most stable and widely used in statistical analysis?",
+      "opts": [
+        "Quartile deviation",
+        "Mean deviation",
+        "Standard deviation",
+        "Range"
+      ],
+      "correct": 2,
+      "why": "Standard deviation uses every observation and stays algebraically well-behaved, making it the most stable choice from sample to sample."
+    },
+    {
+      "q": "The divisor (n−1), used in the sample variance formula rather than n, is applied to:",
+      "opts": [
+        "Simplify the calculation",
+        "Eliminate the need for a mean",
+        "Produce an unbiased estimator of the population variance",
+        "Convert variance into a percentage"
+      ],
+      "correct": 2,
+      "why": "Bessel's correction (n−1) corrects a small downward bias that would otherwise occur when estimating population variance from a sample."
+    },
+    {
+      "q": "Standard deviation expressed as a percentage of the mean, used to compare relative variability, is called the coefficient of ……",
+      "opts": [
+        "skewness",
+        "variation",
+        "kurtosis",
+        "determination"
+      ],
+      "correct": 1,
+      "why": "The Coefficient of Variation (CV) specifically standardises the standard deviation against the mean, as a percentage."
+    },
+    {
+      "q": "When comparing the variability of two data sets measured in different units, the appropriate tool is the:",
+      "opts": [
+        "Coefficient of Variation",
+        "Range",
+        "Mean deviation",
+        "Raw standard deviation"
+      ],
+      "correct": 0,
+      "why": "The CV is dimensionless, so it allows fair comparison of variability across data sets with different units or scales."
+    },
+    {
+      "q": "A distribution with Mean = Median = Mode has:",
+      "opts": [
+        "Positive skew",
+        "Excess kurtosis",
+        "Zero skewness",
+        "Negative skew"
+      ],
+      "correct": 2,
+      "why": "When all three central tendency measures coincide, the distribution is symmetric, giving zero skewness."
+    },
+    {
+      "q": "A distribution with a longer tail on the right, where Mean > Median > Mode, is described as:",
+      "opts": [
+        "Platykurtic",
+        "Negatively skewed",
+        "Symmetric",
+        "Positively skewed"
+      ],
+      "correct": 3,
+      "why": "A long right tail pulls the mean above the median and mode, which defines positive (right) skew."
+    },
+    {
+      "q": "A distribution with a longer tail on the left, where Mean < Median < Mode, is described as:",
+      "opts": [
+        "Negatively skewed",
+        "Leptokurtic",
+        "Positively skewed",
+        "Symmetric"
+      ],
+      "correct": 0,
+      "why": "A long left tail pulls the mean below the median and mode, which defines negative (left) skew."
+    },
+    {
+      "q": "Pearson's Coefficient of Skewness is calculated as:",
+      "opts": [
+        "3(Mean − Median) / Standard Deviation",
+        "3(Mode − Mean) / Variance",
+        "Standard Deviation / Mean",
+        "(Mean + Median) / Standard Deviation"
+      ],
+      "correct": 0,
+      "why": "Pearson's second coefficient compares mean and median, scaled by the standard deviation, to quantify asymmetry."
+    },
+    {
+      "q": "A distribution more peaked than the normal distribution, with fatter tails, is described as ……",
+      "opts": [
+        "mesokurtic",
+        "leptokurtic",
+        "symmetric",
+        "platykurtic"
+      ],
+      "correct": 1,
+      "why": "Leptokurtic distributions have a sharper peak and heavier tails than the normal distribution."
+    },
+    {
+      "q": "A distribution flatter than the normal distribution, with thinner tails, is described as ……",
+      "opts": [
+        "mesokurtic",
+        "skewed",
+        "platykurtic",
+        "leptokurtic"
+      ],
+      "correct": 2,
+      "why": "Platykurtic distributions are flatter and have lighter tails than the normal distribution."
+    },
+    {
+      "q": "A distribution with the same peakedness as the normal distribution is described as:",
+      "opts": [
+        "Platykurtic",
+        "Leptokurtic",
+        "Bimodal",
+        "Mesokurtic"
+      ],
+      "correct": 3,
+      "why": "Mesokurtic is the baseline case, matching the normal distribution's peakedness exactly."
+    },
+    {
+      "q": "The absolute value used in the mean deviation formula serves to:",
+      "opts": [
+        "Eliminate the need for a central value",
+        "Convert the data into percentages",
+        "Increase the influence of outliers",
+        "Prevent positive and negative deviations from cancelling out"
+      ],
+      "correct": 3,
+      "why": "Without absolute values, positive and negative deviations from the mean would sum to zero, hiding the true spread."
+    },
+    {
+      "q": "All of the following are reasons the standard deviation is preferred over the mean deviation, EXCEPT that it:",
+      "opts": [
+        "Is algebraically convenient for further treatment",
+        "Uses every observation in the data set",
+        "Is used in hypothesis testing and confidence intervals",
+        "Ignores the sign of each deviation directly"
+      ],
+      "correct": 3,
+      "why": "Standard deviation handles sign by squaring, not by ignoring it directly the way absolute value does in mean deviation."
+    },
+    {
+      "q": "In quality control, a low standard deviation in product measurements indicates:",
+      "opts": [
+        "Consistent product quality",
+        "An error in calculation",
+        "Highly inconsistent quality",
+        "No products were measured"
+      ],
+      "correct": 0,
+      "why": "A low spread around the target measurement is exactly what consistent, well-controlled production looks like."
+    },
+    {
+      "q": "A data set with a lower Coefficient of Variation, relative to another, is described as:",
+      "opts": [
+        "More consistent relative to its mean",
+        "Larger in absolute value regardless of the mean",
+        "More variable relative to its mean",
+        "Not meaningfully interpretable alone"
+      ],
+      "correct": 0,
+      "why": "A lower CV means the standard deviation is small relative to the mean, indicating greater relative consistency."
+    }
+  ],
+  "cards": [
+    {
+      "front": "Range",
+      "back": "Highest value minus lowest value. Simple but uses only 2 values; sensitive to outliers."
+    },
+    {
+      "front": "Mean Deviation",
+      "back": "Average of absolute deviations from the mean; algebraically inconvenient for further treatment."
+    },
+    {
+      "front": "Variance (sample)",
+      "back": "Average of squared deviations, divided by (n-1) — Bessel's correction — for an unbiased estimator."
+    },
+    {
+      "front": "Standard Deviation",
+      "back": "Positive square root of variance; most widely used and stable measure of dispersion."
+    },
+    {
+      "front": "Coefficient of Variation (CV)",
+      "back": "(Standard deviation / Mean) x 100% — used to compare variability across different units or means."
+    },
+    {
+      "front": "Positive (right) skew",
+      "back": "Longer tail on the right; Mean > Median > Mode."
+    },
+    {
+      "front": "Negative (left) skew",
+      "back": "Longer tail on the left; Mean < Median < Mode."
+    },
+    {
+      "front": "Pearson's Coefficient of Skewness",
+      "back": "Sk = 3(Mean - Median) / Standard Deviation."
+    },
+    {
+      "front": "Leptokurtic / Mesokurtic / Platykurtic",
+      "back": "More peaked than normal / same as normal / flatter than normal."
+    },
+    {
+      "front": "Why use CV over raw Standard Deviation?",
+      "back": "When comparing data sets with different units or very different means — CV is dimensionless, raw SD is not."
+    }
+  ]
+}
