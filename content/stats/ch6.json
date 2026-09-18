@@ -1,0 +1,278 @@
+{
+  "subject": "stats",
+  "subjectName": "Business Statistics & Social Research Methods",
+  "chapter": 6,
+  "title": "Elements of Probability",
+  "objectives": [
+    "Explain the basic concepts and terminology of probability.",
+    "Distinguish classical, relative frequency (empirical) and subjective probability.",
+    "Apply the addition and multiplication rules of probability, including conditional probability.",
+    "Apply Bayes' Theorem and distinguish permutations from combinations."
+  ],
+  "study": "<p>Probability measures the likelihood that an event will occur, expressed as a number between 0 and 1 inclusive. P = 0 means the event is impossible; P = 1 means it is certain. An <b>Experiment</b> is a process producing a well-defined outcome; the <b>Sample Space (S)</b> is the set of all possible outcomes; an <b>Event</b> is a subset of the sample space. A <b>Simple Event</b> has exactly one outcome, a <b>Compound Event</b> has two or more, and the <b>Complementary Event (A′)</b> consists of every outcome in S that is not in A, so P(A′) = 1 − P(A).</p><div class=\"callout\"><b>Key term</b><b>Mutually Exclusive</b> events cannot both occur at once, P(A∩B)=0. <b>Exhaustive</b> events together cover the entire sample space. <b>Independent</b> events mean one's occurrence doesn't affect the other's probability; <b>Dependent</b> events mean it does.</div><p>Three approaches measure probability. <b>Classical (a priori)</b> probability assumes equally likely outcomes: P(A) = n(A)/n(S), based on logical reasoning, with no experimentation needed. <b>Relative Frequency (empirical/a posteriori)</b> probability is estimated from observed frequency over many trials: P(A) = fA/n — by the Law of Large Numbers, this converges to the true probability as trials increase. <b>Subjective</b> probability relies on personal judgement or expert opinion where neither other approach applies (e.g. 'a 70% chance this recruitment drive succeeds') — used in risk assessment and business forecasting.</p><div class=\"callout tip\"><b>Exam tip</b>The most common CIPM probability error is applying the simplified addition/multiplication rule (for mutually exclusive/independent events) to events that are not actually mutually exclusive or independent. Always check the relationship between events first.</div><p>The <b>Addition Rule</b>: P(A or B) = P(A) + P(B) − P(A and B); for mutually exclusive events, this simplifies to P(A or B) = P(A) + P(B), since P(A and B) = 0. The <b>Multiplication Rule</b>: P(A and B) = P(A) × P(B|A); for independent events, this simplifies to P(A and B) = P(A) × P(B). <b>Conditional Probability</b>, the chance of B given A has occurred, is P(B|A) = P(A∩B) / P(A).</p><p>The <b>Total Probability Rule</b> says that if B1, B2,...,Bn are mutually exclusive and exhaustive, then for any event A: P(A) = ΣP(A|Bi)×P(Bi). <b>Bayes' Theorem</b> reverses conditional probabilities to update a hypothesis given new evidence: P(Bi|A) = [P(A|Bi)×P(Bi)] / Σ[P(A|Bj)×P(Bj)], where P(Bi) is the prior probability, P(A|Bi) the likelihood, and P(Bi|A) the posterior probability — foundational to Bayesian statistics, spam filtering and medical diagnosis.</p><p>Finally, counting techniques: a <b>Permutation</b> is an arrangement where order matters (n!/(n−r)!); a <b>Combination</b> is a selection where order does not matter (n!/[r!(n−r)!]) — selecting committee members uses combinations, since order of selection doesn't change the committee formed. By definition, 0! (zero factorial) equals 1.</p>",
+  "recap": "<ul><li>Sample space = all possible outcomes; Event = subset of it; P(A') = 1 - P(A).</li><li>Mutually exclusive (can't both occur) vs Exhaustive (cover everything) vs Independent (one doesn't affect other's probability).</li><li>3 probability types: Classical (n(A)/n(S), equally likely) &middot; Empirical (observed frequency, Law of Large Numbers) &middot; Subjective (judgement/expert opinion).</li><li>Addition Rule: P(A or B) = P(A)+P(B)-P(A and B); simplifies for mutually exclusive events.</li><li>Multiplication Rule: P(A and B) = P(A)&times;P(B|A); simplifies for independent events.</li><li>Conditional probability: P(B|A) = P(A&cap;B)/P(A).</li><li>Bayes' Theorem updates a hypothesis's probability given new evidence (prior &rarr; posterior).</li><li>Permutation = order matters; Combination = order doesn't; 0! = 1.</li></ul>",
+  "quiz": [
+    {
+      "q": "Probability values always lie within the range:",
+      "opts": [
+        "0 to 100",
+        "0 to 1",
+        "−1 to 1",
+        "1 to 10"
+      ],
+      "correct": 1,
+      "why": "Probability is defined on a 0-to-1 scale, where 0 is impossible and 1 is certain."
+    },
+    {
+      "q": "The set of all possible outcomes of an experiment is called the:",
+      "opts": [
+        "Combination",
+        "Sample space",
+        "Event",
+        "Permutation"
+      ],
+      "correct": 1,
+      "why": "The sample space is the full set of possible outcomes; an event is only a subset of it."
+    },
+    {
+      "q": "Classical probability of an event E is defined as:",
+      "opts": [
+        "Total outcomes divided by favourable outcomes",
+        "The sum of all sample space outcomes",
+        "The square root of the number of outcomes",
+        "Number of favourable outcomes divided by total possible outcomes"
+      ],
+      "correct": 3,
+      "why": "Classical probability assumes equally likely outcomes, so it's simply favourable outcomes over total possible outcomes."
+    },
+    {
+      "q": "If P(E) = 0, the event is described as:",
+      "opts": [
+        "Exhaustive",
+        "Certain",
+        "Independent",
+        "Impossible"
+      ],
+      "correct": 3,
+      "why": "A probability of exactly zero means the event cannot occur — it is impossible."
+    },
+    {
+      "q": "Probability estimated from the frequency of occurrence over a large number of trials is called …… probability.",
+      "opts": [
+        "relative frequency (empirical)",
+        "classical",
+        "conditional",
+        "subjective"
+      ],
+      "correct": 0,
+      "why": "Empirical probability is based on actual observed outcomes across many trials, not pure logical reasoning."
+    },
+    {
+      "q": "Probability based on personal judgment, experience or expert opinion, used when objective data is unavailable, is called …… probability.",
+      "opts": [
+        "conditional",
+        "empirical",
+        "subjective",
+        "classical"
+      ],
+      "correct": 2,
+      "why": "Subjective probability relies on judgement rather than either equally-likely reasoning or observed frequency."
+    },
+    {
+      "q": "The complementary event of A, written A′, consists of:",
+      "opts": [
+        "All outcomes in S that are not in A",
+        "The intersection of A with itself",
+        "A single outcome selected from A",
+        "All outcomes shared by A and another event"
+      ],
+      "correct": 0,
+      "why": "The complement covers everything in the sample space that A does not, so P(A) and P(A') always sum to 1."
+    },
+    {
+      "q": "Events that cannot both occur at the same time are described as:",
+      "opts": [
+        "Exhaustive",
+        "Conditional",
+        "Mutually exclusive",
+        "Independent"
+      ],
+      "correct": 2,
+      "why": "Mutually exclusive events have zero overlap: P(A and B) = 0."
+    },
+    {
+      "q": "A set of events that together cover every possible outcome in the sample space is described as:",
+      "opts": [
+        "Exhaustive",
+        "Mutually exclusive",
+        "Independent",
+        "Conditional"
+      ],
+      "correct": 0,
+      "why": "Exhaustive events partition the entire sample space between them, leaving nothing uncovered."
+    },
+    {
+      "q": "Events where the occurrence of one has no effect on the probability of the other are described as:",
+      "opts": [
+        "Independent",
+        "Mutually exclusive",
+        "Dependent",
+        "Exhaustive"
+      ],
+      "correct": 0,
+      "why": "Independence means one event's outcome does not change the probability of the other."
+    },
+    {
+      "q": "For mutually exclusive events, the Addition Rule simplifies to:",
+      "opts": [
+        "P(A or B) = P(A) − P(B)",
+        "P(A or B) = P(A) + P(B)",
+        "P(A or B) = P(A) / P(B)",
+        "P(A or B) = P(A) × P(B)"
+      ],
+      "correct": 1,
+      "why": "Since P(A and B) = 0 for mutually exclusive events, the general addition rule's subtraction term drops out entirely."
+    },
+    {
+      "q": "For independent events, the Multiplication Rule simplifies to:",
+      "opts": [
+        "P(A and B) = P(A|B)",
+        "P(A and B) = P(A) + P(B)",
+        "P(A and B) = P(A) × P(B)",
+        "P(A and B) = P(A) − P(B)"
+      ],
+      "correct": 2,
+      "why": "Independence means P(B|A) equals plain P(B), so the general rule P(A)×P(B|A) reduces to P(A)×P(B)."
+    },
+    {
+      "q": "The conditional probability of B given A is calculated as:",
+      "opts": [
+        "P(A) × P(B)",
+        "P(A ∩ B) / P(B)",
+        "P(A ∩ B) / P(A)",
+        "P(A) + P(B)"
+      ],
+      "correct": 2,
+      "why": "Conditional probability restricts attention to cases where A has occurred, then asks what share of those also involve B."
+    },
+    {
+      "q": "Bayes' Theorem is primarily used to:",
+      "opts": [
+        "Determine the class width of a distribution",
+        "Update the probability of a hypothesis given new evidence",
+        "Calculate the range of a data set",
+        "Compute the standard deviation of a sample"
+      ],
+      "correct": 1,
+      "why": "Bayes' Theorem reverses a conditional probability to revise a prior belief once new evidence (data) is observed."
+    },
+    {
+      "q": "The Total Probability Rule requires the events B1, B2,...,Bn to be mutually exclusive and ……",
+      "opts": [
+        "subjective",
+        "independent",
+        "conditional",
+        "exhaustive"
+      ],
+      "correct": 3,
+      "why": "The rule needs the Bi events to partition the whole sample space (exhaustive) as well as not overlap (mutually exclusive)."
+    },
+    {
+      "q": "An arrangement of items in which order matters is called a:",
+      "opts": [
+        "Permutation",
+        "Combination",
+        "Conditional event",
+        "Sample space"
+      ],
+      "correct": 0,
+      "why": "Permutations count ordered arrangements; combinations count unordered selections."
+    },
+    {
+      "q": "A selection of items in which order does not matter is called a:",
+      "opts": [
+        "Sample space",
+        "Permutation",
+        "Complementary event",
+        "Combination"
+      ],
+      "correct": 3,
+      "why": "Combinations treat differently-ordered selections of the same items as identical, unlike permutations."
+    },
+    {
+      "q": "By definition, 0! (zero factorial) equals:",
+      "opts": [
+        "Undefined",
+        "Infinity",
+        "0",
+        "1"
+      ],
+      "correct": 3,
+      "why": "Zero factorial is defined as 1 by mathematical convention, which keeps permutation and combination formulas consistent."
+    },
+    {
+      "q": "Selecting members for a committee, where the order of selection does not matter, is an application of:",
+      "opts": [
+        "Permutations",
+        "Combinations",
+        "The addition rule alone",
+        "Conditional probability alone"
+      ],
+      "correct": 1,
+      "why": "Since a committee is the same group regardless of the order people were picked in, this is a combinations problem."
+    },
+    {
+      "q": "Drawing two cards from a deck without replacement produces events that are:",
+      "opts": [
+        "Independent",
+        "Mutually exclusive",
+        "Dependent",
+        "Exhaustive"
+      ],
+      "correct": 2,
+      "why": "Removing the first card changes the composition of the deck, so the probability of the second draw depends on the first."
+    }
+  ],
+  "cards": [
+    {
+      "front": "Sample space vs Event",
+      "back": "Sample space = all possible outcomes. Event = a subset (particular outcome(s) of interest)."
+    },
+    {
+      "front": "Mutually exclusive vs Independent",
+      "back": "Mutually exclusive: can't both occur (P(A and B)=0). Independent: one's occurrence doesn't change the other's probability."
+    },
+    {
+      "front": "Classical probability",
+      "back": "P(A) = n(A)/n(S), assuming equally likely outcomes; based on reasoning, no experiment needed."
+    },
+    {
+      "front": "Empirical (relative frequency) probability",
+      "back": "P(A) = fA/n, estimated from observed frequency over many trials; converges to true probability (Law of Large Numbers)."
+    },
+    {
+      "front": "Subjective probability",
+      "back": "Based on personal judgement or expert opinion, used when neither classical nor empirical approaches apply."
+    },
+    {
+      "front": "Addition Rule (mutually exclusive)",
+      "back": "P(A or B) = P(A) + P(B)."
+    },
+    {
+      "front": "Multiplication Rule (independent)",
+      "back": "P(A and B) = P(A) x P(B)."
+    },
+    {
+      "front": "Conditional probability",
+      "back": "P(B|A) = P(A intersect B) / P(A)."
+    },
+    {
+      "front": "Bayes' Theorem — purpose",
+      "back": "Updates the probability of a hypothesis (posterior) given new evidence, starting from a prior probability."
+    },
+    {
+      "front": "Permutation vs Combination",
+      "back": "Permutation: order matters (n!/(n-r)!). Combination: order doesn't matter (n!/[r!(n-r)!])."
+    }
+  ]
+}
