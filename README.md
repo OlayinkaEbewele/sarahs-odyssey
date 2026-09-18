@@ -180,6 +180,12 @@ Crossing a level threshold raises a gold toast.
 
 Everything above is disabled under `prefers-reduced-motion: reduce`.
 
+**Fail-safe.** The entrance keyframes start at opacity 0 and rely on the animation running
+to completion. A backgrounded tab, a phone in low-power mode, or a page restored from the
+back-forward cache can leave it un-run — and the content invisible. So `render()` removes
+the animating classes on a 1.6s timer regardless, and again on `visibilitychange` and
+`pageshow`, so the plain visible styles always win in the end.
+
 ## The trial
 
 - **Options are shuffled every attempt**, and **question order is shuffled on retakes**,
@@ -315,8 +321,9 @@ in Ship's Log under **The Course** and synced with the rest of your progress:
 
 - **Charted course** (default) — the seas open in order, each when the one before it is
   finished. The voyage as designed.
-- **Open waters** — every sea is open at once; study the subjects in any order. The ship
-  sits at whichever sea you last studied. Chapters within a sea still unlock in sequence.
+- **Open waters** — every sea *and every chapter* is open at once; study anything in any
+  order. The ship sits at whichever sea you last studied. The next chapter in line is still
+  marked READY so the course remains visible; the rest read OPEN.
 
 Switching to open waters keeps all progress. Switching back seals any later sea you had
 started until you reach it on the course — progress there is kept, just gated. A sealed

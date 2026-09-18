@@ -240,11 +240,15 @@ button:disabled{cursor:not-allowed}
 .isle.ready{background:var(--gold);color:var(--ink)}
 .isle.ready .row,.isle.ready .st{color:var(--ink)}
 .isle.ready .track{background:#8d6a34}
+.isle.open{background:var(--parch);color:var(--ink)}
+.isle.open .row,.isle.open .st{color:var(--bronze)}
+.isle.open .track{background:var(--ink)}
 .isle.locked{background:var(--stone);color:var(--ink)}
 .isle.locked .row,.isle.locked .st{color:var(--ink)}
 .isle.locked .track{background:var(--ink)}
 
 .seal{margin-top:16px;display:flex;gap:10px;align-items:center;background:var(--clay);border:var(--edge);border-radius:var(--r-md);padding:12px}
+.seal--open{background:var(--sea)}
 .seal .star{font-family:var(--px);font-size:14px;color:var(--parch);flex:none}
 .seal p{font-size:12px;line-height:1.45;color:var(--cream);margin:0}
 

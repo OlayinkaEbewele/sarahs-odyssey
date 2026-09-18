@@ -223,9 +223,12 @@
     return s.chapters;
   }
 
+  /* done: cleared. ready: the next one in line. open: reachable in open waters but not
+     the next in line. locked: sealed on the charted course. */
   function chapterStatus(subjectId, n) {
     if (isCleared(subjectId, n)) return 'done';
-    return n === firstOpenChapter(subjectId) ? 'ready' : 'locked';
+    if (n === firstOpenChapter(subjectId)) return 'ready';
+    return S.openWaters ? 'open' : 'locked';
   }
 
   function subjectClearedCount(subjectId) {
@@ -747,14 +750,14 @@
     const st = chapterStatus(subjectId, n);
     const rec = S.cleared[key(subjectId, n)];
     const title = S.titles[key(subjectId, n)];
-    const status = st === 'done' ? 'CLEARED ' + rec.score + '%' : st === 'ready' ? 'READY' : 'SEALED';
-    const icon = st === 'done' ? '✓' : st === 'ready' ? '▶' : '✖';
+    const status = st === 'done' ? 'CLEARED ' + rec.score + '%' : st === 'ready' ? 'READY' : st === 'open' ? 'OPEN' : 'SEALED';
+    const icon = st === 'done' ? '✓' : st === 'ready' ? '▶' : st === 'open' ? '○' : '✖';
     const pos = S.pos[key(subjectId, n)];
     const filled = st === 'done' ? 5 : (pos ? Math.min(pos.stage, 4) : 0);
     return '<button class="isle ' + st + '" data-ch="' + n + '" data-sea="' + subjectId + '">' +
       '<span class="row"><span>CH ' + String(n).padStart(2, '0') + '</span><span>' + icon + '</span></span>' +
       '<span class="ttl">' + (title ? esc(title)
-        : (st === 'locked' ? '<span class="uncharted">Not yet charted</span>' : 'Chapter ' + n)) + '</span>' +
+        : (st === 'locked' || st === 'open' ? '<span class="uncharted">Not yet charted</span>' : 'Chapter ' + n)) + '</span>' +
       '<span class="track">' + bars(filled, 5,
         st === 'ready' ? 'style-deep' : 'style-gold',
         st === 'ready' ? 'style-light' : 'style-deep') + '</span>' +
@@ -796,9 +799,11 @@
     const allDone = subjectDone(subjectId);
     const nextTitle = S.titles[key(subjectId, nextN)];
 
-    const seal = '<div class="seal"><span class="star">✱</span><p>' + esc(allDone
-      ? 'Every chapter of this sea is cleared. The next sea is open.'
-      : 'Pass Chapter ' + nextN + '’s Trial at ' + PASS_MARK + '% or better to break the seal on Chapter ' + (nextN + 1) + '.') +
+    const seal = '<div class="seal' + (S.openWaters && !allDone ? ' seal--open' : '') + '"><span class="star">' + (S.openWaters && !allDone ? '☼' : '✱') + '</span><p>' + esc(allDone
+      ? 'Every chapter of this sea is cleared.' + (S.openWaters ? '' : ' The next sea is open.')
+      : S.openWaters
+        ? 'Open waters — every island here is yours. Clear them in any order; ' + PASS_MARK + '% in a trial clears a chapter.'
+        : 'Pass Chapter ' + nextN + '’s Trial at ' + PASS_MARK + '% or better to break the seal on Chapter ' + (nextN + 1) + '.') +
       '</p></div>';
 
     const resume = allDone ? '' : '<div class="panel panel--parch">' +
@@ -969,7 +974,8 @@
 
     const goal = '<div class="panel panel--parch"><div class="label label--ink">CHAPTER GOAL</div>' +
       '<div style="font-size:14px;line-height:1.55;color:rgba(38,34,26,.8)">' +
-      'Score ' + PASS_MARK + '% or better in the Trial to unseal Chapter ' + (n + 1) +
+      'Score ' + PASS_MARK + '% or better in the Trial to ' +
+      (S.openWaters || n >= sub.chapters ? 'clear this chapter' : 'unseal Chapter ' + (n + 1)) +
       (ch ? ' and add ' + ch.quiz.length + ' cards to your review deck.' : '.') + '</div></div>';
 
     const objectives = (ch && ch.objectives && ch.objectives.length)
@@ -1090,12 +1096,16 @@
       eyebrow = 'CHAPTER CLEARED';
       heading = 'The strait is calm';
       sub_ = sc.right + ' of ' + sc.total + ' trials answered true. ' +
-        (hasNext ? 'Chapter ' + nextN + ' is now unsealed.' : 'This sea is cleared.');
+        (!hasNext ? 'This sea is cleared.' : S.openWaters ? 'This island is charted.' : 'Chapter ' + nextN + ' is now unsealed.');
     } else if (passed && isRetake) {
       eyebrow = lastRunWasBest ? 'A NEW BEST' : 'SAILED AGAIN';
       heading = lastRunWasBest ? 'Your finest crossing yet' : 'The strait is calm';
       sub_ = sc.right + ' of ' + sc.total + ' answered true on attempt ' + attempts + '. ' +
         (lastRunWasBest ? 'That is your best run.' : 'Your best stands at ' + best + '%.');
+    } else if (!passed && !stillCleared && S.openWaters) {
+      eyebrow = 'THE STRAIT HOLDS';
+      heading = 'Turn about and try again';
+      sub_ = sc.right + ' of ' + sc.total + ' trials answered true. You need ' + PASS_MARK + '% to clear this chapter — sail the trial once more, or try another island.';
     } else if (!passed && stillCleared) {
       eyebrow = 'A ROUGHER CROSSING';
       heading = 'The chapter still stands cleared';
@@ -1378,7 +1388,7 @@
       '<button class="segbtn' + (open ? '' : ' on') + '" data-course="charted" aria-pressed="' + (!open) + '">CHARTED COURSE</button>' +
       '<button class="segbtn' + (open ? ' on' : '') + '" data-course="open" aria-pressed="' + open + '">OPEN WATERS</button></div>' +
       '<div class="txt txt--ink" style="margin-top:12px">' + (open
-        ? 'Every sea is open at once. Study the subjects in any order; the ship sits wherever you last studied. Chapters within a sea still unlock in sequence.'
+        ? 'Every sea and every chapter is open at once. Study anything in any order; the ship sits wherever you last studied. The next chapter in line is still marked READY so you can follow the course if you like.'
         : 'The seas open in order — each when the one before it is finished. This is the voyage as designed.') + '</div>' +
       (open ? '' : '<div class="txt txt--sm txt--ink" style="margin-top:8px">Switching to open waters keeps all progress; switching back seals any later sea you had started until you reach it.</div>') +
       '</div>';
@@ -1776,6 +1786,17 @@
   /* Identity of the current screen. Entrance animations fire when this changes, so
      stepping between stages animates but answering a question in place does not. */
   let lastViewKey = null;
+  let enterTimer = null;
+  function settleEntrance() {
+    const el = $('#view');
+    if (!el) return;
+    el.classList.remove('enter');
+    el.querySelectorAll('.victory.celebrate').forEach(v => v.classList.remove('celebrate'));
+  }
+  /* If the page was navigated while hidden, settle the moment it's seen. */
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) settleEntrance(); });
+  window.addEventListener('pageshow', e => { if (e.persisted) settleEntrance(); });
+
   function viewKey() {
     /* The key also carries whether async content has landed, so the entrance fires
        again when a "loading" view is replaced by the real thing — but not when the
@@ -1830,10 +1851,17 @@
     const vk = viewKey();
     const el = $('#view');
     el.classList.remove('enter');
+    clearTimeout(enterTimer);
     if (vk !== lastViewKey) {
       void el.offsetWidth;          // restart the animation
       el.classList.add('enter');
       lastViewKey = vk;
+      /* Fail-safe: the entrance keyframes start at opacity 0 and rely on the animation
+         running to completion. A backgrounded tab, a phone in low-power mode, or a page
+         restored from the back-forward cache can leave it un-run — and the content
+         invisible. So the animating classes come off on a timer regardless, and the
+         elements fall back to their plain, visible styles. */
+      enterTimer = setTimeout(settleEntrance, 1600);
     }
 
     const counter = el.querySelector('.victory.celebrate [data-count]');
@@ -1846,9 +1874,8 @@
     const r = route;
     pending = true;
     try {
-      if (r.name === 'chapter') {
-        if (subjectOf(r.sea) && subjectState(r.sea) === 'locked') return;
-        if (subjectOf(r.sea) && S.lastSea !== r.sea) { S.lastSea = r.sea; saveLocal(); }
+      if (r.name === 'chapter' && subjectOf(r.sea) && subjectState(r.sea) !== 'locked') {
+        if (S.lastSea !== r.sea) { S.lastSea = r.sea; saveLocal(); }
         if (chapterStatus(r.sea, r.n) !== 'locked') await loadChapter(r.sea, r.n);
       } else if (r.name === 'region') {
         if (subjectState(r.sea) !== 'locked') await warmSubject(r.sea);
