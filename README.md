@@ -39,6 +39,9 @@ under `file://`, and `localStorage` is too.
 
 ## Adding chapter content
 
+**The full specification, including the quality rules for exam-grade questions, is in
+[`docs/CONTENT-BRIEF.md`](docs/CONTENT-BRIEF.md) — hand that to whatever does the extraction.**
+
 Drop a file at `content/<subjectId>/ch<N>.json`. Nothing else needs touching — no code
 change, no rebuild, no restart. Refresh the page and the chapter is live.
 
