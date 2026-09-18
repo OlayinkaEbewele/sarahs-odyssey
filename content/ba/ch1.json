@@ -4,62 +4,215 @@
   "chapter": 1,
   "title": "Nature of Business",
   "objectives": [
-    "Define business and identify what separates it from other human activity.",
-    "Contrast the traditional and modern concepts of business.",
-    "Distinguish economic from non-economic activity."
+    "Define business, explain why it exists, and identify its major actors.",
+    "Distinguish the Traditional and Modern concepts of business, including Davis and Blomstrom's view.",
+    "Explain the four types of utility business creates: form, place, time and possession.",
+    "State the economic, social and human objectives of business.",
+    "Classify businesses by category (primary/secondary/tertiary), by size (MSME thresholds), and by ownership (private/public enterprises).",
+    "Define a stakeholder and explain the role of law and CAMA in business."
   ],
-  "study": "<p>Business describes organised, repeated activity aimed at producing, exchanging, or distributing goods and services — not a one-off transaction, and not activity carried out purely for personal consumption. What separates business from other human effort is the intent behind it: it is undertaken to earn some kind of return, whether that return is profit, prestige, or simple satisfaction.</p><div class=\"callout\"><b>Key term</b>Business — organised economic activity, repeated over time, directed at producing, exchanging or distributing goods and services in pursuit of a return.</div><p>Two ways of framing why business exists sit alongside each other in the literature. The traditional view treats profit as the whole point: a business exists to maximise returns for its owners. The modern view widens the lens — profit still matters, but it's earned while satisfying customers and acting as a responsible part of the wider society the business operates in.</p><div class=\"callout tip\"><b>Exam tip</b>Questions often ask you to contrast these two concepts directly — know the shift in emphasis from \"profit alone\" to \"profit plus social responsibility.\"</div><p>Human activity more broadly splits into economic activity (anything tied to producing wealth — further divided into profession, employment, and business) and non-economic activity (voluntary or social effort with no profit motive attached). Business is one branch of the economic side, distinguished from profession and employment by the specific pattern of buying, producing and selling for a return.</p>",
-  "recap": "<ul><li>Business = repeated, organised activity to produce/exchange/distribute goods or services for a return.</li><li>Traditional concept: profit maximisation is the goal.</li><li>Modern concept: consumer satisfaction plus social responsibility, profit as one outcome among several.</li><li>Economic activity (profession, employment, business) vs non-economic activity (no profit motive).</li></ul>",
+  "study": "<p>Business is organised, repeated activity aimed at producing, exchanging or distributing goods and services in pursuit of a return — what separates it from mere 'busyness' is the presence of an economic element: a return of money, prestige or satisfaction. Its major actors are the entrepreneur (who identifies the opportunity and assumes the risk), managers (who plan, organise, lead and control), the workforce, and capital providers.</p><div class=\"callout\"><b>Key term</b>Traditional Concept — business exists to maximise profit through production and marketing. Modern Concept — business exists to maximise consumer satisfaction, earning profit while upholding social responsibility. Davis and Blomstrom describe this modern view of society as an <i>ecological</i> one — concerned with the mutual relations between human populations and their environment.</p><p>Business performs its role by creating <b>utility</b> — the satisfaction derived from goods and services — in four forms: <b>form utility</b> (raw materials transformed into finished goods, e.g. timber into furniture), <b>place utility</b> (goods transported to where they're needed), <b>time utility</b> (goods stored until required), and <b>possession utility</b> (ownership transferred to the consumer).</p><div class=\"callout tip\"><b>Exam tip</b>The four utilities are a favourite exam target precisely because they sound similar — always tie each one to its trigger action: form=transform, place=transport, time=store, possession=transfer ownership.</div><p>Business objectives split into three categories. <b>Economic objectives</b>: profit maximisation, market expansion, cost reduction, business growth, productivity improvement. <b>Social objectives</b>: environmental protection, community development, ethical business practices, consumer protection, Corporate Social Responsibility (CSR). <b>Human (employee) objectives</b>: psychological safety, fair compensation, professional development.</p><p>Businesses are grouped into three broad categories: <b>Primary (Extractive)</b> — agriculture, mining, fishing; <b>Secondary (Manufacturing)</b> — construction and industrial processing; <b>Tertiary (Services)</b> — banking, education, transport. By ownership, businesses split into <b>Private Enterprises</b> (owned/managed by individuals — sole proprietorships, partnerships, limited companies, cooperatives) and <b>Public Enterprises</b> (owned/managed by government, such as a Water Corporation or a Television Authority).</p><div class=\"callout\"><b>Key term</b>MSME classification (by size) — Micro: ≤10 employees, sales revenue under ₦25 million, assets under ₦5 million (excluding land/buildings). Small: 10–49 employees, sales ₦25m–₦100m, assets under ₦50m. Medium: 50–249 employees, sales above ₦100m, assets ₦50m–under ₦500m. Large: over 250 employees, sales above ₦500m, assets above ₦500m.</div><p>Choosing an ownership form is driven by capital requirement, market size, managerial capability, registration requirements, risk-bearing appetite, ease of ownership transfer, and access to factors of production. In Nigeria, company registration is governed by the Companies and Allied Matters Act (<b>CAMA</b>). A <b>stakeholder</b> is any person, group or organisation with a vested interest in a business's decisions and activities — not just its shareholders, but employees, customers, suppliers, government and the surrounding community.</p>",
+  "recap": "<ul><li>Business = organised activity for an economic return; Traditional concept = profit-first; Modern concept (Davis &amp; Blomstrom) = consumer satisfaction + social responsibility, an 'ecological' view.</li><li>Four utilities: Form (transform), Place (transport), Time (store), Possession (transfer ownership).</li><li>Objectives: Economic (profit, expansion, cost, growth, productivity) &middot; Social (environment, community, ethics, CSR) &middot; Human (safety, pay, development).</li><li>Categories: Primary (extractive) &middot; Secondary (manufacturing) &middot; Tertiary (services).</li><li>Ownership: Private Enterprises (individual-owned) vs Public Enterprises (government-owned, e.g. Water Corporation).</li><li>MSME thresholds: Micro &lt;₦25m sales/&le;10 staff &middot; Small ₦25&ndash;100m/10&ndash;49 staff &middot; Medium &gt;₦100m/50&ndash;249 staff &middot; Large &gt;₦500m/&gt;250 staff.</li><li>CAMA governs company registration in Nigeria; a stakeholder is anyone affected by or affecting the business.</li></ul>",
   "quiz": [
     {
-      "q": "Which of these best defines business?",
+      "q": "Business is fundamentally distinguished from mere 'busyness' by the presence of:",
       "opts": [
-        "Personal consumption of goods",
-        "Any activity that earns money once",
-        "Organised, repeated activity aimed at producing, exchanging or distributing goods and services for a return",
-        "Unpaid work done for a community"
-      ],
-      "correct": 2
-    },
-    {
-      "q": "The traditional concept of business centres on:",
-      "opts": [
-        "Profit maximisation",
-        "Employee welfare",
-        "Consumer satisfaction",
-        "Environmental protection"
+        "An economic element yielding a return such as money, prestige or satisfaction",
+        "A purely recreational element",
+        "A sporting element",
+        "A religious element"
       ],
       "correct": 0
     },
     {
-      "q": "The modern concept of business adds which dimension?",
+      "q": "According to the Traditional Concept of business, the main motto of business is to:",
       "opts": [
-        "Eliminating competition",
-        "Avoiding customers",
-        "Ignoring profit entirely",
-        "Social responsibility alongside profit"
-      ],
-      "correct": 3
-    },
-    {
-      "q": "Which is an example of non-economic activity?",
-      "opts": [
-        "Trading shares",
-        "Volunteering at a shelter with no pay",
-        "Running a bakery",
-        "Working a salaried job"
+        "Maximise market share with no regard to profit",
+        "Maximise profit through production and marketing of products",
+        "Maximise consumer satisfaction above all else",
+        "Serve only social causes with no profit motive"
       ],
       "correct": 1
     },
     {
-      "q": "Economic activity can be divided into profession, employment and:",
+      "q": "According to the Modern Concept of business, the central point is:",
       "opts": [
-        "Business",
-        "Charity",
-        "Leisure",
-        "Education"
+        "Avoiding exchange of goods entirely",
+        "Eliminating competition through monopoly",
+        "Consumer satisfaction, with profit earned while maintaining social responsibility",
+        "Profit maximisation without regard to society"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Davis and Blomstrom describe the modern view of society, as it relates to business, as:",
+      "opts": [
+        "An ecological one, concerned with the mutual relations of human populations with their environment",
+        "A purely legal one",
+        "A purely political one",
+        "A purely mechanical one"
       ],
       "correct": 0
+    },
+    {
+      "q": "All of the following are forms of economic activity, EXCEPT:",
+      "opts": [
+        "Profession",
+        "Employment",
+        "Voluntary social service",
+        "Business"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The creation of value when raw materials are converted into finished goods is called:",
+      "opts": [
+        "Possession utility",
+        "Time utility",
+        "Place utility",
+        "Form utility"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "The utility created by transporting goods from where they are produced to where they are needed is:",
+      "opts": [
+        "Form utility",
+        "Possession utility",
+        "Place utility",
+        "Time utility"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "The utility created by storing goods until they are required by consumers is:",
+      "opts": [
+        "Time utility",
+        "Place utility",
+        "Possession utility",
+        "Form utility"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The utility created when ownership of goods is transferred to the consumer is:",
+      "opts": [
+        "Form utility",
+        "Time utility",
+        "Possession utility",
+        "Place utility"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "All of the following are Economic Objectives of business, EXCEPT:",
+      "opts": [
+        "Community Development",
+        "Market Expansion",
+        "Profit Maximisation",
+        "Cost Reduction"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Corporate Social Responsibility (CSR) is classified as which category of business objective?",
+      "opts": [
+        "Legal Objective",
+        "Human Objective",
+        "Economic Objective",
+        "Social Objective"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Ensuring psychological safety, fair compensation and professional development for staff falls under which category of business objective?",
+      "opts": [
+        "Legal Objective",
+        "Human (Employee) Objective",
+        "Social Objective",
+        "Economic Objective"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Agriculture, mining and fishing fall under which category of business?",
+      "opts": [
+        "Primary (Extractive)",
+        "Quaternary",
+        "Tertiary (Services)",
+        "Secondary (Manufacturing)"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Construction and industrial processing fall under which category of business?",
+      "opts": [
+        "Primary (Extractive)",
+        "Secondary (Manufacturing)",
+        "Tertiary (Services)",
+        "Quaternary"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Banking, education and transport fall under which category of business?",
+      "opts": [
+        "Quaternary",
+        "Tertiary (Services)",
+        "Secondary (Manufacturing)",
+        "Primary (Extractive)"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A Water Corporation or a Television Authority is an example of a:",
+      "opts": [
+        "Private Enterprise",
+        "Franchise Business",
+        "Cooperative Society",
+        "Public Enterprise"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "A business with sales revenue under ₦25 million and 10 or fewer employees is classified, by size, as a:",
+      "opts": [
+        "Medium enterprise",
+        "Micro enterprise",
+        "Large enterprise",
+        "Small enterprise"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A Small enterprise, per the chapter's classification, has annual sales revenue in which range?",
+      "opts": [
+        "Under ₦25 million",
+        "Over ₦100 million to under ₦500 million",
+        "Over ₦500 million",
+        "₦25 million to ₦100 million"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "In Nigeria, the registration of companies is primarily governed by:",
+      "opts": [
+        "The Criminal Code",
+        "The Labour Act",
+        "The NAFDAC Act",
+        "The Companies and Allied Matters Act (CAMA)"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "A stakeholder is best defined as:",
+      "opts": [
+        "Only the business's Board of Directors",
+        "Only the bank lending to the business",
+        "Any person, group or organisation with a vested interest in the business's decisions and activities",
+        "Only a person who owns shares in the business"
+      ],
+      "correct": 2
     }
   ]
 }
