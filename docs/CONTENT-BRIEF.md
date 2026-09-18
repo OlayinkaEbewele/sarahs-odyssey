@@ -128,3 +128,79 @@ The site redeploys on push; the chapters are live in about a minute.
 - Do not renumber chapters or split one chapter across two files.
 - Do not put exam questions that belong to no chapter into a chapter file — those go in
   `content/<sea>/bank.json` (see README).
+
+---
+
+## Appendix — the extraction prompt
+
+Paste this into the extraction chat, fill the last line, then paste the chapter's source
+text beneath it. Save the response directly as `content/<sea>/ch<N>.json`.
+
+```
+You are producing exam-preparation content for the CIPM (Nigeria) Intermediate I exam.
+I will give you the source text for ONE chapter. Produce a single JSON object — no
+prose, no markdown fences, nothing before or after — matching this schema exactly:
+
+{
+  "subject": "<sea id>",            // one of: ba, comm, stats, econs, fin
+  "subjectName": "<subject name>",
+  "chapter": <N>,                   // this chapter's number in the syllabus
+  "title": "<chapter title>",
+  "objectives": ["…", "…"],         // 4–6 learning objectives from the source
+  "study": "<html>",                // 400–800 words; <p>, <ul>/<li>, <b>, <table>,
+                                    // plus <div class="callout"><b>Key term</b>…</div>
+                                    // and <div class="callout tip"><b>Exam tip</b>…</div>
+  "recap": "<html>",                // <ul> of 5–8 one-line facts
+  "quiz": [ { "q": "…", "opts": ["…","…","…","…"], "correct": <0-3>, "why": "…" } ],
+  "cards": [ { "front": "…", "back": "…" } ]   // 8–12 recall pairs
+}
+
+STUDY TEXT — preserve, never paraphrase away: every named theorist and what is credited
+to them; every acronym with its expansion; every classification list IN FULL (all the
+sector types, partner types, document types, ratio types…); every number or threshold.
+Every term the quiz tests must appear in the study text.
+
+QUIZ — exactly 20 questions. The real exam is pure recall made hard by precise
+terminology and plausible distractors. Match it:
+
+1. Distractors are the NEIGHBOURING TERMS — other members of the same list, the adjacent
+   concept, the near-synonym. If the answer is "tertiary sector", the distractors are
+   primary / secondary / quaternary.
+2. No distractor may be eliminable without knowing the material. Banned in any option:
+   never, always, impossible, only, whatsoever, entirely, completely, identical,
+   "under any circumstances", "no relationship", "nothing to do with". No absurdities.
+3. All four options the same length. The correct answer must NOT be the longest. Where
+   the exam would use one- or two-word options, use one- or two-word options.
+4. About half the stems are fill-in-the-blank in the exam's own style:
+   "…is known as …… ." / "…is called …… ratio." The rest are direct questions.
+   Include 2–3 "Which of the following is NOT…" / "…, except ……" items.
+5. Spread the correct answer evenly across positions 0–3 (five each, ±1).
+6. "why": one or two sentences stating the RULE, not just the answer.
+7. Every question answerable from this chapter's study text alone.
+
+Two examples of the target style:
+  {"q":"The ratio that shows how far a company uses debt to fund operations is called
+   …… ratio.","opts":["liquidity","current","activity","leverage"],"correct":3,
+   "why":"Leverage (gearing) ratios measure the proportion of debt in the capital
+   structure; liquidity, current and activity ratios measure other things."}
+  {"q":"A partner whose name is lent to the firm but who contributes no capital is a
+   …… partner.","opts":["dormant","general","limited","nominal"],"correct":3,
+   "why":"A nominal partner lends only a name; a dormant partner contributes capital
+   but not management."}
+
+Wrong style — do not produce: options like "Sports / Astrology / Politics / Finance",
+or "Impossible to occur under any circumstances", or a correct answer that is a full
+sentence beside three fragments.
+
+BEFORE YOU OUTPUT, check: 20 questions; correct positions ≈ 5/5/5/5; no banned word in
+any option; the correct answer is the longest option in no more than 6 of the 20; every
+tested term is present in "study". If the source genuinely cannot support 20 questions,
+produce as many as it honestly can — do not invent material.
+
+Sea id: ___   Chapter number: ___   Chapter title: ___
+Source text follows:
+```
+
+**Quiz-only variant** (for regenerating questions where the study text already exists):
+replace the first paragraph with *"Produce ONLY the `quiz` array (20 items, with `why`)
+for the study text below, as a JSON array"*, then replace the `quiz` value in the file.
