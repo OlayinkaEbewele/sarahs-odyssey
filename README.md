@@ -14,6 +14,9 @@ under `file://`, and `localStorage` is too.
 
 ## Files
 
+For how the pieces fit together and every user flow, see
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
 | File | Purpose |
 | --- | --- |
 | `index.html` | Shell: top bar, view container, bottom nav, toast |
